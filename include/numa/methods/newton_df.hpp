@@ -9,13 +9,13 @@ namespace numa {
 template <std::size_t N>
 Matrix<N, N> jacobian_fd(const IFunction<N>& f, const Vec<N>& x) {
     Matrix<N, N> J{};
-    Vec<N> F0 = f.eval(x);
+    const Vec<N> F0 = f.eval(x);
     for (std::size_t j = 0; j < N; ++j) {
         const double h = std::sqrt(std::numeric_limits<double>::epsilon())
                          * std::max(std::abs(x[j]), 1.0);
         Vec<N> xj = x;
         xj[j] += h;
-        Vec<N> Fj = f.eval(xj);
+        const Vec<N> Fj = f.eval(xj);
         for (std::size_t i = 0; i < N; ++i)
             J[i][j] = (Fj[i] - F0[i]) / h;
     }
@@ -28,18 +28,22 @@ SolverResult<N> newton_df(const IFunction<N>& f,
                           double tol = 1e-12,
                           std::size_t max_iter = 20)
 {
-    const Vec<N> x_ref = x;
     double er = 0.0;
     std::size_t k = 0;
-    while (k == 0 || (er >= tol && k <= max_iter)) {
+
+    while (k < max_iter) {
+        const Vec<N> previous_x = x;
         auto J = jacobian_fd(f, x);
         auto F = f.eval(x);
         gauss_seidel(J, F);
-        Vec<N> dx = tri_sup(J, F);
+        const Vec<N> dx = tri_sup(J, F);
         x = x - dx;
-        er = norm_inf(x - x_ref);
+        er = norm_inf(x - previous_x);
         ++k;
+
+        if (er < tol) break;
     }
+
     return { x, k, er, 0.0 };
 }
 

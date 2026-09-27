@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Si utiliza este software, cite este repositorio utilizando la metadata incluida."
+title: "chebyshev-nonlinear-lab"
+type: software
+version: 0.1.0
+
+authors:
+  - given-names: "César"
+    family-names: "Lara Avila"
+
+license: MIT

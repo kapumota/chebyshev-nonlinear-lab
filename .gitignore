@@ -1,0 +1,54 @@
+# Directorios de compilacion
+build/
+build-*/
+
+# Artefactos del compilador
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+
+# Archivos generados por CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+compile_commands.json
+_deps/
+Testing/
+
+# Paquetes y archivos temporales
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.tmp
+*.log
+.cache/
+
+# Editores e IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Evidencia cruda local. Los reportes Markdown si se versionan.
+evidence/**/*.txt
+evidence/**/*.log
+
+# Datos externos y resultados crudos grandes
+# Cada directorio conserva su README con instrucciones de obtencion.
+data/external/*
+!data/external/README.md
+experiments/**/raw/*
+!experiments/**/raw/README.md

@@ -1,31 +1,89 @@
-// Verifica que chebyshev_mpi da el mismo resultado sin importar cuantos
-// ranks se usen (prueba de correccion del bug de Allreduce/tri_sup).
-//
-// Compilar: mpicxx -std=c++20 -Iinclude -DNUMA_HAS_MPI -O2 scripts/verify_mpi.cpp -o /tmp/verify_mpi
-// Correr:   mpirun --oversubscribe -np 3 /tmp/verify_mpi
+// Verifica automáticamente que Chebyshev MPI conserva la solución de
+// referencia para Chandrasekhar<8> con cualquier número de procesos usado
+// por CTest.
 #include <mpi.h>
+
+#include <array>
+#include <cmath>
 #include <cstdio>
-#include <numa/problems/chandrasekhar.hpp>
+
 #include <numa/mpi/chebyshev_mpi.hpp>
+#include <numa/problems/chandrasekhar.hpp>
 
 int main(int argc, char** argv) {
     MPI_Init(&argc, &argv);
-    int rank, size;
+
+    int rank = 0;
+    int size = 1;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     using namespace numa;
-    numa::problems::Chandrasekhar<8> ch;
-    Vec<8> x0{}; for (auto& v : x0) v = 1.0;
 
-    auto r = numa::mpi::chebyshev_mpi<8>(ch, x0, rank, size, 1e-12, 20);
+    numa::problems::Chandrasekhar<8> problem;
+    Vec<8> x0{};
+    for (auto& value : x0) {
+        value = 1.0;
+    }
+
+    const auto result = numa::mpi::chebyshev_mpi<8>(
+        problem, x0, rank, size, 1e-12, 20);
+
+    constexpr std::array<double, 8> reference{
+        1.021719731462,
+        1.073186381734,
+        1.125724893657,
+        1.169753312169,
+        1.203071751305,
+        1.226490874633,
+        1.241524600594,
+        1.249448516693
+    };
+
+    constexpr double solution_tolerance = 1e-10;
+    constexpr double residual_tolerance = 1e-10;
+
+    bool local_ok = true;
+    for (std::size_t i = 0; i < reference.size(); ++i) {
+        if (std::abs(result.x[i] - reference[i]) > solution_tolerance) {
+            local_ok = false;
+        }
+    }
+
+    const auto residual = problem.eval(result.x);
+    if (norm_inf(residual) > residual_tolerance) {
+        local_ok = false;
+    }
+
+    int local_status = local_ok ? 1 : 0;
+    int global_status = 0;
+    MPI_Allreduce(
+        &local_status,
+        &global_status,
+        1,
+        MPI_INT,
+        MPI_MIN,
+        MPI_COMM_WORLD);
 
     if (rank == 0) {
-        std::printf("size=%d  iter=%zu  er=%e\n", size, r.iterations, r.er_abs);
-        for (int i = 0; i < 8; ++i) std::printf("x[%d]=%.12f\n", i, r.x[i]);
-        std::printf("\nCorre esto mismo con -np 1, -np 2, -np 3, -np 8 y compara:\n");
-        std::printf("todas las filas de x deben coincidir en al menos 10 decimales.\n");
+        std::printf(
+            "MPI procesos=%d, iteraciones=%zu, error_paso=%.6e, residual=%.6e\n",
+            size,
+            result.iterations,
+            result.er_abs,
+            norm_inf(residual));
+
+        for (std::size_t i = 0; i < reference.size(); ++i) {
+            std::printf("x[%zu]=%.12f\n", i, result.x[i]);
+        }
+
+        std::printf(
+            "%s\n",
+            global_status == 1
+                ? "[ok] La solución MPI coincide con la referencia"
+                : "[FALLA] La solución MPI no coincide con la referencia");
     }
+
     MPI_Finalize();
-    return 0;
+    return global_status == 1 ? 0 : 1;
 }
