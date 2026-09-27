@@ -30,6 +30,7 @@ option(NUMA_BUILD_TESTS "Build tests" ON)
 option(NUMA_BUILD_BENCH "Build benchmarks" ON)
 option(NUMA_BUILD_APPS  "Build demos" ON)
 option(NUMA_BUILD_CUDA  "Build CUDA demos" OFF)
+option(NUMA_BUILD_MPI   "Compilar verificación MPI" OFF)
 option(NUMA_ENABLE_SANITIZERS "ASan/UBSan" OFF)
 
 if(NUMA_ENABLE_SANITIZERS)
@@ -79,6 +80,33 @@ if(NUMA_BUILD_APPS)
     add_executable(${app} apps/${app}.cpp)
     target_link_libraries(${app} PRIVATE numa)
   endforeach()
+endif()
+
+
+# ---- MPI ----
+if(NUMA_BUILD_MPI)
+  find_package(MPI REQUIRED COMPONENTS CXX)
+
+  add_executable(verify_mpi scripts/verify_mpi.cpp)
+  target_link_libraries(verify_mpi PRIVATE numa MPI::MPI_CXX)
+  target_compile_definitions(verify_mpi PRIVATE NUMA_HAS_MPI=1)
+
+  if(NUMA_BUILD_TESTS)
+    foreach(np 1 2 3 8)
+      add_test(
+        NAME mpi_np${np}
+        COMMAND
+          ${MPIEXEC_EXECUTABLE}
+          ${MPIEXEC_NUMPROC_FLAG} ${np}
+          ${MPIEXEC_PREFLAGS}
+          $<TARGET_FILE:verify_mpi>
+          ${MPIEXEC_POSTFLAGS})
+      set_tests_properties(mpi_np${np} PROPERTIES
+        LABELS "mpi"
+        PROCESSORS ${np}
+        ENVIRONMENT "OMPI_MCA_rmaps_base_oversubscribe=1")
+    endforeach()
+  endif()
 endif()
 
 # ---- CUDA ----

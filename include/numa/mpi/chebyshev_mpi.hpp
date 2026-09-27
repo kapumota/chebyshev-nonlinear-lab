@@ -97,9 +97,9 @@ MpiResult<N> chebyshev_mpi(const IFunction<N>& f,
 
     double er = 0.0;
     std::size_t k = 0;
-    Vec<N> x_ref = x;
 
-    while (k == 0 || (er >= tol && k <= max_iter)) {
+    while (k < max_iter) {
+        const Vec<N> previous_x = x;
         // --- Ensamblado distribuido de F y J ---
         Vec<N> F{};
         Matrix<N, N> J{};
@@ -150,9 +150,12 @@ MpiResult<N> chebyshev_mpi(const IFunction<N>& f,
         for (std::size_t i = 0; i < N; ++i) dx[i] = z[i] + 0.5 * u[i];
 
         x = x - dx;
-        er = norm_inf(x - x_ref);
-        x_ref = x;
+        er = norm_inf(x - previous_x);
         ++k;
+
+        if (er < tol) {
+            break;
+        }
     }
 
     return { x, k, er, rank, size };
