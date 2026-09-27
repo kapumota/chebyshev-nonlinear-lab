@@ -23,18 +23,22 @@ SolverResult<N> newton(const IFunction<N>& f,
                        double tol = 1e-12,
                        std::size_t max_iter = 20)
 {
-    const Vec<N> x_ref = x;
     double er = 0.0;
     std::size_t k = 0;
-    while (k == 0 || (er >= tol && k <= max_iter)) {
+
+    while (k < max_iter) {
+        const Vec<N> previous_x = x;
         auto J = f.jacobian(x);
         auto F = f.eval(x);
         gauss_seidel(J, F);
-        Vec<N> dx = tri_sup(J, F);
+        const Vec<N> dx = tri_sup(J, F);
         x = x - dx;
-        er = norm_inf(x - x_ref);
+        er = norm_inf(x - previous_x);
         ++k;
+
+        if (er < tol) break;
     }
+
     return { x, k, er, 0.0 };
 }
 

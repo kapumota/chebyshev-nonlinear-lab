@@ -14,13 +14,13 @@ SolverResult<N> kantorovich(const IFunction<N>& f,
                             double tol = 1e-12,
                             std::size_t max_iter = 20)
 {
-    const Vec<N> x_ref = x;
     double t = 0.0;
     double et = 1.0;
     double er = 0.0;
     std::size_t k = 0;
 
-    while (et >= tol && k <= max_iter) {
+    while (et >= tol && k < max_iter) {
+        const Vec<N> previous_x = x;
         auto F = f.eval(x);
         auto J = f.jacobian(x);
         gauss_seidel(J, F);
@@ -30,7 +30,7 @@ SolverResult<N> kantorovich(const IFunction<N>& f,
         t = pr.t; et = pr.et;
 
         x = x - dx;
-        er = norm_inf(x - x_ref);
+        er = norm_inf(x - previous_x);
         ++k;
     }
     return { x, k, er, et };
