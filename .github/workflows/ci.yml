@@ -2,12 +2,16 @@ name: CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  build-and-test:
+  cpu-tests:
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
@@ -36,27 +40,67 @@ jobs:
       - name: Compilar
         run: cmake --build build -j
 
-      - name: Tests
-        run: cd build && ctest --output-on-failure
+      - name: Ejecutar tests
+        run: ctest --test-dir build --output-on-failure
 
-      - name: Demos
+      - name: Ejecutar demos de humo
         run: |
           ./build/demo_newton
           ./build/demo_chebyshev_omp
 
-  benchmark:
+  mpi-tests:
     runs-on: ubuntu-22.04
-    if: github.event_name == 'push'
+
     steps:
       - uses: actions/checkout@v4
+
       - name: Instalar dependencias
-        run: sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build libomp-dev
-      - name: Build
         run: |
-          cmake -S . -B build -G Ninja \
+          sudo apt-get update
+          sudo apt-get install -y \
+            cmake \
+            g++ \
+            ninja-build \
+            libomp-dev \
+            openmpi-bin \
+            libopenmpi-dev
+
+      - name: Configurar MPI
+        run: |
+          cmake -S . -B build-mpi -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DNUMA_BUILD_MPI=ON \
+            -DNUMA_BUILD_BENCH=OFF \
+            -DNUMA_BUILD_APPS=OFF
+
+      - name: Compilar MPI
+        run: cmake --build build-mpi -j
+
+      - name: Ejecutar tests MPI
+        run: ctest --test-dir build-mpi -L mpi --output-on-failure
+
+  benchmark-smoke:
+    runs-on: ubuntu-22.04
+    if: github.event_name == 'workflow_dispatch'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar dependencias
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ ninja-build libomp-dev
+
+      - name: Configurar benchmark
+        run: |
+          cmake -S . -B build-bench -G Ninja \
             -DCMAKE_BUILD_TYPE=Release \
             -DNUMA_BUILD_TESTS=OFF \
+            -DNUMA_BUILD_APPS=OFF \
             -DNUMA_BUILD_BENCH=ON
-          cmake --build build -j
-      - name: Benchmarks
-        run: ./build/numa_bench --benchmark_min_time=0.1s
+
+      - name: Compilar benchmark
+        run: cmake --build build-bench -j
+
+      - name: Ejecutar benchmark corto
+        run: ./build-bench/numa_bench --benchmark_min_time=0.1s

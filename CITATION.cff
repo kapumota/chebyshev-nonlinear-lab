@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Si utiliza este software, cite la version congelada correspondiente al estudio reproducido."
+title: "Chebyshev Nonlinear Lab"
+version: 0.1.0
+authors:
+  - family-names: "Contributors"
+    given-names: "Chebyshev Nonlinear Lab"
+license: MIT
+keywords:
+  - nonlinear systems
+  - Chebyshev method
+  - numerical methods
+  - high-performance computing
+  - MPI
+  - OpenMP
