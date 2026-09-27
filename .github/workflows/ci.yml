@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        build: [Release, Debug]
+        sanitizer: [OFF, ON]
+        exclude:
+          - build: Release
+            sanitizer: ON
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar dependencias
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ ninja-build libomp-dev
+
+      - name: Configurar
+        run: |
+          cmake -S . -B build -G Ninja \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build }} \
+            -DNUMA_ENABLE_SANITIZERS=${{ matrix.sanitizer }} \
+            -DNUMA_BUILD_BENCH=OFF
+
+      - name: Compilar
+        run: cmake --build build -j
+
+      - name: Tests
+        run: cd build && ctest --output-on-failure
+
+      - name: Demos
+        run: |
+          ./build/demo_newton
+          ./build/demo_chebyshev_omp
+
+  benchmark:
+    runs-on: ubuntu-22.04
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar dependencias
+        run: sudo apt-get update && sudo apt-get install -y cmake g++ ninja-build libomp-dev
+      - name: Build
+        run: |
+          cmake -S . -B build -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DNUMA_BUILD_TESTS=OFF \
+            -DNUMA_BUILD_BENCH=ON
+          cmake --build build -j
+      - name: Benchmarks
+        run: ./build/numa_bench --benchmark_min_time=0.1s
