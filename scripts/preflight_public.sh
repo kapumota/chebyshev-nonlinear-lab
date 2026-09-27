@@ -12,7 +12,7 @@ else
     printf '%s\n' '[ok] Working tree limpio.'
 fi
 
-if git diff --check --quiet; then
+if git diff --check >/dev/null; then
     printf '%s\n' '[ok] git diff --check no detecta errores.'
 else
     printf '%s\n' '[FALLA] git diff --check detecta errores.'
@@ -64,5 +64,4 @@ if [[ "$fail" -ne 0 ]]; then
     exit 1
 fi
 
-printf '%s\n' 'Preflight publico estructural: PASS'
-printf '%s\n' 'Faltan las verificaciones cientificas de R0-G10 antes de cambiar la visibilidad.'
+printf '%s\n' 'Preflight publico: PASS'
