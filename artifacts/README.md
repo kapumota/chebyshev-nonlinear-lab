@@ -1,3 +1,3 @@
 ### Artifacts
 
-Cada estudio aceptado como linea de investigacion tendra un artifact reproducible asociado a un tag independiente.
+Cada estudio aceptado como línea de investigación tendrá un artifact reproducible asociado a un tag independiente.

@@ -6,13 +6,13 @@
 PENDING_S0_AUDIT
 ```
 
-Este archivo no contiene todavia una afirmacion de novedad.
+Este archivo no contiene todavía una afirmación de novedad.
 
 #### Objetivo de S0
 
-Realizar una auditoria adversarial de las lineas candidatas antes de implementar el nuevo core de investigacion.
+Realizar una auditoría adversarial de las líneas candidatas antes de implementar el nuevo core de investigación.
 
-La auditoria debe cubrir como minimo:
+La auditoría debe cubrir como mínimo:
 
 - higher-order nonlinear solvers
 - Chebyshev y Chebyshev-Halley
@@ -26,14 +26,14 @@ La auditoria debe cubrir como minimo:
 - distributed nonlinear solvers
 - communication-aware y communication-avoiding methods
 - GPU nonlinear solvers
-- aplicaciones grandes con datasets publicos
+- aplicaciones grandes con datasets públicos
 
 #### Salida requerida
 
-Para cada linea candidata:
+Para cada línea candidata:
 
 ```text
-pregunta cientifica
+pregunta científica
 claim potencial
 prior art directo
 prior art cercano
@@ -41,12 +41,12 @@ software comparable
 benchmarks
 escala
 hardware
-metricas
+métricas
 limitaciones
 hueco verificable
 ```
 
-La decision final debe ser una de:
+La decisión final debe ser una de:
 
 ```text
 GO
@@ -57,4 +57,4 @@ KILL
 
 #### Regla
 
-No implementar una contribucion principal de R1 hasta que su diferencia frente al estado del arte quede formulada de manera falsificable y verificable.
+No implementar una contribución principal de R1 hasta que su diferencia frente al estado del arte quede formulada de manera falsificable y verificable.

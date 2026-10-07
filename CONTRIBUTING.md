@@ -1,6 +1,6 @@
 ### Contribuir a Chebyshev Nonlinear Lab
 
-El repositorio se desarrolla como software de investigacion reproducible. Cada cambio debe responder a un objetivo tecnico o cientifico identificable y debe poder auditarse mediante Git.
+El repositorio se desarrolla como software de investigación reproducible. Cada cambio debe responder a un objetivo técnico o científico identificable y debe poder auditarse mediante Git.
 
 #### Flujo de trabajo
 
@@ -17,22 +17,22 @@ paper2/p2-b-matrix-free
 Cada rama debe seguir la secuencia:
 
 ```text
-implementacion
+implementación
     -> tests
     -> evidencia
-    -> revision
+    -> revisión
     -> pull request
     -> merge
 ```
 
-#### Convenciones de codigo
+#### Convenciones de código
 
-- firmas, tipos y API publicas en ingles
+- firmas, tipos y API públicas en inglés
 - comentarios y cadenas visibles al usuario en español
 - C++20
 - evitar cambios de formato no relacionados con la tarea
 - no introducir dependencias nuevas sin justificar su necesidad
-- no mezclar refactorizaciones estructurales con nuevos resultados cientificos
+- no mezclar refactorizaciones estructurales con nuevos resultados científicos
 
 Consulte `docs/research/STYLE_GUIDE.md`.
 
@@ -54,20 +54,20 @@ Para cambios MPI:
 ./scripts/build_mpi.sh
 ```
 
-Los cambios que afecten CUDA deben indicar explicitamente si fueron ejecutados en hardware NVIDIA. No se debe registrar `PASS` cuando la ruta no fue ejecutada.
+Los cambios que afecten CUDA deben indicar explícitamente si fueron ejecutados en hardware NVIDIA. No se debe registrar `PASS` cuando la ruta no fue ejecutada.
 
 #### Evidencia
 
-Los logs crudos locales no se versionan por defecto. Los resultados cientificos que sustenten un paper deben almacenarse siguiendo la estructura de `experiments/` y producir manifiestos, configuraciones y resultados procesados reproducibles.
+Los logs crudos locales no se versionan por defecto. Los resultados científicos que sustenten un paper deben almacenarse siguiendo la estructura de `experiments/` y producir manifiestos, configuraciones y resultados procesados reproducibles.
 
 #### Commits
 
-Los mensajes de commit se escriben en español, en infinitivo y describiendo una sola unidad logica.
+Los mensajes de commit se escriben en español, en infinitivo y describiendo una sola unidad lógica.
 
 Ejemplos:
 
 ```text
-Agregar operador sparse para el nucleo dinamico
+Agregar operador sparse para el núcleo dinámico
 Integrar GMRES como solver lineal iterativo
 Registrar protocolo de escalabilidad del Paper 2
 ```

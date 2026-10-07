@@ -4,7 +4,7 @@
 
 Repositorio: `chebyshev-nonlinear-lab`
 
-Estado de trabajo: R0, reconciliacion y freeze del baseline.
+Estado de trabajo: R0, reconciliación y freeze del baseline.
 
 Tag de origen inmutable:
 
@@ -22,11 +22,11 @@ El baseline reconciliado incluye:
 - Newton-Kantorovich
 - Chebyshev
 - variantes OpenMP
-- verificacion MPI integrada en CMake y CTest
+- verificación MPI integrada en CMake y CTest
 - ruta CUDA preservada
-- tests unitarios, golden y de regresion
+- tests unitarios, golden y de regresión
 
-Los sistemas 2x2 y 8x8 se clasifican como casos de validacion. No constituyen evidencia experimental de gran escala.
+Los sistemas 2x2 y 8x8 se clasifican como casos de validación. No constituyen evidencia experimental de gran escala.
 
 #### Gates confirmados
 
@@ -34,7 +34,7 @@ Los sistemas 2x2 y 8x8 se clasifican como casos de validacion. No constituyen ev
 Build C++20             PASS
 OpenMP                   PASS
 CTest CPU/OpenMP         21/21 PASS
-Verificacion secuencial  PASS
+Verificación secuencial  PASS
 MPI manual 1,2,3,8       PASS
 MPI integrado en CMake   IMPLEMENTED
 CUDA                     NOT_EXECUTED_NO_GPU
@@ -46,11 +46,11 @@ El gate MPI integrado se considera cerrado cuando CTest reporte 4/4 tests MPI co
 
 El baseline importado presentaba defectos detectados por los tests. La rama R0 los corrige sin alterar el tag `source-v0.0.0`.
 
-Commits de reconciliacion actualmente registrados:
+Commits de reconciliación actualmente registrados:
 
 ```text
 7b3f753  Corregir recurrencias y criterios de convergencia del baseline
-bc5fa60  Integrar MPI en CMake y automatizar su verificacion
+bc5fa60  Integrar MPI en CMake y automatizar su verificación
 ```
 
 #### Freeze siguiente
@@ -61,4 +61,4 @@ El tag:
 baseline-v0.1.0
 ```
 
-solo se crea despues de una reproduccion completa desde un clon limpio y una auditoria `PUBLIC-READY`.
+solo se crea después de una reproducción completa desde un clon limpio y una auditoría `PUBLIC-READY`.

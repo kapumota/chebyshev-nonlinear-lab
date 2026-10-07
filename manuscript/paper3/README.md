@@ -1,5 +1,5 @@
 ### Paper 3, manuscrito
 
-Estado: pendiente de decision S0.
+Estado: pendiente de decisión S0.
 
-No se congela todavia un titulo definitivo ni una revista objetivo.
+No se congela todavía un título definitivo ni una revista objetivo.

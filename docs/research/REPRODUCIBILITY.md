@@ -74,7 +74,7 @@ cuando corresponda.
 
 #### Captura del entorno
 
-Antes de una campaña cientifica registrar:
+Antes de una campaña científica registrar:
 
 ```bash
 uname -a
@@ -93,7 +93,7 @@ nvidia-smi
 nvcc --version
 ```
 
-#### Reproduccion limpia de R0
+#### Reproducción limpia de R0
 
 El freeze `baseline-v0.1.0` requiere una prueba desde otro directorio:
 
@@ -108,6 +108,6 @@ cd /tmp/chebyshev-r0-reproduction
 git switch r0/reconciliacion-baseline
 ```
 
-Despues se repiten los procedimientos CPU/OpenMP y MPI anteriores.
+Después se repiten los procedimientos CPU/OpenMP y MPI anteriores.
 
-La reproduccion debe partir de un arbol limpio y no depender de `build/`, caches ni archivos no versionados del workspace original.
+La reproducción debe partir de un árbol limpio y no depender de `build/`, caches ni archivos no versionados del workspace original.

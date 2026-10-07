@@ -2,19 +2,19 @@
 
 #### Objetivo
 
-Separar explicitamente validacion numerica de evaluacion cientifica de escalabilidad.
+Separar explícitamente validación numérica de evaluación científica de escalabilidad.
 
-#### Clasificacion de tamaños
+#### Clasificación de tamaños
 
-| Nivel | Dimension aproximada | Funcion |
+| Nivel | Dimensión aproximada | Función |
 |---|---:|---|
-| Toy | N < 100 | unit tests, golden tests, regresion |
-| Small | 100 <= N < 10^3 | validacion inicial |
-| Medium | 10^3 <= N < 10^4 | validacion del core dinamico y sparse |
-| Large | 10^4 <= N < 10^5 | experimentos cientificos principales |
+| Toy | N < 100 | unit tests, golden tests, regresión |
+| Small | 100 <= N < 10^3 | validación inicial |
+| Medium | 10^3 <= N < 10^4 | validación del core dinámico y sparse |
+| Large | 10^4 <= N < 10^5 | experimentos científicos principales |
 | Very large | N >= 10^5 | memoria, matrix-free, paralelismo y escalabilidad |
 
-La clasificacion se interpreta segun la estructura del problema. Un sistema disperso y uno denso con el mismo N tienen costes radicalmente distintos.
+La clasificación se interpreta según la estructura del problema. Un sistema disperso y uno denso con el mismo N tienen costes radicalmente distintos.
 
 #### Regla de evidencia
 
@@ -25,7 +25,7 @@ Los casos toy no pueden sustentar afirmaciones de:
 - comportamiento de memoria a gran escala
 - superioridad frente a solvers consolidados
 
-#### Metricas minimas
+#### Métricas mínimas
 
 Las campañas futuras deben registrar cuando proceda:
 
@@ -38,8 +38,8 @@ Las campañas futuras deben registrar cuando proceda:
 - productos Jacobiano-vector
 - evaluaciones direccionales de segundo orden
 - iteraciones del solver lineal
-- memoria maxima
-- tiempo de comunicacion
+- memoria máxima
+- tiempo de comunicación
 - speedup
 - eficiencia paralela
 - success rate
@@ -62,8 +62,8 @@ Aumentar el tamaño del problema con los recursos manteniendo aproximadamente co
 
 #### Baselines externos
 
-Los papers de gran escala no deben comparar exclusivamente implementaciones internas. S0 determinara los solvers externos apropiados y sus configuraciones reproducibles.
+Los papers de gran escala no deben comparar exclusivamente implementaciones internas. S0 determinará los solvers externos apropiados y sus configuraciones reproducibles.
 
-#### Falsificacion
+#### Falsificación
 
-Cada protocolo experimental debe incluir condiciones donde el metodo candidato pueda perder frente a los baselines. No se deben seleccionar solamente casos favorables.
+Cada protocolo experimental debe incluir condiciones donde el método candidato pueda perder frente a los baselines. No se deben seleccionar solamente casos favorables.

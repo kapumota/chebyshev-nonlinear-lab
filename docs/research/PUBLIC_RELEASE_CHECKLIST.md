@@ -1,4 +1,4 @@
-### Checklist para hacer publico el repositorio
+### Checklist para hacer público el repositorio
 
 #### Git
 
@@ -13,29 +13,29 @@
 
 - CPU/OpenMP 21/21 PASS
 - MPI 4/4 PASS
-- reproduccion desde clon limpio PASS
+- reproducción desde clon limpio PASS
 - CUDA marcado correctamente como ejecutado o `NOT_EXECUTED_NO_GPU`
 
-#### Documentacion
+#### Documentación
 
-- README coherente con el codigo real
+- README coherente con el código real
 - licencia presente
-- derechos para publicar y relicenciar el codigo importado bajo la licencia elegida confirmados
+- derechos para publicar y relicenciar el código importado bajo la licencia elegida confirmados
 - `CITATION.cff` presente
 - provenance presente
-- protocolo de reproduccion presente
+- protocolo de reproducción presente
 - limitaciones conocidas documentadas
-- casos pequenos descritos como tests, no como evidencia de gran escala
+- casos pequeños descritos como tests, no como evidencia de gran escala
 
 #### Seguridad y privacidad
 
 - revisar secretos y credenciales
 - revisar rutas personales innecesarias
-- revisar archivos de configuracion local
+- revisar archivos de configuración local
 - revisar datasets y licencias
 - revisar archivos grandes
 
-Comandos utiles:
+Comandos útiles:
 
 ```bash
 git status --short
@@ -44,16 +44,16 @@ git ls-files | grep -E '(^|/)(build|build-mpi|build-verify)/' || true
 git ls-files | grep -E '\.(zip|tar|tar\.gz|o|a|so|exe)$' || true
 ```
 
-#### Metadata de publicacion
+#### Metadata de publicación
 
-Antes de la primera release publica revisar manualmente:
+Antes de la primera release pública revisar manualmente:
 
 - autores y colaboradores en `CITATION.cff`
-- URL publica del repositorio
-- version
+- URL pública del repositorio
+- versión
 - fecha de release
-- licencia aplicable al codigo propio
+- licencia aplicable al código propio
 
-#### Decision
+#### Decisión
 
-El repositorio solo cambia de privado a publico cuando todos los puntos aplicables estan resueltos.
+El repositorio solo cambia de privado a público cuando todos los puntos aplicables estan resueltos.
