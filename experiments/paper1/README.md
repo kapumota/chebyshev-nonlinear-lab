@@ -1,5 +1,5 @@
 ### Paper 1, experimentos
 
-Estado: pendiente de decision S0.
+Estado: pendiente de decisión S0.
 
-Esta carpeta se utilizara solamente si la linea recibe una decision GO o REFRAME.
+Esta carpeta se utilizará solamente si la línea recibe una decisión GO o REFRAME.

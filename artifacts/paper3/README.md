@@ -1,5 +1,5 @@
 ### Paper 3, artifact
 
-Estado: pendiente de decision S0.
+Estado: pendiente de decisión S0.
 
-El artifact final debera poder reproducirse desde el tag cientifico correspondiente sin depender del estado futuro de main.
+El artifact final deberá poder reproducirse desde el tag científico correspondiente sin depender del estado futuro de main.

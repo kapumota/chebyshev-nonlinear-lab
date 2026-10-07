@@ -1,45 +1,45 @@
-### Guia de estilo
+### Guía de estilo
 
-#### Codigo
+#### Código
 
-- firmas de funciones, tipos y nombres de API en ingles
+- firmas de funciones, tipos y nombres de API en inglés
 - comentarios en español
 - cadenas visibles al usuario en español
 - C++20
-- evitar dependencias nuevas sin justificacion tecnica o cientifica
-- preservar interfaces del baseline salvo que exista una razon documentada para cambiarlas
+- evitar dependencias nuevas sin justificación técnica o científica
+- preservar interfaces del baseline salvo que exista una razón documentada para cambiarlas
 
 #### Markdown
 
 Los encabezados comienzan en nivel tres:
 
 ```markdown
-### Titulo
+### Título
 #### Subtitulo
 ##### Tercer nivel
 ```
 
-Evitar encabezados de nivel uno y dos dentro de la documentacion del proyecto.
+Evitar encabezados de nivel uno y dos dentro de la documentación del proyecto.
 
 #### Prosa
 
-- usar texto tecnico directo
-- preferir comas y puntos a puntuacion decorativa
-- evitar guiones largos tipograficos
-- evitar comillas tipograficas
-- no presentar una hipotesis como resultado
-- distinguir implementacion, evidencia y conclusion
+- usar texto técnico directo
+- preferir comas y puntos a puntuación decorativa
+- evitar guiones largos tipográficos
+- evitar comillas tipográficas
+- no presentar una hipótesis como resultado
+- distinguir implementación, evidencia y conclusión
 
 #### Git
 
 Los mensajes de commit se escriben en español.
 
-Cada commit debe representar una unidad logica verificable.
+Cada commit debe representar una unidad lógica verificable.
 
 Evitar `git add .` cuando existan build directories, resultados crudos o archivos temporales sin revisar.
 
-#### Investigacion
+#### Investigación
 
-Una funcionalidad nueva debe vincularse con una pregunta cientifica o una necesidad de infraestructura demostrable.
+Una funcionalidad nueva debe vincularse con una pregunta científica o una necesidad de infraestructura demostrable.
 
 No se debe reclamar novedad antes de completar el gate de estado del arte correspondiente.
