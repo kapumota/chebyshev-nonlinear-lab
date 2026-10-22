@@ -107,7 +107,7 @@ Las carpetas `experiments/`, `manuscript/` y `artifacts/` reservan espacio para 
 
 #### Reproducibilidad
 
-El baseline original permanece congelado mediante el tag `source-v0.0.0`. El siguiente freeze estable será `baseline-v0.1.0` una vez completada una reproducción desde clon limpio.
+El baseline original permanece congelado mediante el tag `source-v0.0.0`. El freeze estable `baseline-v0.1.0` se creó después de completar la reproducción desde clon limpio documentada en `evidence/r0/REPRODUCTION.md`.
 
 Consulte `docs/research/REPRODUCIBILITY.md` para el protocolo completo.
 
