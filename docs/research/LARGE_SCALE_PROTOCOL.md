@@ -155,6 +155,7 @@ n_F      evaluaciones de F
 n_JVP    productos Jacobiano-vector
 n_D2     evaluaciones direccionales de segundo orden
 n_lin    iteraciones lineales totales
+n_prec   aplicaciones del precondicionador
 t_setup  tiempo de construcción de precondicionador
 t_total  tiempo end-to-end
 ```
@@ -203,7 +204,7 @@ Cada corrida guarda un registro de entorno generado con `scripts/capture_env.sh`
 Los datos crudos se guardan en `artifacts/<paper>/` como CSV con una fila por corrida y las columnas:
 
 ```text
-problema,N,metodo,punto_inicial,semilla,exito,iter_no_lineales,n_F,n_JVP,n_D2,n_lin,t_setup,t_total,memoria_max,residual_final,commit
+problema,N,metodo,punto_inicial,semilla,exito,iter_no_lineales,n_F,n_JVP,n_D2,n_lin,n_prec,t_setup,t_total,memoria_max,residual_final,commit
 ```
 
 Las tablas y figuras de manuscritos se regeneran desde esos archivos con un script versionado. No se editan a mano.

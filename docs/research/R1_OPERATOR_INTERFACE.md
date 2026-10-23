@@ -1,9 +1,9 @@
-### Interfaz de operadores matrix-free, R1.1
+### Interfaz de operadores matrix-free, R1.1 y R1.2
 
 #### Estado
 
 ```text
-IMPLEMENTADO como primera entrega, sin validación científica
+IMPLEMENTADO como primera y segunda entrega, sin validación científica
 ```
 
 Esta entrega crea infraestructura. No contiene afirmaciones de novedad ni de superioridad de ningún método. Las preguntas científicas están en `STATE_OF_THE_ART.md` y los experimentos deben seguir `LARGE_SCALE_PROTOCOL.md`.
@@ -27,14 +27,16 @@ Los conceptos `NonlinearOperator` y `SecondOrderOperator` verifican estos requis
 
 #### Contabilidad
 
-`Counted<Op>` envuelve un operador y cuenta `n_F`, `n_JVP` y `n_D2` sin alterar resultados. Los métodos reportan los mismos contadores y un test verifica que coinciden. `KrylovResult` registra además `n_lin_iters` y `n_lin_failures` para distinguir trabajo lineal de fallos de convergencia. Esto implementa la contabilidad por componentes exigida por el protocolo.
+`Counted<Op>` envuelve un operador y cuenta `n_F`, `n_JVP` y `n_D2` sin alterar resultados. Los métodos reportan los mismos contadores y un test verifica que coinciden. `KrylovResult` registra además `n_lin_iters`, `n_lin_failures` y `n_prec` para distinguir trabajo lineal, fallos de convergencia y aplicaciones del precondicionador. Esto implementa la contabilidad por componentes exigida por el protocolo.
 
 #### Componentes incluidos
 
 ```text
 operators/operator.hpp          interfaz, contadores, jvp_fd y d2_fd por diferencias finitas
 operators/baseline_adapter.hpp  adaptador de IFunction<N> del baseline
-linalg/gmres.hpp                GMRES reiniciado sin matriz, precondicionamiento por la derecha
+linalg/gmres.hpp                GMRES reiniciado sin matriz, precondicionamiento por la derecha,
+                                guardado de la base de Arnoldi y segunda resolución reciclada
+linalg/poisson_mg.hpp           multigrid geométrico de ciclo V para el Laplaciano 3D
 methods/krylov_newton.hpp       newton_krylov y chebyshev_inexact
 problems/bratu3d.hpp            familia B1, con JVP y F'' analíticos y precondicionador de Jacobi
 ```
@@ -63,44 +65,59 @@ Una resolución lineal que alcanza el límite de iteraciones sin converger incre
 
 En `chebyshev_inexact`, si la segunda resolución lineal sufre una ruptura numérica, no se utiliza la corrección de orden superior. El método intenta el paso de Newton con retroceso usando la primera dirección calculada.
 
+#### Reciclaje de subespacio, R1.2
+
+Las dos resoluciones lineales de Chebyshev comparten el mismo Jacobiano en cada iteración no lineal. Tras la primera resolución, GMRES puede conservar la base de Arnoldi del último ciclo. `gmres_recycled` proyecta el segundo lado derecho sobre ese subespacio y continúa con GMRES sobre el residual restante.
+
+La implementación reutiliza únicamente el último ciclo de la primera resolución. No implementa GCRO-DR, deflación mediante vectores de Ritz armónicos ni memoria entre iteraciones no lineales. Un test verifica que la proyección reciclada no introduce productos Jacobiano-vector ocultos.
+
+Si el espacio guardado es inconsistente o la proyección reciclada no puede utilizarse de forma segura, el código vuelve a GMRES sin recycling.
+
+#### Precondicionador multigrid
+
+`PoissonMG` implementa un ciclo V geométrico para el Laplaciano discreto 3D y se usa como precondicionador aproximado de Bratu3D. Un test verifica que construye la jerarquía y que un ciclo V reduce el residual; otro comprueba el comportamiento de GMRES con multigrid al refinar los tamaños ensayados.
+
+La interfaz contabiliza cada aplicación del precondicionador mediante `n_prec`. Este contador debe guardarse junto con `n_F`, `n_JVP`, `n_D2` y `n_lin` en toda campaña experimental.
+
 #### Limitaciones conocidas
 
 ```text
-no hay reciclaje de subespacios entre las dos resoluciones de Chebyshev
-el único precondicionador es Jacobi, débil para Bratu3D
-el producto vector y los núcleos son secuenciales, sin OpenMP, MPI ni CUDA
+el recycling usa solo el último ciclo de la primera resolución
+no hay deflación ni memoria de subespacios entre iteraciones no lineales
+el multigrid aproxima el Jacobiano mediante su parte de Laplaciano
+los núcleos introducidos en R1.2 siguen siendo secuenciales
 los vectores son std::vector<double>, sin matrices dispersas explícitas
 solo existe la familia B1 del protocolo
 la segunda derivada por diferencias finitas usa un paso con escala epsilon^(1/4) sin calibrar
+los hiperparámetros de KrylovParams no están afinados para evidencia confirmatoria
 ```
-
-El reciclaje de subespacios es el paso que pone a prueba la hipótesis de la línea L1. Sin él, la segunda resolución cuesta una resolución completa.
 
 #### Verificación
 
 ```text
-CTest, 32 de 32 tests correctos
+CTest, 36 de 36 tests correctos
     21 del baseline
-    11 nuevos en tests/test_operators.cpp
+    15 nuevos en tests/test_operators.cpp
 ```
 
-Los nuevos tests cubren los conceptos, JVP y segunda derivada analíticos frente a diferencias finitas, el adaptador del baseline, GMRES, ambos métodos en Bratu3D, la coherencia de contadores, la regresión frente al baseline y dos casos de robustez de GMRES.
+Los tests nuevos cubren los conceptos, JVP y segunda derivada analíticos frente a diferencias finitas, el adaptador del baseline, GMRES, ambos métodos en Bratu3D, la coherencia de contadores, la regresión frente al baseline, la robustez de GMRES, el multigrid y el recycling.
 
-Los dos tests de robustez comprueban que GMRES informa una ruptura numérica ante un operador nulo y que rechaza `restart == 0` sin entrar en un bucle.
+En particular, los tests de R1.2 verifican que un ciclo V reduce el residual, que GMRES precondicionado con multigrid mantiene acotado el número de iteraciones en los tamaños ensayados, que la segunda resolución reciclada converge sin productos Jacobiano-vector ocultos y que Chebyshev con recycling conserva la contabilidad.
 
 #### Prueba de humo, no es evidencia
 
-`apps/smoke_bratu.cpp` ejecuta ambos métodos en Bratu3D. No sigue un preregistro, usa una repetición y el precondicionador de Jacobi. Sirve para comprobar que el código corre y para anticipar riesgos. El ejecutable valida los tamaños de malla y `NUMA_LAMBDA`; una entrada inválida termina con código de error 2.
+`apps/smoke_bratu.cpp` ejecuta Newton-Krylov, Chebyshev inexacto y Chebyshev inexacto con recycling en Bratu3D desde `u = 0`. El precondicionador se selecciona mediante `NUMA_PRECOND=mg` o `NUMA_PRECOND=jacobi`. El ejecutable valida `NUMA_LAMBDA`, `NUMA_PRECOND` y los tamaños de malla. Una entrada inválida termina con código de error 2.
 
-Resultados exploratorios originales de R1.1 con lambda 1.0 y lambda 6.0, desde u = 0:
+Las siguientes observaciones se reprodujeron durante la integración de R1.2 con `n = 16`, `N = 4096` y `lambda = 1.0`. Se omiten los tiempos porque cada caso usa una sola repetición y no constituye evidencia de rendimiento.
 
 ```text
-N        lambda  NK n_JVP  Chebyshev n_JVP  iteraciones no lineales (ambos)
-9261     1.0     97       152              5
-27000    1.0     139      221              5
-97336    1.0     278      402              5
-9261     6.0     109      175              5
-27000    6.0     153      239              5
+precondicionador  método           iter  n_F  n_JVP  n_D2  n_prec  res_rel
+multigrid         NK                  4    5      11     0      15  9.9e-11
+multigrid         Chebyshev           4    5      20     4      28  1.0e-10
+multigrid         Cheb+reciclaje      4    5      18     4      30  1.0e-10
+jacobi            NK                  5    6      74     0      79  4.8e-09
+jacobi            Chebyshev           5    6     123     5     133  4.8e-09
+jacobi            Cheb+reciclaje      5    6      99     5     112  4.8e-09
 ```
 
-En esos casos ambos métodos necesitan 5 iteraciones no lineales y Chebyshev usa más productos Jacobiano-vector porque resuelve dos sistemas. Es consistente con el riesgo identificado en S0 para la línea L1. No permite concluir nada sobre el método porque faltan reciclaje, un precondicionador adecuado, afinación preregistrada y problemas más exigentes. Estos resultados no deben citarse como evidencia confirmatoria en manuscritos.
+En este smoke test, multigrid reduce fuertemente el trabajo lineal respecto de Jacobi. Con Jacobi, recycling reduce `n_JVP` de Chebyshev de 123 a 99; con multigrid, la reducción es de 20 a 18. Estas observaciones sólo verifican integración y contabilidad. No siguen afinación preregistrada, no incluyen repeticiones y no deben citarse como evidencia confirmatoria en manuscritos.
