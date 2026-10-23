@@ -5,7 +5,8 @@
 //
 // Convención. J z = F(x) y el paso es x - z. En Chebyshev,
 //   x+ = x - z - (1/2) u,  con J u = F''(x)[z, z].
-// Esta primera entrega no recicla subespacios entre las dos resoluciones.
+// R1.2 permite reciclar el subespacio de Krylov entre las dos resoluciones
+// de Chebyshev cuando KrylovParams::recycle está activado.
 // Los hiperparámetros son valores iniciales y deben fijarse en el preregistro
 // de cada campaña, no ajustarse sobre los resultados.
 
@@ -33,6 +34,7 @@ struct KrylovParams {
     std::size_t gmres_max_iters = 500;
     double armijo = 1e-4;
     double min_lambda = 1e-4;
+    bool recycle = false;           // recicla el subespacio entre las dos resoluciones
 };
 
 struct KrylovResult {
@@ -42,6 +44,7 @@ struct KrylovResult {
     std::size_t n_F = 0, n_JVP = 0, n_D2 = 0;
     std::size_t n_lin_iters = 0;
     std::size_t n_lin_failures = 0;
+    std::size_t n_prec = 0;
     double res0 = 0.0, res = 0.0;
 };
 
@@ -86,6 +89,7 @@ KrylovResult newton_krylov(const Op& f, DVec x, const KrylovParams& p = {},
         const auto g = gmres(apply, M, Fx, z, eta, p.gmres_restart, p.gmres_max_iters);
         out.n_JVP += g.matvecs;
         out.n_lin_iters += g.iters;
+        out.n_prec += g.precs;
         if (!g.converged) ++out.n_lin_failures;
         if (g.breakdown) break;
 
@@ -130,17 +134,28 @@ KrylovResult chebyshev_inexact(const Op& f, DVec x, const KrylovParams& p = {},
         auto apply = [&](const DVec& v, DVec& o) { f.jvp(x, v, o); };
 
         z.assign(n, 0.0);
-        const auto g1 = gmres(apply, M, Fx, z, eta1, p.gmres_restart, p.gmres_max_iters);
+        KrylovSpace space;
+        const auto g1 = gmres(
+            apply, M, Fx, z, eta1, p.gmres_restart, p.gmres_max_iters,
+            true, p.recycle ? &space : nullptr);
         out.n_JVP += g1.matvecs;
         out.n_lin_iters += g1.iters;
+        out.n_prec += g1.precs;
         if (!g1.converged) ++out.n_lin_failures;
         if (g1.breakdown) break;
 
         f.d2(x, z, w); ++out.n_D2;
         u.assign(n, 0.0);
-        const auto g2 = gmres(apply, M, w, u, eta2, p.gmres_restart, p.gmres_max_iters);
+        const auto g2 = p.recycle
+            ? gmres_recycled(
+                  apply, M, w, u, eta2, p.gmres_restart,
+                  p.gmres_max_iters, space)
+            : gmres(
+                  apply, M, w, u, eta2, p.gmres_restart,
+                  p.gmres_max_iters);
         out.n_JVP += g2.matvecs;
         out.n_lin_iters += g2.iters;
+        out.n_prec += g2.precs;
         if (!g2.converged) ++out.n_lin_failures;
 
         // Si la segunda resolución no sufre una ruptura numérica, se intenta primero el

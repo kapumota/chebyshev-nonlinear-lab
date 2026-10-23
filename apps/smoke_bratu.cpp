@@ -1,8 +1,14 @@
 // Prueba de humo de R1 sobre Bratu3D. NO es evidencia experimental.
-// No sigue un preregistro, usa un solo hilo y una sola repetición, y el
-// precondicionador de Jacobi es débil. Sirve para comprobar que el código
-// corre a N de 10^4 a 10^5 y para anticipar riesgos, no para comparar métodos.
+// No sigue un preregistro, usa un solo hilo y una sola repetición, y los
+// hiperparámetros no están afinados. Sirve para comprobar que el código corre
+// a N de 10^4 a 10^6 y para anticipar riesgos, no para comparar métodos.
+//
+// Uso: smoke_bratu n1 n2 ...
+// Variables:
+//   NUMA_LAMBDA, por defecto 1.0.
+//   NUMA_PRECOND, valores permitidos: mg o jacobi; por defecto mg.
 
+#include <numa/linalg/poisson_mg.hpp>
 #include <numa/methods/krylov_newton.hpp>
 #include <numa/problems/bratu3d.hpp>
 
@@ -11,11 +17,17 @@
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <limits>
 
 using namespace numa::op;
 
 namespace {
+
+enum class PreconditionerKind {
+    Multigrid,
+    Jacobi
+};
 
 template <class Fn>
 double measure(Fn&& fn) {
@@ -78,12 +90,83 @@ bool parse_lambda(const char* text, double& value) {
     return true;
 }
 
+bool parse_preconditioner(
+    const char* text, PreconditionerKind& kind)
+{
+    if (text == nullptr || *text == '\0' ||
+        std::strcmp(text, "mg") == 0) {
+        kind = PreconditionerKind::Multigrid;
+        return true;
+    }
+
+    if (std::strcmp(text, "jacobi") == 0) {
+        kind = PreconditionerKind::Jacobi;
+        return true;
+    }
+
+    return false;
+}
+
+const char* preconditioner_name(PreconditionerKind kind) {
+    return kind == PreconditionerKind::Jacobi
+        ? "jacobi"
+        : "multigrid";
+}
+
 void print_usage(const char* program) {
     std::fprintf(
         stderr,
         "Uso: %s n [n ...]\n"
-        "Cada n debe ser un entero positivo y define una malla n x n x n.\n",
+        "Cada n debe ser un entero positivo y define una malla n x n x n.\n"
+        "NUMA_PRECOND admite 'mg' o 'jacobi'.\n",
         program);
+}
+
+template <class Provider>
+void run_campaign(const Bratu3D& problem, const Provider& preconditioner) {
+    const DVec x0(problem.size(), 0.0);
+
+    KrylovParams base_params;
+    KrylovParams recycled_params;
+    recycled_params.recycle = true;
+
+    KrylovResult newton;
+    KrylovResult chebyshev;
+    KrylovResult recycled;
+
+    const double t_newton = measure([&] {
+        newton = newton_krylov(
+            problem, x0, base_params, preconditioner);
+    });
+    const double t_chebyshev = measure([&] {
+        chebyshev = chebyshev_inexact(
+            problem, x0, base_params, preconditioner);
+    });
+    const double t_recycled = measure([&] {
+        recycled = chebyshev_inexact(
+            problem, x0, recycled_params, preconditioner);
+    });
+
+    auto print_row = [&](const char* method,
+                         const KrylovResult& result,
+                         double elapsed) {
+        const double relative_residual =
+            result.res0 > 0.0
+                ? result.res / result.res0
+                : result.res;
+
+        std::printf(
+            "%8zu %-15s %3s %5zu %5zu %7zu %5zu %7zu %9.3f %8.1e\n",
+            problem.size(), method,
+            result.converged ? "si" : "no",
+            result.iters, result.n_F, result.n_JVP,
+            result.n_D2, result.n_prec, elapsed,
+            relative_residual);
+    };
+
+    print_row("NK", newton, t_newton);
+    print_row("Chebyshev", chebyshev, t_chebyshev);
+    print_row("Cheb+reciclaje", recycled, t_recycled);
 }
 
 } // namespace
@@ -104,52 +187,44 @@ int main(int argc, char** argv) {
         }
     }
 
+    PreconditionerKind preconditioner_kind =
+        PreconditionerKind::Multigrid;
+    if (!parse_preconditioner(
+            std::getenv("NUMA_PRECOND"), preconditioner_kind)) {
+        std::fprintf(
+            stderr,
+            "Error: NUMA_PRECOND debe ser 'mg' o 'jacobi'.\n");
+        return 2;
+    }
+
     std::printf(
         "PRUEBA DE HUMO, sin evidencia experimental. "
-        "Un hilo, una repetición, Jacobi, sin preregistro.\n");
-    std::printf("Parámetro lambda de Bratu: %.17g.\n", lambda);
+        "Un hilo, una repetición, sin preregistro ni afinación.\n");
     std::printf(
-        "%8s %-10s %4s %5s %6s %8s %6s %9s %8s\n",
-        "N", "método", "ok", "iter", "n_F", "n_JVP", "n_D2",
-        "t_total", "res_rel");
+        "Parámetro lambda de Bratu: %.17g. Precondicionador: %s.\n",
+        lambda, preconditioner_name(preconditioner_kind));
+    std::printf(
+        "%8s %-15s %3s %5s %5s %7s %5s %7s %9s %8s\n",
+        "N", "método", "ok", "iter", "n_F", "n_JVP",
+        "n_D2", "n_prec", "t_total", "res_rel");
 
-    for (int a = 1; a < argc; ++a) {
+    for (int arg = 1; arg < argc; ++arg) {
         std::size_t n = 0;
-        if (!parse_grid_size(argv[a], n)) {
+        if (!parse_grid_size(argv[arg], n)) {
             std::fprintf(
                 stderr,
                 "Error: '%s' no es un tamaño de malla válido.\n",
-                argv[a]);
+                argv[arg]);
             return 2;
         }
 
-        Bratu3D f(n, lambda);
-        const DVec x0(f.size(), 0.0);
-        KrylovParams params;
-        KrylovResult nk;
-        KrylovResult chebyshev;
+        Bratu3D problem(n, lambda);
 
-        const double t_nk = measure([&] {
-            nk = newton_krylov(f, x0, params, BratuJacobi{f});
-        });
-        const double t_chebyshev = measure([&] {
-            chebyshev = chebyshev_inexact(f, x0, params, BratuJacobi{f});
-        });
-
-        auto print_row = [&](const char* method,
-                             const KrylovResult& result,
-                             double elapsed) {
-            const double relative_residual =
-                result.res0 > 0.0 ? result.res / result.res0 : result.res;
-            std::printf(
-                "%8zu %-10s %4s %5zu %6zu %8zu %6zu %9.3f %8.1e\n",
-                f.size(), method, result.converged ? "si" : "no",
-                result.iters, result.n_F, result.n_JVP, result.n_D2,
-                elapsed, relative_residual);
-        };
-
-        print_row("NK", nk, t_nk);
-        print_row("Chebyshev", chebyshev, t_chebyshev);
+        if (preconditioner_kind == PreconditionerKind::Jacobi) {
+            run_campaign(problem, BratuJacobi{problem});
+        } else {
+            run_campaign(problem, PoissonMGProvider(n));
+        }
     }
 
     return 0;

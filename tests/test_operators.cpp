@@ -3,6 +3,7 @@
 #include <numa/operators/operator.hpp>
 #include <numa/operators/baseline_adapter.hpp>
 #include <numa/linalg/gmres.hpp>
+#include <numa/linalg/poisson_mg.hpp>
 #include <numa/methods/krylov_newton.hpp>
 #include <numa/methods/chebyshev.hpp>
 #include <numa/problems/bratu3d.hpp>
@@ -153,4 +154,144 @@ TEST_CASE("GMRES rechaza reinicio igual a cero sin entrar en un bucle", "[linalg
     const auto r = gmres(apply, IdentityPrecond{}, b, x, 1e-10, 0, 20);
     REQUIRE_FALSE(r.converged);
     REQUIRE(r.breakdown);
+}
+
+namespace {
+
+// Operador -Laplaciano_h para verificar el multigrid de forma independiente.
+void apply_poisson(std::size_t n, const DVec& v, DVec& out) {
+    const double h2inv =
+        (static_cast<double>(n) + 1.0) *
+        (static_cast<double>(n) + 1.0);
+
+    out.assign(n * n * n, 0.0);
+    for (std::size_t i = 0; i < n; ++i) {
+        for (std::size_t j = 0; j < n; ++j) {
+            for (std::size_t k = 0; k < n; ++k) {
+                const std::size_t id = (i * n + j) * n + k;
+                double sum = 6.0 * v[id];
+
+                if (i > 0) sum -= v[id - n * n];
+                if (i + 1 < n) sum -= v[id + n * n];
+                if (j > 0) sum -= v[id - n];
+                if (j + 1 < n) sum -= v[id + n];
+                if (k > 0) sum -= v[id - 1];
+                if (k + 1 < n) sum -= v[id + 1];
+
+                out[id] = h2inv * sum;
+            }
+        }
+    }
+}
+
+} // namespace
+
+TEST_CASE(
+    "Multigrid construye la jerarquía y reduce el residual de un ciclo V",
+    "[linalg]")
+{
+    PoissonMG mg(15);
+    REQUIRE(mg.levels() == 4); // 15, 7, 3, 1
+
+    const DVec b = make_point(15 * 15 * 15, 1.0);
+    DVec z;
+    DVec Az;
+
+    mg(b, z);
+    apply_poisson(15, z, Az);
+    axpy(-1.0, b, Az);
+
+    REQUIRE(norm2(Az) < 0.5 * norm2(b));
+}
+
+TEST_CASE(
+    "GMRES con multigrid mantiene acotadas las iteraciones al refinar",
+    "[linalg]")
+{
+    std::size_t iterations[2] = {0, 0};
+    const std::size_t grids[2] = {15, 31};
+
+    for (int grid = 0; grid < 2; ++grid) {
+        const std::size_t n = grids[grid];
+        PoissonMG mg(n);
+        const DVec b = make_point(n * n * n, 1.0);
+        DVec x(n * n * n, 0.0);
+
+        auto apply = [&](const DVec& v, DVec& out) {
+            apply_poisson(n, v, out);
+        };
+
+        const auto result =
+            gmres(apply, mg, b, x, 1e-8, 50, 200);
+
+        REQUIRE(result.converged);
+        iterations[grid] = result.iters;
+    }
+
+    // Con multigrid el conteo debe permanecer aproximadamente acotado.
+    REQUIRE(iterations[1] <= iterations[0] + 3);
+}
+
+TEST_CASE(
+    "La segunda resolución reciclada converge sin productos ocultos",
+    "[linalg]")
+{
+    Bratu3D base(15, 1.0);
+    Counted<Bratu3D> counted(base);
+    const DVec x(base.size(), 0.1);
+    PoissonMG mg(15);
+
+    auto apply = [&](const DVec& v, DVec& out) {
+        counted.jvp(x, v, out);
+    };
+
+    const DVec b1 = make_point(base.size(), 1.0);
+    DVec b2(base.size());
+    for (std::size_t i = 0; i < b2.size(); ++i) {
+        b2[i] = b1[i] * b1[i];
+    }
+
+    DVec z(base.size(), 0.0);
+    KrylovSpace space;
+    const auto first =
+        gmres(apply, mg, b1, z, 1e-8, 50, 100, true, &space);
+
+    REQUIRE(first.converged);
+    REQUIRE(space.k > 0);
+    REQUIRE(space.k <= first.iters);
+
+    counted.reset();
+
+    DVec u;
+    const auto second =
+        gmres_recycled(apply, mg, b2, u, 1e-8, 50, 100, space);
+
+    REQUIRE(second.converged);
+    REQUIRE(counted.counters().n_JVP == second.matvecs);
+
+    DVec Ju;
+    base.jvp(x, u, Ju);
+    REQUIRE(relative_error(Ju, b2) < 2e-8);
+}
+
+TEST_CASE(
+    "Chebyshev inexacto con reciclaje converge y mantiene la contabilidad",
+    "[methods]")
+{
+    Bratu3D base(15, 1.0);
+    Counted<Bratu3D> counted(base);
+    const DVec x0(base.size(), 0.0);
+
+    KrylovParams params;
+    params.recycle = true;
+
+    const auto result =
+        chebyshev_inexact(
+            counted, x0, params, PoissonMGProvider(15));
+
+    REQUIRE(result.converged);
+    REQUIRE(result.n_JVP == counted.counters().n_JVP);
+    REQUIRE(result.n_F == counted.counters().n_F);
+    REQUIRE(result.n_D2 == counted.counters().n_D2);
+    REQUIRE(result.n_prec > 0);
 }
