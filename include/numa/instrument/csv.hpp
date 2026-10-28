@@ -16,8 +16,11 @@ struct CsvRow {
     std::size_t N = 0;
     double param = 0.0;
     std::string method;
+    std::string precond;
     std::string start_kind;
+    std::string start_id;
     std::string distance;
+    double rho_x = 0.0;
     unsigned seed = 0;
     bool success = false;
     std::size_t nonlinear_iters = 0;
@@ -42,8 +45,9 @@ struct CsvRow {
 
 inline const char* csv_header() {
     return
-        "phase,problem,family,n,N,param,method,start_kind,distance,seed,"
-        "success,nonlinear_iters,n_F,n_JVP,n_D2,n_lin,n_lin_failures,n_prec,"
+        "phase,problem,family,n,N,param,method,precond,start_kind,start_id,"
+        "distance,rho_x,seed,success,nonlinear_iters,n_F,n_JVP,n_D2,n_lin,"
+        "n_lin_failures,n_prec,"
         "t_setup,t_F,t_JVP,t_D2,t_prec,t_total,max_rss_kb,residual_rel,"
         "threads,repetition,commit";
 }
@@ -52,7 +56,7 @@ inline std::string csv_line(const CsvRow& row) {
     char buffer[2048];
     std::snprintf(
         buffer, sizeof(buffer),
-        "%s,%s,%s,%zu,%zu,%.17g,%s,%s,%s,%u,%d,"
+        "%s,%s,%s,%zu,%zu,%.17g,%s,%s,%s,%s,%s,%.17g,%u,%d,"
         "%zu,%zu,%zu,%zu,%zu,%zu,%zu,"
         "%.9e,%.9e,%.9e,%.9e,%.9e,%.9e,%ld,%.9e,%d,%d,%s",
         row.phase.c_str(),
@@ -62,8 +66,11 @@ inline std::string csv_line(const CsvRow& row) {
         row.N,
         row.param,
         row.method.c_str(),
+        row.precond.c_str(),
         row.start_kind.c_str(),
+        row.start_id.c_str(),
         row.distance.c_str(),
+        row.rho_x,
         row.seed,
         row.success ? 1 : 0,
         row.nonlinear_iters,

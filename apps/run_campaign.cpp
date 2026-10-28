@@ -49,6 +49,7 @@ struct Args {
     std::string methods = "nk,cheb,rec";
     std::string start = "natural";
     std::string start_file;
+    std::string start_id;
     std::string dist = "near,mid,far";
     std::string out = "campaign.csv";
     std::string commit;
@@ -158,7 +159,7 @@ void usage(const char* program) {
         "--problem bratu|chandra --n N --param P "
         "--precond mg|jacobi|none --methods nk,cheb,rec "
         "--start natural|perturbed|continuation|coarse "
-        "[--start-file vector.txt] [--dist near,mid,far] "
+        "[--start-file vector.txt] [--start-id ID] [--dist near,mid,far] "
         "[--seeds 12] [--warmup 1] [--reps 7] "
         "[--rtol 1e-8] [--restart 50] [--maxlin 500] "
         "--out archivo.csv [--commit SHA]\n",
@@ -184,6 +185,7 @@ bool parse_args(int argc, char** argv, Args& args) {
         else if (key == "--methods") args.methods = value;
         else if (key == "--start") args.start = value;
         else if (key == "--start-file") args.start_file = value;
+        else if (key == "--start-id") args.start_id = value;
         else if (key == "--dist") args.dist = value;
         else if (key == "--out") args.out = value;
         else if (key == "--commit") args.commit = value;
@@ -228,12 +230,12 @@ bool parse_args(int argc, char** argv, Args& args) {
     }
 
     if (args.start == "perturbed") {
-        if (args.start_file.empty() || args.seeds == 0) return false;
+        if (args.start_file.empty() || args.start_id.empty() || args.seeds == 0) return false;
         for (const auto& distance : split(args.dist)) {
             if (rho_for(distance) <= 0.0) return false;
         }
     } else if ((args.start == "continuation" || args.start == "coarse") &&
-               args.start_file.empty()) {
+               (args.start_file.empty() || args.start_id.empty())) {
         return false;
     }
 
@@ -304,6 +306,7 @@ bool run_method(
     const Args& args,
     const std::string& method,
     const std::string& distance,
+    double rho_x,
     unsigned seed,
     ProviderFactory&& provider_factory)
 {
@@ -348,8 +351,12 @@ bool run_method(
         row.N = problem.size();
         row.param = args.param;
         row.method = method;
+        row.precond = args.precond;
         row.start_kind = args.start;
+        row.start_id =
+            args.start == "natural" ? "natural" : args.start_id;
         row.distance = distance;
+        row.rho_x = rho_x;
         row.seed = seed;
         row.success = result.converged;
         row.nonlinear_iters = result.iters;
@@ -415,7 +422,7 @@ bool run_starts(
         if (args.start == "natural") {
             if (!run_method(
                     problem, natural, args, method,
-                    "natural", 0, provider_factory)) {
+                    "natural", 0.0, 0, provider_factory)) {
                 return false;
             }
             continue;
@@ -424,7 +431,7 @@ bool run_starts(
         if (args.start == "continuation" || args.start == "coarse") {
             if (!run_method(
                     problem, reference, args, method,
-                    args.start, 0, provider_factory)) {
+                    args.start, 0.0, 0, provider_factory)) {
                 return false;
             }
             continue;
@@ -443,7 +450,7 @@ bool run_starts(
                 }
                 if (!run_method(
                         problem, x0, args, method,
-                        distance, seed, provider_factory)) {
+                        distance, rho, seed, provider_factory)) {
                     return false;
                 }
             }
