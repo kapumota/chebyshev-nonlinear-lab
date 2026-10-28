@@ -20,27 +20,52 @@ public:
 
     void eval(const DVec& u, DVec& out) const {
         lap(u, out);
-        for (std::size_t i = 0; i < out.size(); ++i) out[i] -= lambda_ * std::exp(u[i]);
+        const long count = static_cast<long>(out.size());
+#ifdef NUMA_HAS_OPENMP
+#pragma omp parallel for schedule(static) if (count > 4096)
+#endif
+        for (long ii = 0; ii < count; ++ii) {
+            const std::size_t i = static_cast<std::size_t>(ii);
+            out[i] -= lambda_ * std::exp(u[i]);
+        }
     }
 
     void jvp(const DVec& u, const DVec& v, DVec& out) const {
         lap(v, out);
-        for (std::size_t i = 0; i < out.size(); ++i)
+        const long count = static_cast<long>(out.size());
+#ifdef NUMA_HAS_OPENMP
+#pragma omp parallel for schedule(static) if (count > 4096)
+#endif
+        for (long ii = 0; ii < count; ++ii) {
+            const std::size_t i = static_cast<std::size_t>(ii);
             out[i] -= lambda_ * std::exp(u[i]) * v[i];
+        }
     }
 
     // F''(u)[v, v] es diagonal: -lambda exp(u) v^2.
     void d2(const DVec& u, const DVec& v, DVec& out) const {
         out.resize(u.size());
-        for (std::size_t i = 0; i < out.size(); ++i)
+        const long count = static_cast<long>(out.size());
+#ifdef NUMA_HAS_OPENMP
+#pragma omp parallel for schedule(static) if (count > 4096)
+#endif
+        for (long ii = 0; ii < count; ++ii) {
+            const std::size_t i = static_cast<std::size_t>(ii);
             out[i] = -lambda_ * std::exp(u[i]) * v[i] * v[i];
+        }
     }
 
     // Diagonal del Jacobiano, usada por el precondicionador de Jacobi.
     void jacobi_diag(const DVec& u, DVec& d) const {
         d.resize(u.size());
-        for (std::size_t i = 0; i < d.size(); ++i)
+        const long count = static_cast<long>(d.size());
+#ifdef NUMA_HAS_OPENMP
+#pragma omp parallel for schedule(static) if (count > 4096)
+#endif
+        for (long ii = 0; ii < count; ++ii) {
+            const std::size_t i = static_cast<std::size_t>(ii);
             d[i] = 6.0 * h2inv_ - lambda_ * std::exp(u[i]);
+        }
     }
 
 private:
@@ -48,9 +73,15 @@ private:
     void lap(const DVec& v, DVec& out) const {
         out.resize(v.size());
         const std::size_t n = n_;
-        for (std::size_t i = 0; i < n; ++i)
-            for (std::size_t j = 0; j < n; ++j)
+        const long nl = static_cast<long>(n);
+#ifdef NUMA_HAS_OPENMP
+#pragma omp parallel for collapse(2) schedule(static) if (nl > 16)
+#endif
+        for (long ii = 0; ii < nl; ++ii)
+            for (long jj = 0; jj < nl; ++jj)
                 for (std::size_t k = 0; k < n; ++k) {
+                    const std::size_t i = static_cast<std::size_t>(ii);
+                    const std::size_t j = static_cast<std::size_t>(jj);
                     const std::size_t id = (i * n + j) * n + k;
                     double s = 6.0 * v[id];
                     if (i > 0)     s -= v[id - n * n];

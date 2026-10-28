@@ -18,7 +18,11 @@ using DVec = std::vector<double>;
 
 inline double dot(const DVec& a, const DVec& b) {
     double s = 0.0;
-    for (std::size_t i = 0; i < a.size(); ++i) s += a[i] * b[i];
+    const long n = static_cast<long>(a.size());
+#ifdef NUMA_HAS_OPENMP
+#pragma omp parallel for reduction(+ : s) schedule(static) if (n > 4096)
+#endif
+    for (long i = 0; i < n; ++i) s += a[static_cast<std::size_t>(i)] * b[static_cast<std::size_t>(i)];
     return s;
 }
 
@@ -26,7 +30,14 @@ inline double norm2(const DVec& a) { return std::sqrt(dot(a, a)); }
 
 // y += a * x
 inline void axpy(double a, const DVec& x, DVec& y) {
-    for (std::size_t i = 0; i < x.size(); ++i) y[i] += a * x[i];
+    const long n = static_cast<long>(x.size());
+#ifdef NUMA_HAS_OPENMP
+#pragma omp parallel for schedule(static) if (n > 4096)
+#endif
+    for (long i = 0; i < n; ++i) {
+        const std::size_t index = static_cast<std::size_t>(i);
+        y[index] += a * x[index];
+    }
 }
 
 // Requisitos mínimos. El llamador dimensiona out con size() elementos.

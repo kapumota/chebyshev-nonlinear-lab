@@ -110,7 +110,9 @@ private:
         out.assign(n_, 0.0);
         const long n = static_cast<long>(n_);
 
-#pragma omp parallel for schedule(static)
+#ifdef NUMA_HAS_OPENMP
+#pragma omp parallel for schedule(static) if (n > 256)
+#endif
         for (long ii = 0; ii < n; ++ii) {
             const std::size_t i = static_cast<std::size_t>(ii);
             const double mu_i = mu_[i];
