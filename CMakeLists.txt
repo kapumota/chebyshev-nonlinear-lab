@@ -78,7 +78,7 @@ endif()
 # ---- Demos ----
 if(NUMA_BUILD_APPS)
   foreach(app demo_newton demo_broyden demo_kantorovich
-              demo_chebyshev demo_chebyshev_omp smoke_bratu smoke_chandrasekhar calibrate_b6)
+              demo_chebyshev demo_chebyshev_omp smoke_bratu smoke_chandrasekhar calibrate_b6 run_campaign)
     add_executable(${app} apps/${app}.cpp)
     target_link_libraries(${app} PRIVATE numa)
   endforeach()
