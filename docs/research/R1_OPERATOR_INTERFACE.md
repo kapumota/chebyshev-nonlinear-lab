@@ -108,7 +108,7 @@ En particular, los tests de R1.2 verifican que un ciclo V reduce el residual, qu
 
 `apps/smoke_bratu.cpp` ejecuta Newton-Krylov, Chebyshev inexacto y Chebyshev inexacto con recycling en Bratu3D desde `u = 0`. El precondicionador se selecciona mediante `NUMA_PRECOND=mg` o `NUMA_PRECOND=jacobi`. El ejecutable valida `NUMA_LAMBDA`, `NUMA_PRECOND` y los tamaños de malla. Una entrada inválida termina con código de error 2.
 
-Las siguientes observaciones se reprodujeron durante la integración de R1.2 con `n = 16`, `N = 4096` y `lambda = 1.0`. Se omiten los tiempos porque cada caso usa una sola repetición y no constituye evidencia de rendimiento.
+Las siguientes observaciones se reprodujeron durante la integración de R1.2 con `n = 16`, `N = 4096` y `lambda = 1.0`. Esta es una configuración de referencia del benchmark Bratu3D: `lambda` fija la intensidad de la no linealidad de la instancia y `lambda = 1.0` no cambia la naturaleza del problema. Se omiten los tiempos porque cada caso usa una sola repetición y no constituye evidencia de rendimiento.
 
 ```text
 precondicionador  método           iter  n_F  n_JVP  n_D2  n_prec  res_rel
@@ -121,3 +121,5 @@ jacobi            Cheb+reciclaje      5    6      99     5     112  4.8e-09
 ```
 
 En este smoke test, multigrid reduce fuertemente el trabajo lineal respecto de Jacobi. Con Jacobi, recycling reduce `n_JVP` de Chebyshev de 123 a 99; con multigrid, la reducción es de 20 a 18. Estas observaciones sólo verifican integración y contabilidad. No siguen afinación preregistrada, no incluyen repeticiones y no deben citarse como evidencia confirmatoria en manuscritos.
+
+Este bloque tampoco caracteriza la sensibilidad a `lambda`. Esa variación se reserva para C1, donde Bratu3D se evalúa en varios niveles de no linealidad y cercanía al primer punto de giro, definidos de forma reproducible para cada malla.
