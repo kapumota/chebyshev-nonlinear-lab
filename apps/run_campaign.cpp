@@ -17,6 +17,7 @@
 #include <numa/methods/krylov_newton.hpp>
 #include <numa/operators/timing.hpp>
 #include <numa/problems/bratu3d.hpp>
+#include <numa/problems/brusselator1d.hpp>
 #include <numa/problems/burgers2d.hpp>
 #include <numa/problems/chandrasekhar_op.hpp>
 
@@ -166,7 +167,7 @@ void usage(const char* program) {
     std::fprintf(
         stderr,
         "Uso: %s --phase exploratory|calibration|confirmation "
-        "--problem bratu|chandra|burgers --n N --param P "
+        "--problem bratu|chandra|burgers|brusselator --n N --param P "
         "--precond mg|jacobi|none --methods nk,cheb,rec "
         "--start natural|perturbed|continuation|coarse "
         "[--dt DT] [--amp A] [--start-file vector.txt] [--start-id ID] [--dist near,mid,far] "
@@ -254,7 +255,7 @@ bool parse_args(int argc, char** argv, Args& args) {
     }
 
     if (args.problem != "bratu" && args.problem != "chandra" &&
-        args.problem != "burgers") return false;
+        args.problem != "burgers" && args.problem != "brusselator") return false;
     if (args.problem == "burgers" && (!(args.param > 0.0) || !(args.dt > 0.0))) return false;
     if (args.precond != "mg" &&
         args.precond != "jacobi" &&
@@ -399,10 +400,13 @@ bool run_method(
             row.instance_id = "lambda=" + std::to_string(args.param);
         } else if (args.problem == "chandra") {
             row.instance_id = "c=" + std::to_string(args.param);
-        } else {
+        } else if (args.problem == "burgers") {
             row.instance_id = "nu=" + std::to_string(args.param) +
                               ";dt=" + std::to_string(args.dt) +
                               ";amp=" + std::to_string(args.amp);
+        } else {
+            row.instance_id = "dt=" + std::to_string(args.param) +
+                              ";A=1;B=3;alpha=0.02";
         }
         row.method = method;
         row.precond = args.precond;
@@ -576,6 +580,29 @@ int main(int argc, char** argv) {
             return run_starts(
                        problem, natural, args,
                        [&] { return BurgersMGProvider(args.n, args.param, args.dt); })
+                ? 0 : 3;
+        }
+        return run_starts(
+                   problem, natural, args,
+                   [] { return NoPrecond{}; })
+            ? 0 : 3;
+    }
+
+    if (args.problem == "brusselator") {
+        if (!(args.param > 0.0)) {
+            std::fprintf(stderr, "dt de Brusselator debe ser positivo.\n");
+            return 2;
+        }
+        if (args.precond != "jacobi" && args.precond != "none") {
+            std::fprintf(stderr, "Brusselator admite --precond jacobi o none.\n");
+            return 2;
+        }
+        Brusselator1DStep problem(args.n, args.param);
+        const DVec natural = problem.previous();
+        if (args.precond == "jacobi") {
+            return run_starts(
+                       problem, natural, args,
+                       [&] { return BrusselatorJacobi{problem}; })
                 ? 0 : 3;
         }
         return run_starts(
