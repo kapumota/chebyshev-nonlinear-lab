@@ -54,7 +54,8 @@ if(NUMA_BUILD_TESTS)
     tests/test_methods.cpp
     tests/test_golden.cpp
     tests/test_operators.cpp
-    tests/test_chandrasekhar_op.cpp)
+    tests/test_chandrasekhar_op.cpp
+    tests/test_burgers.cpp)
   target_link_libraries(numa_tests PRIVATE numa Catch2::Catch2WithMain)
   list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
   include(Catch)
@@ -78,7 +79,7 @@ endif()
 # ---- Demos ----
 if(NUMA_BUILD_APPS)
   foreach(app demo_newton demo_broyden demo_kantorovich
-              demo_chebyshev demo_chebyshev_omp smoke_bratu smoke_chandrasekhar calibrate_b6 run_campaign check_openmp_consistency)
+              demo_chebyshev demo_chebyshev_omp smoke_bratu smoke_chandrasekhar calibrate_b6 run_campaign check_openmp_consistency write_burgers_reference)
     add_executable(${app} apps/${app}.cpp)
     target_link_libraries(${app} PRIVATE numa)
   endforeach()

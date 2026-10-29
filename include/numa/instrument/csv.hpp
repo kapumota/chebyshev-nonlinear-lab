@@ -15,6 +15,7 @@ struct CsvRow {
     std::size_t n = 0;
     std::size_t N = 0;
     double param = 0.0;
+    std::string instance_id;
     std::string method;
     std::string precond;
     std::string start_kind;
@@ -55,7 +56,7 @@ struct CsvRow {
 
 inline const char* csv_header() {
     return
-        "phase,problem,family,n,N,param,method,precond,start_kind,start_id,"
+        "phase,problem,family,n,N,param,instance_id,method,precond,start_kind,start_id,"
         "distance,rho_x,seed,success,nonlinear_iters,n_F,n_JVP,n_D2,n_lin,"
         "n_lin_failures,n_prec,"
         "t_setup,t_F,t_JVP,t_D2,t_prec,t_total,max_rss_kb,residual_rel,"
@@ -67,7 +68,7 @@ inline std::string csv_line(const CsvRow& row) {
     char buffer[2048];
     std::snprintf(
         buffer, sizeof(buffer),
-        "%s,%s,%s,%zu,%zu,%.17g,%s,%s,%s,%s,%s,%.17g,%u,%d,"
+        "%s,%s,%s,%zu,%zu,%.17g,%s,%s,%s,%s,%s,%s,%.17g,%u,%d,"
         "%zu,%zu,%zu,%zu,%zu,%zu,%zu,"
         "%.9e,%.9e,%.9e,%.9e,%.9e,%.9e,%ld,%.9e,%d,%d,"
         "%.17g,%zu,%.17g,%.17g,%.17g,%.17g,%.17g,%.17g,%zu,%zu,%s",
@@ -77,6 +78,7 @@ inline std::string csv_line(const CsvRow& row) {
         row.n,
         row.N,
         row.param,
+        row.instance_id.c_str(),
         row.method.c_str(),
         row.precond.c_str(),
         row.start_kind.c_str(),

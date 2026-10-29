@@ -17,6 +17,7 @@
 #include <numa/methods/krylov_newton.hpp>
 #include <numa/operators/timing.hpp>
 #include <numa/problems/bratu3d.hpp>
+#include <numa/problems/burgers2d.hpp>
 #include <numa/problems/chandrasekhar_op.hpp>
 
 #include <cerrno>
@@ -55,6 +56,8 @@ struct Args {
     std::string commit;
     std::size_t n = 31;
     double param = 1.0;
+    double dt = 1.0;
+    double amp = 1.0;
     double rtol = 1e-8;
     std::size_t max_nl = 50;
     double eta_init = 0.5;
@@ -163,10 +166,10 @@ void usage(const char* program) {
     std::fprintf(
         stderr,
         "Uso: %s --phase exploratory|calibration|confirmation "
-        "--problem bratu|chandra --n N --param P "
+        "--problem bratu|chandra|burgers --n N --param P "
         "--precond mg|jacobi|none --methods nk,cheb,rec "
         "--start natural|perturbed|continuation|coarse "
-        "[--start-file vector.txt] [--start-id ID] [--dist near,mid,far] "
+        "[--dt DT] [--amp A] [--start-file vector.txt] [--start-id ID] [--dist near,mid,far] "
         "[--seeds 12] [--warmup 1] [--reps 7] "
         "[--rtol 1e-8] [--max-nl 50] [--eta-init 0.5] "
         "[--eta-max 0.9] [--gamma 0.9] [--alpha 2.0] "
@@ -203,6 +206,10 @@ bool parse_args(int argc, char** argv, Args& args) {
             if (!parse_size(value, args.n)) return false;
         } else if (key == "--param") {
             if (!parse_double(value, args.param)) return false;
+        } else if (key == "--dt") {
+            if (!parse_double(value, args.dt)) return false;
+        } else if (key == "--amp") {
+            if (!parse_double(value, args.amp)) return false;
         } else if (key == "--rtol") {
             if (!parse_double(value, args.rtol)) return false;
         } else if (key == "--max-nl") {
@@ -246,7 +253,9 @@ bool parse_args(int argc, char** argv, Args& args) {
         return false;
     }
 
-    if (args.problem != "bratu" && args.problem != "chandra") return false;
+    if (args.problem != "bratu" && args.problem != "chandra" &&
+        args.problem != "burgers") return false;
+    if (args.problem == "burgers" && (!(args.param > 0.0) || !(args.dt > 0.0))) return false;
     if (args.precond != "mg" &&
         args.precond != "jacobi" &&
         args.precond != "none") {
@@ -386,6 +395,15 @@ bool run_method(
         row.n = args.n;
         row.N = problem.size();
         row.param = args.param;
+        if (args.problem == "bratu") {
+            row.instance_id = "lambda=" + std::to_string(args.param);
+        } else if (args.problem == "chandra") {
+            row.instance_id = "c=" + std::to_string(args.param);
+        } else {
+            row.instance_id = "nu=" + std::to_string(args.param) +
+                              ";dt=" + std::to_string(args.dt) +
+                              ";amp=" + std::to_string(args.amp);
+        }
         row.method = method;
         row.precond = args.precond;
         row.start_kind = args.start;
@@ -539,6 +557,25 @@ int main(int argc, char** argv) {
             return run_starts(
                        problem, natural, args,
                        [&] { return BratuJacobi{problem}; })
+                ? 0 : 3;
+        }
+        return run_starts(
+                   problem, natural, args,
+                   [] { return NoPrecond{}; })
+            ? 0 : 3;
+    }
+
+    if (args.problem == "burgers") {
+        if (args.precond != "mg" && args.precond != "none") {
+            std::fprintf(stderr, "Burgers admite --precond mg o none.\n");
+            return 2;
+        }
+        Burgers2D problem(args.n, args.param, args.dt, args.amp);
+        const DVec natural(problem.size(), 0.0);
+        if (args.precond == "mg") {
+            return run_starts(
+                       problem, natural, args,
+                       [&] { return BurgersMGProvider(args.n, args.param, args.dt); })
                 ? 0 : 3;
         }
         return run_starts(

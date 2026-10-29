@@ -25,7 +25,7 @@ BUDGET_FIELDS = (
 )
 
 INSTANCE_FIELDS = (
-    "problem", "family", "n", "N", "param", "precond",
+    "problem", "family", "n", "N", "param", "instance_id", "precond",
     "start_kind", "start_id", "distance", "rho_x", "seed", "threads",
 )
 
