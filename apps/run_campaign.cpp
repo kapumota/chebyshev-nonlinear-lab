@@ -56,6 +56,13 @@ struct Args {
     std::size_t n = 31;
     double param = 1.0;
     double rtol = 1e-8;
+    std::size_t max_nl = 50;
+    double eta_init = 0.5;
+    double eta_max = 0.9;
+    double gamma = 0.9;
+    double alpha = 2.0;
+    double eta2_factor = 10.0;
+    double eta2_max = 0.5;
     unsigned seeds = 12;
     int warmup = 1;
     int reps = 7;
@@ -161,7 +168,10 @@ void usage(const char* program) {
         "--start natural|perturbed|continuation|coarse "
         "[--start-file vector.txt] [--start-id ID] [--dist near,mid,far] "
         "[--seeds 12] [--warmup 1] [--reps 7] "
-        "[--rtol 1e-8] [--restart 50] [--maxlin 500] "
+        "[--rtol 1e-8] [--max-nl 50] [--eta-init 0.5] "
+        "[--eta-max 0.9] [--gamma 0.9] [--alpha 2.0] "
+        "[--eta2-factor 10] [--eta2-max 0.5] "
+        "[--restart 50] [--maxlin 500] "
         "--out archivo.csv [--commit SHA]\n",
         program);
 }
@@ -195,6 +205,20 @@ bool parse_args(int argc, char** argv, Args& args) {
             if (!parse_double(value, args.param)) return false;
         } else if (key == "--rtol") {
             if (!parse_double(value, args.rtol)) return false;
+        } else if (key == "--max-nl") {
+            if (!parse_size(value, args.max_nl)) return false;
+        } else if (key == "--eta-init") {
+            if (!parse_double(value, args.eta_init)) return false;
+        } else if (key == "--eta-max") {
+            if (!parse_double(value, args.eta_max)) return false;
+        } else if (key == "--gamma") {
+            if (!parse_double(value, args.gamma)) return false;
+        } else if (key == "--alpha") {
+            if (!parse_double(value, args.alpha)) return false;
+        } else if (key == "--eta2-factor") {
+            if (!parse_double(value, args.eta2_factor)) return false;
+        } else if (key == "--eta2-max") {
+            if (!parse_double(value, args.eta2_max)) return false;
         } else if (key == "--seeds") {
             if (!parse_unsigned(value, args.seeds)) return false;
         } else if (key == "--warmup") {
@@ -212,7 +236,13 @@ bool parse_args(int argc, char** argv, Args& args) {
 
     if (!valid_phase(args.phase) || !valid_start(args.start) ||
         args.out.empty() || args.commit.empty() ||
-        !(args.rtol > 0.0) || args.restart == 0 || args.maxlin == 0) {
+        !(args.rtol > 0.0) || args.max_nl == 0 ||
+        !(args.eta_init > 0.0) || !(args.eta_init <= args.eta_max) ||
+        !(args.eta_max > 0.0 && args.eta_max < 1.0) ||
+        !(args.gamma > 0.0) || !(args.alpha > 0.0) ||
+        !(args.eta2_factor > 0.0) ||
+        !(args.eta2_max > 0.0 && args.eta2_max < 1.0) ||
+        args.restart == 0 || args.maxlin == 0) {
         return false;
     }
 
@@ -324,7 +354,13 @@ bool run_method(
 
         KrylovParams params;
         params.rtol_nl = args.rtol;
-        params.max_nl = 50;
+        params.max_nl = args.max_nl;
+        params.eta_init = args.eta_init;
+        params.eta_max = args.eta_max;
+        params.gamma = args.gamma;
+        params.alpha = args.alpha;
+        params.eta2_factor = args.eta2_factor;
+        params.eta2_max = args.eta2_max;
         params.gmres_restart = args.restart;
         params.gmres_max_iters = args.maxlin;
         params.recycle = method == "rec";
@@ -380,6 +416,16 @@ bool run_method(
                 : result.res;
         row.threads = thread_count();
         row.repetition = repetition;
+        row.rtol = args.rtol;
+        row.max_nl = args.max_nl;
+        row.eta_init = args.eta_init;
+        row.eta_max = args.eta_max;
+        row.gamma = args.gamma;
+        row.alpha = args.alpha;
+        row.eta2_factor = args.eta2_factor;
+        row.eta2_max = args.eta2_max;
+        row.restart = args.restart;
+        row.maxlin = args.maxlin;
         row.commit = args.commit;
 
         if (!append_csv(args.out, row)) {

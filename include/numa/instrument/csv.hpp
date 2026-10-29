@@ -40,6 +40,16 @@ struct CsvRow {
     double residual_rel = 0.0;
     int threads = 1;
     int repetition = 0;
+    double rtol = 0.0;
+    std::size_t max_nl = 0;
+    double eta_init = 0.0;
+    double eta_max = 0.0;
+    double gamma = 0.0;
+    double alpha = 0.0;
+    double eta2_factor = 0.0;
+    double eta2_max = 0.0;
+    std::size_t restart = 0;
+    std::size_t maxlin = 0;
     std::string commit;
 };
 
@@ -49,7 +59,8 @@ inline const char* csv_header() {
         "distance,rho_x,seed,success,nonlinear_iters,n_F,n_JVP,n_D2,n_lin,"
         "n_lin_failures,n_prec,"
         "t_setup,t_F,t_JVP,t_D2,t_prec,t_total,max_rss_kb,residual_rel,"
-        "threads,repetition,commit";
+        "threads,repetition,rtol,max_nl,eta_init,eta_max,gamma,alpha,"
+        "eta2_factor,eta2_max,restart,maxlin,commit";
 }
 
 inline std::string csv_line(const CsvRow& row) {
@@ -58,7 +69,8 @@ inline std::string csv_line(const CsvRow& row) {
         buffer, sizeof(buffer),
         "%s,%s,%s,%zu,%zu,%.17g,%s,%s,%s,%s,%s,%.17g,%u,%d,"
         "%zu,%zu,%zu,%zu,%zu,%zu,%zu,"
-        "%.9e,%.9e,%.9e,%.9e,%.9e,%.9e,%ld,%.9e,%d,%d,%s",
+        "%.9e,%.9e,%.9e,%.9e,%.9e,%.9e,%ld,%.9e,%d,%d,"
+        "%.17g,%zu,%.17g,%.17g,%.17g,%.17g,%.17g,%.17g,%zu,%zu,%s",
         row.phase.c_str(),
         row.problem.c_str(),
         row.family.c_str(),
@@ -90,6 +102,16 @@ inline std::string csv_line(const CsvRow& row) {
         row.residual_rel,
         row.threads,
         row.repetition,
+        row.rtol,
+        row.max_nl,
+        row.eta_init,
+        row.eta_max,
+        row.gamma,
+        row.alpha,
+        row.eta2_factor,
+        row.eta2_max,
+        row.restart,
+        row.maxlin,
         row.commit.c_str());
     return buffer;
 }
