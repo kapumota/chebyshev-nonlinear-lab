@@ -87,7 +87,7 @@ def main():
     ]
 
     with open(args.output_csv, "w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
 
         for key in all_keys:
@@ -134,7 +134,7 @@ def main():
 
     print(
         "Costos congelados desde calibración. "
-        "Revise, audite por param y versione el CSV antes de confirmación."
+        "Revise la estabilidad entre parámetros de calibración y versione el CSV antes de confirmación."
     )
 
 

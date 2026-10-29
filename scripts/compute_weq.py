@@ -55,7 +55,7 @@ def main():
         fieldnames.append("W_eq")
 
     with open(args.output_csv, "w", newline="", encoding="utf-8") as target:
-        writer = csv.DictWriter(target, fieldnames=fieldnames)
+        writer = csv.DictWriter(target, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
 
         for row in rows:

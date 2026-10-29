@@ -52,3 +52,7 @@ data/external/*
 !data/external/README.md
 experiments/**/raw/*
 !experiments/**/raw/README.md
+
+# Python
+__pycache__/
+*.py[cod]
