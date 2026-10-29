@@ -8,13 +8,14 @@
 // Ejemplo:
 //   NUMA_COMMIT=$(git rev-parse HEAD) OMP_NUM_THREADS=8 \
 //   run_campaign --phase calibration --problem bratu --n 31 --param 8.0 \
-//     --precond mg --methods nk,cheb,rec --start perturbed \
+//     --precond mg --methods nk,cheb,rec,tf2018 --start perturbed \
 //     --start-file start.txt --dist near,mid,far --seeds 12 \
 //     --warmup 1 --reps 7 --out calibration.csv
 
 #include <numa/instrument/csv.hpp>
 #include <numa/linalg/poisson_mg.hpp>
 #include <numa/methods/krylov_newton.hpp>
+#include <numa/methods/tf_chebyshev_2018.hpp>
 #include <numa/operators/timing.hpp>
 #include <numa/problems/bratu3d.hpp>
 #include <numa/problems/brusselator1d.hpp>
@@ -140,7 +141,8 @@ std::vector<std::string> split(const std::string& text) {
 }
 
 bool valid_method(const std::string& method) {
-    return method == "nk" || method == "cheb" || method == "rec";
+    return method == "nk" || method == "cheb" || method == "rec" ||
+           method == "tf2018";
 }
 
 bool valid_phase(const std::string& phase) {
@@ -168,7 +170,7 @@ void usage(const char* program) {
         stderr,
         "Uso: %s --phase exploratory|calibration|confirmation "
         "--problem bratu|chandra|burgers|brusselator --n N --param P "
-        "--precond mg|jacobi|none --methods nk,cheb,rec "
+        "--precond mg|jacobi|none --methods nk,cheb,rec,tf2018 "
         "--start natural|perturbed|continuation|coarse "
         "[--dt DT] [--amp A] [--start-file vector.txt] [--start-id ID] [--dist near,mid,far] "
         "[--seeds 12] [--warmup 1] [--reps 7] "
@@ -378,6 +380,9 @@ bool run_method(
         KrylovResult result;
         if (method == "nk") {
             result = newton_krylov(
+                timed_problem, x0, params, timed_provider);
+        } else if (method == "tf2018") {
+            result = tf_chebyshev_2018(
                 timed_problem, x0, params, timed_provider);
         } else {
             result = chebyshev_inexact(

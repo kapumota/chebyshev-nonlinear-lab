@@ -56,7 +56,8 @@ if(NUMA_BUILD_TESTS)
     tests/test_operators.cpp
     tests/test_chandrasekhar_op.cpp
     tests/test_burgers.cpp
-    tests/test_brusselator.cpp)
+    tests/test_brusselator.cpp
+    tests/test_tf_chebyshev_2018.cpp)
   target_link_libraries(numa_tests PRIVATE numa Catch2::Catch2WithMain)
   list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
   include(Catch)
