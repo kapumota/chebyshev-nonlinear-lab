@@ -31,6 +31,7 @@ option(NUMA_BUILD_BENCH "Build benchmarks" ON)
 option(NUMA_BUILD_APPS  "Build demos" ON)
 option(NUMA_BUILD_CUDA  "Build CUDA demos" OFF)
 option(NUMA_BUILD_MPI   "Compilar verificación MPI" OFF)
+option(NUMA_BUILD_PETSC "Compilar baseline externo PETSc" OFF)
 option(NUMA_ENABLE_SANITIZERS "ASan/UBSan" OFF)
 
 if(NUMA_ENABLE_SANITIZERS)
@@ -87,6 +88,43 @@ if(NUMA_BUILD_APPS)
   endforeach()
 endif()
 
+
+
+# ---- Baseline externo PETSc ----
+if(NUMA_BUILD_PETSC)
+  find_package(PkgConfig REQUIRED)
+  pkg_check_modules(PETSC REQUIRED IMPORTED_TARGET PETSc)
+
+  add_executable(petsc_baseline apps/petsc_baseline.cpp)
+  target_link_libraries(petsc_baseline PRIVATE numa PkgConfig::PETSC)
+
+  if(NUMA_BUILD_TESTS)
+    add_test(
+      NAME petsc_b1_smoke
+      COMMAND $<TARGET_FILE:petsc_baseline>
+        --phase exploratory
+        --problem bratu
+        --family B1
+        --n 7
+        --param 0.5
+        --precond jacobi
+        --start natural
+        --rtol 1e-8
+        --max-nl 50
+        --restart 30
+        --maxlin 200
+        --warmup 0
+        --reps 1
+        --out ${CMAKE_CURRENT_BINARY_DIR}/petsc_b1_smoke.csv
+        -snes_type newtonls
+        -snes_linesearch_type bt
+        -ksp_type gmres)
+    set_tests_properties(petsc_b1_smoke PROPERTIES
+      LABELS "petsc"
+      ENVIRONMENT
+        "NUMA_COMMIT=ctest-petsc-smoke;OMP_NUM_THREADS=1;OPENBLAS_NUM_THREADS=1;MKL_NUM_THREADS=1")
+  endif()
+endif()
 
 # ---- MPI ----
 if(NUMA_BUILD_MPI)
