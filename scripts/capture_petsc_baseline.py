@@ -69,6 +69,9 @@ def parse_metadata(stdout: str) -> dict[str, str]:
         "ksp_rtol",
         "ksp_max_it",
         "gmres_restart",
+        "problem",
+        "family",
+        "application_preconditioner",
     }
     missing = sorted(required - values.keys())
     if missing:
@@ -195,7 +198,7 @@ def main() -> int:
         "nonlinear_method": "SNESNEWTONLS",
         "linear_method": metadata["ksp_type"].upper(),
         "preconditioner": (
-            "BratuJacobi via PCSHELL"
+            f"{metadata['application_preconditioner']} via PCSHELL"
             if metadata["pc_type"] == "shell"
             else "none"
         ),
@@ -212,7 +215,7 @@ def main() -> int:
             "threads": 1,
         },
         "command": shlex.join(full_command),
-        "problems": ["B1"],
+        "problems": [metadata["family"]],
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "petsc_source_commit": petsc_commit,
         "petsc_source_tag": petsc_tag,

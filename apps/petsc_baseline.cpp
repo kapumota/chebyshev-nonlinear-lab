@@ -1,9 +1,12 @@
-// Baseline externo PETSc para C1. Esta primera entrega cubre B1 Bratu
-// en un proceso, con el mismo F, Jv y Jacobi del código interno.
+// Baseline externo PETSc para C1. Usa el mismo F, Jv y precondicionador
+// de la implementación interna para B1, B5, B3a y Bext.
 
 #include <numa/instrument/csv.hpp>
 #include <numa/operators/operator.hpp>
 #include <numa/problems/bratu3d.hpp>
+#include <numa/problems/brusselator1d.hpp>
+#include <numa/problems/burgers2d.hpp>
+#include <numa/problems/chandrasekhar_op.hpp>
 
 #include <petscsnes.h>
 
@@ -12,8 +15,11 @@
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
-#include <cstring>
+#include <fstream>
+#include <functional>
 #include <limits>
+#include <memory>
+#include <stdexcept>
 #include <string>
 #include <sys/resource.h>
 #include <utility>
@@ -26,6 +32,12 @@
 using numa::instrument::CsvRow;
 using numa::instrument::append_csv;
 using numa::op::Bratu3D;
+using numa::op::BratuJacobi;
+using numa::op::Brusselator1DStep;
+using numa::op::BrusselatorJacobi;
+using numa::op::Burgers2D;
+using numa::op::BurgersMGProvider;
+using numa::op::ChandrasekharOp;
 using numa::op::DVec;
 using numa::op::norm2;
 
@@ -39,10 +51,17 @@ struct Args {
     std::string family = "B1";
     std::string precond = "jacobi";
     std::string start = "natural";
+    std::string start_file;
+    std::string start_id;
+    std::string distance = "natural";
     std::string out = "petsc_campaign.csv";
     std::string commit;
     std::size_t n = 7;
     double param = 0.5;
+    double dt = 0.1;
+    double amp = 1.0;
+    double rho_x = 0.0;
+    unsigned seed = 0;
     double rtol = 1e-8;
     std::size_t max_nl = 50;
     std::size_t restart = 30;
@@ -52,13 +71,14 @@ struct Args {
 };
 
 struct PetscContext {
-    PetscContext(std::size_t n, double lambda, bool jacobi)
-        : problem(n, lambda), x_current(problem.size(), 0.0), use_jacobi(jacobi) {}
-
-    Bratu3D problem;
+    std::size_t size = 0;
+    DVec initial;
     DVec x_current;
-    DVec jacobi_diag;
-    bool use_jacobi = false;
+    bool use_precond = false;
+    std::function<void(const DVec&, DVec&)> eval;
+    std::function<void(const DVec&, const DVec&, DVec&)> jvp;
+    std::function<void(const DVec&)> setup_precond;
+    std::function<void(const DVec&, DVec&)> apply_precond;
     std::size_t n_F = 0;
     std::size_t n_JVP = 0;
     std::size_t n_prec = 0;
@@ -66,6 +86,24 @@ struct PetscContext {
     double t_JVP = 0.0;
     double t_prec = 0.0;
     double t_setup = 0.0;
+};
+
+struct EffectiveConfig {
+    std::string petsc_version;
+    std::string snes_type;
+    std::string linesearch_type;
+    std::string ksp_type;
+    std::string pc_type;
+    PetscReal snes_atol = 0.0;
+    PetscReal snes_rtol = 0.0;
+    PetscReal snes_stol = 0.0;
+    PetscInt snes_max_it = 0;
+    PetscInt snes_max_funcs = 0;
+    PetscReal ksp_rtol = 0.0;
+    PetscReal ksp_atol = 0.0;
+    PetscReal ksp_dtol = 0.0;
+    PetscInt ksp_max_it = 0;
+    PetscInt gmres_restart = 0;
 };
 
 double elapsed(Clock::time_point start) {
@@ -97,6 +135,19 @@ bool parse_size(const char* text, std::size_t& value) {
         return false;
     }
     value = static_cast<std::size_t>(raw);
+    return true;
+}
+
+bool parse_unsigned(const char* text, unsigned& value) {
+    if (text == nullptr || *text == '\0') return false;
+    errno = 0;
+    char* end = nullptr;
+    const unsigned long raw = std::strtoul(text, &end, 10);
+    if (errno != 0 || end == text || *end != '\0' ||
+        raw > std::numeric_limits<unsigned>::max()) {
+        return false;
+    }
+    value = static_cast<unsigned>(raw);
     return true;
 }
 
@@ -138,13 +189,27 @@ bool parse_double(const char* text, double& value) {
     return true;
 }
 
+bool valid_phase(const std::string& phase) {
+    return phase == "exploratory" || phase == "calibration" ||
+           phase == "confirmation";
+}
+
+bool valid_start(const std::string& start) {
+    return start == "natural" || start == "perturbed" ||
+           start == "continuation" || start == "coarse";
+}
+
 void usage(const char* program) {
     std::fprintf(
         stderr,
-        "Uso: %s --problem bratu --family B1 --n N --param LAMBDA "
-        "--precond jacobi|none --start natural --rtol TOL --max-nl N "
-        "--restart N --maxlin N --warmup N --reps N --out FILE "
-        "[opciones PETSc]\n",
+        "Uso: %s --phase exploratory|calibration|confirmation "
+        "--problem bratu|chandra|burgers|brusselator "
+        "--family B1|B5|B3a|Bext --n N --param P "
+        "--precond jacobi|mg|none --start natural|perturbed|continuation|coarse "
+        "[--dt DT] [--amp A] [--start-file FILE] [--start-id ID] "
+        "[--distance natural|near|mid|far] [--rho-x RHO] [--seed N] "
+        "--rtol TOL --max-nl N --restart N --maxlin N "
+        "--warmup N --reps N --out FILE [opciones PETSc]\n",
         program);
 }
 
@@ -164,10 +229,13 @@ bool parse_args(
 
         const bool custom =
             key == "--phase" || key == "--problem" || key == "--family" ||
-            key == "--precond" || key == "--start" || key == "--out" ||
+            key == "--precond" || key == "--start" || key == "--start-file" ||
+            key == "--start-id" || key == "--distance" || key == "--out" ||
             key == "--commit" || key == "--n" || key == "--param" ||
-            key == "--rtol" || key == "--max-nl" || key == "--restart" ||
-            key == "--maxlin" || key == "--warmup" || key == "--reps";
+            key == "--dt" || key == "--amp" || key == "--rho-x" ||
+            key == "--seed" || key == "--rtol" || key == "--max-nl" ||
+            key == "--restart" || key == "--maxlin" || key == "--warmup" ||
+            key == "--reps";
 
         if (!custom) {
             petsc_strings.push_back(key);
@@ -181,10 +249,17 @@ bool parse_args(
         else if (key == "--family") args.family = value;
         else if (key == "--precond") args.precond = value;
         else if (key == "--start") args.start = value;
+        else if (key == "--start-file") args.start_file = value;
+        else if (key == "--start-id") args.start_id = value;
+        else if (key == "--distance") args.distance = value;
         else if (key == "--out") args.out = value;
         else if (key == "--commit") args.commit = value;
         else if (key == "--n" && !parse_size(value, args.n)) return false;
         else if (key == "--param" && !parse_double(value, args.param)) return false;
+        else if (key == "--dt" && !parse_double(value, args.dt)) return false;
+        else if (key == "--amp" && !parse_double(value, args.amp)) return false;
+        else if (key == "--rho-x" && !parse_double(value, args.rho_x)) return false;
+        else if (key == "--seed" && !parse_unsigned(value, args.seed)) return false;
         else if (key == "--rtol" && !parse_double(value, args.rtol)) return false;
         else if (key == "--max-nl" && !parse_size(value, args.max_nl)) return false;
         else if (key == "--restart" && !parse_size(value, args.restart)) return false;
@@ -193,23 +268,157 @@ bool parse_args(
         else if (key == "--reps" && !parse_positive_int(value, args.reps)) return false;
     }
 
-    if (args.problem != "bratu" || args.family != "B1" || args.start != "natural") {
-        std::fprintf(stderr, "0020b-v1 admite sólo B1 Bratu con start natural.\n");
-        return false;
-    }
-    if (args.precond != "jacobi" && args.precond != "none") {
-        std::fprintf(stderr, "B1 PETSc admite --precond jacobi o none.\n");
-        return false;
-    }
-    if (!(args.param >= 0.0) || !(args.rtol > 0.0) || args.restart == 0 ||
-        args.maxlin == 0 || args.max_nl == 0) {
+    if (!valid_phase(args.phase) || !valid_start(args.start)) return false;
+    if (!(args.rtol > 0.0) || args.restart == 0 || args.maxlin == 0 ||
+        args.max_nl == 0) {
         return false;
     }
     if (args.commit.empty()) {
         std::fprintf(stderr, "Falta NUMA_COMMIT o --commit para trazabilidad.\n");
         return false;
     }
-    return true;
+
+    if (args.start == "natural") {
+        if (!args.start_file.empty()) {
+            std::fprintf(stderr, "start natural no admite --start-file.\n");
+            return false;
+        }
+        args.start_id = "natural";
+        args.distance = "natural";
+        args.rho_x = 0.0;
+        args.seed = 0;
+    } else if (args.start_file.empty() || args.start_id.empty()) {
+        std::fprintf(stderr, "Los starts no naturales requieren --start-file y --start-id.\n");
+        return false;
+    }
+
+    if (args.problem == "bratu") {
+        return args.family == "B1" && args.param >= 0.0 &&
+               (args.precond == "jacobi" || args.precond == "none");
+    }
+    if (args.problem == "chandra") {
+        return args.family == "B5" && args.param >= 0.0 && args.param <= 1.0 &&
+               args.precond == "none";
+    }
+    if (args.problem == "burgers") {
+        return args.family == "B3a" && args.param > 0.0 && args.dt > 0.0 &&
+               std::isfinite(args.amp) &&
+               (args.precond == "mg" || args.precond == "none");
+    }
+    if (args.problem == "brusselator") {
+        return args.family == "Bext" && args.param > 0.0 &&
+               (args.precond == "jacobi" || args.precond == "none");
+    }
+    return false;
+}
+
+bool load_vector(const std::string& path, std::size_t expected, DVec& values) {
+    std::ifstream input(path);
+    if (!input) return false;
+    values.clear();
+    double value = 0.0;
+    while (input >> value) {
+        if (!std::isfinite(value)) return false;
+        values.push_back(value);
+    }
+    return input.eof() && values.size() == expected;
+}
+
+std::string instance_id(const Args& args) {
+    char buffer[256];
+    if (args.family == "B1") {
+        std::snprintf(buffer, sizeof(buffer), "lambda=%.17g", args.param);
+    } else if (args.family == "B5") {
+        std::snprintf(buffer, sizeof(buffer), "c=%.17g", args.param);
+    } else if (args.family == "B3a") {
+        std::snprintf(
+            buffer, sizeof(buffer), "nu=%.17g;dt=%.17g;amp=%.17g",
+            args.param, args.dt, args.amp);
+    } else {
+        std::snprintf(
+            buffer, sizeof(buffer), "dt=%.17g;A=1;B=3;alpha=0.02",
+            args.param);
+    }
+    return buffer;
+}
+
+std::unique_ptr<PetscContext> make_context(const Args& args) {
+    auto ctx = std::make_unique<PetscContext>();
+
+    if (args.family == "B1") {
+        auto problem = std::make_shared<Bratu3D>(args.n, args.param);
+        ctx->size = problem->size();
+        ctx->initial.assign(ctx->size, 0.0);
+        ctx->eval = [problem](const DVec& x, DVec& out) { problem->eval(x, out); };
+        ctx->jvp = [problem](const DVec& x, const DVec& v, DVec& out) {
+            problem->jvp(x, v, out);
+        };
+        if (args.precond == "jacobi") {
+            auto bound = std::make_shared<BratuJacobi::Bound>();
+            ctx->use_precond = true;
+            ctx->setup_precond = [problem, bound](const DVec& x) {
+                *bound = BratuJacobi{*problem}.make(x);
+            };
+            ctx->apply_precond = [bound](const DVec& r, DVec& z) {
+                (*bound)(r, z);
+            };
+        }
+    } else if (args.family == "B5") {
+        auto problem = std::make_shared<ChandrasekharOp>(args.n, args.param);
+        ctx->size = problem->size();
+        ctx->initial.assign(ctx->size, 1.0);
+        ctx->eval = [problem](const DVec& x, DVec& out) { problem->eval(x, out); };
+        ctx->jvp = [problem](const DVec& x, const DVec& v, DVec& out) {
+            problem->jvp(x, v, out);
+        };
+    } else if (args.family == "B3a") {
+        auto problem = std::make_shared<Burgers2D>(args.n, args.param, args.dt, args.amp);
+        ctx->size = problem->size();
+        ctx->initial.assign(ctx->size, 0.0);
+        ctx->eval = [problem](const DVec& x, DVec& out) { problem->eval(x, out); };
+        ctx->jvp = [problem](const DVec& x, const DVec& v, DVec& out) {
+            problem->jvp(x, v, out);
+        };
+        if (args.precond == "mg") {
+            auto provider = std::make_shared<BurgersMGProvider>(
+                args.n, args.param, args.dt);
+            auto bound = std::make_shared<BurgersMGProvider::Bound>();
+            ctx->use_precond = true;
+            ctx->setup_precond = [provider, bound](const DVec& x) {
+                *bound = provider->make(x);
+            };
+            ctx->apply_precond = [bound](const DVec& r, DVec& z) {
+                (*bound)(r, z);
+            };
+        }
+    } else {
+        auto problem = std::make_shared<Brusselator1DStep>(args.n, args.param);
+        ctx->size = problem->size();
+        ctx->initial = problem->previous();
+        ctx->eval = [problem](const DVec& x, DVec& out) { problem->eval(x, out); };
+        ctx->jvp = [problem](const DVec& x, const DVec& v, DVec& out) {
+            problem->jvp(x, v, out);
+        };
+        if (args.precond == "jacobi") {
+            auto bound = std::make_shared<BrusselatorJacobi::Bound>();
+            ctx->use_precond = true;
+            ctx->setup_precond = [problem, bound](const DVec& x) {
+                *bound = BrusselatorJacobi{*problem}.make(x);
+            };
+            ctx->apply_precond = [bound](const DVec& r, DVec& z) {
+                (*bound)(r, z);
+            };
+        }
+    }
+
+    if (args.start != "natural") {
+        if (!load_vector(args.start_file, ctx->size, ctx->initial)) {
+            throw std::runtime_error(
+                "No se pudo leer el start materializado con la dimensión esperada");
+        }
+    }
+    ctx->x_current = ctx->initial;
+    return ctx;
 }
 
 PetscErrorCode vec_to_dvec(Vec source, DVec& target) {
@@ -250,7 +459,7 @@ PetscErrorCode form_function(SNES, Vec x, Vec f, void* raw) {
     PetscFunctionBeginUser;
     PetscCall(vec_to_dvec(x, xd));
     const auto start = Clock::now();
-    ctx->problem.eval(xd, fd);
+    ctx->eval(xd, fd);
     ctx->t_F += elapsed(start);
     ++ctx->n_F;
     PetscCall(dvec_to_vec(fd, f));
@@ -265,7 +474,7 @@ PetscErrorCode mat_mult(Mat A, Vec v, Vec y) {
     auto* ctx = static_cast<PetscContext*>(raw);
     PetscCall(vec_to_dvec(v, vd));
     const auto start = Clock::now();
-    ctx->problem.jvp(ctx->x_current, vd, yd);
+    ctx->jvp(ctx->x_current, vd, yd);
     ctx->t_JVP += elapsed(start);
     ++ctx->n_JVP;
     PetscCall(dvec_to_vec(yd, y));
@@ -276,9 +485,9 @@ PetscErrorCode form_jacobian(SNES, Vec x, Mat, Mat, void* raw) {
     auto* ctx = static_cast<PetscContext*>(raw);
     PetscFunctionBeginUser;
     PetscCall(vec_to_dvec(x, ctx->x_current));
-    const auto start = Clock::now();
-    if (ctx->use_jacobi) {
-        ctx->problem.jacobi_diag(ctx->x_current, ctx->jacobi_diag);
+    if (ctx->use_precond) {
+        const auto start = Clock::now();
+        ctx->setup_precond(ctx->x_current);
         ctx->t_setup += elapsed(start);
     }
     PetscFunctionReturn(PETSC_SUCCESS);
@@ -290,41 +499,19 @@ PetscErrorCode pc_apply(PC pc, Vec r, Vec z) {
     PetscFunctionBeginUser;
     PetscCall(PCShellGetContext(pc, &raw));
     auto* ctx = static_cast<PetscContext*>(raw);
-    PetscCall(vec_to_dvec(r, rd));
     PetscCheck(
-        ctx->jacobi_diag.size() == rd.size(),
+        ctx->use_precond && static_cast<bool>(ctx->apply_precond),
         PETSC_COMM_SELF,
         PETSC_ERR_ARG_WRONGSTATE,
-        "Jacobi PETSc se aplicó antes de fijar la diagonal");
-
+        "PCSHELL se aplicó sin precondicionador de aplicación");
+    PetscCall(vec_to_dvec(r, rd));
     const auto start = Clock::now();
-    zd.resize(rd.size());
-    for (std::size_t i = 0; i < rd.size(); ++i) {
-        zd[i] = rd[i] / ctx->jacobi_diag[i];
-    }
+    ctx->apply_precond(rd, zd);
     ctx->t_prec += elapsed(start);
     ++ctx->n_prec;
     PetscCall(dvec_to_vec(zd, z));
     PetscFunctionReturn(PETSC_SUCCESS);
 }
-
-struct EffectiveConfig {
-    std::string petsc_version;
-    std::string snes_type;
-    std::string linesearch_type;
-    std::string ksp_type;
-    std::string pc_type;
-    PetscReal snes_atol = 0.0;
-    PetscReal snes_rtol = 0.0;
-    PetscReal snes_stol = 0.0;
-    PetscInt snes_max_it = 0;
-    PetscInt snes_max_funcs = 0;
-    PetscReal ksp_rtol = 0.0;
-    PetscReal ksp_atol = 0.0;
-    PetscReal ksp_dtol = 0.0;
-    PetscInt ksp_max_it = 0;
-    PetscInt gmres_restart = 0;
-};
 
 PetscErrorCode read_effective_config(SNES snes, EffectiveConfig& out) {
     char version[256] = {};
@@ -369,8 +556,16 @@ PetscErrorCode read_effective_config(SNES snes, EffectiveConfig& out) {
     PetscFunctionReturn(PETSC_SUCCESS);
 }
 
-void print_effective_config(const EffectiveConfig& cfg) {
+void print_effective_config(const Args& args, const EffectiveConfig& cfg) {
     std::printf("PETSC_BASELINE_BEGIN\n");
+    std::printf("problem=%s\n", args.problem.c_str());
+    std::printf("family=%s\n", args.family.c_str());
+    std::printf("application_preconditioner=%s\n", args.precond.c_str());
+    std::printf("start_kind=%s\n", args.start.c_str());
+    std::printf("start_id=%s\n", args.start_id.c_str());
+    std::printf("distance=%s\n", args.distance.c_str());
+    std::printf("rho_x=%.17g\n", args.rho_x);
+    std::printf("seed=%u\n", args.seed);
     std::printf("petsc_version=%s\n", cfg.petsc_version.c_str());
     std::printf("snes_type=%s\n", cfg.snes_type.c_str());
     std::printf("linesearch_type=%s\n", cfg.linesearch_type.c_str());
@@ -396,8 +591,14 @@ PetscErrorCode solve_once(
     bool record,
     EffectiveConfig* effective)
 {
-    PetscContext ctx(args.n, args.param, args.precond == "jacobi");
-    const PetscInt N = static_cast<PetscInt>(ctx.problem.size());
+    std::unique_ptr<PetscContext> ctx_owner;
+    try {
+        ctx_owner = make_context(args);
+    } catch (const std::exception& error) {
+        SETERRQ(PETSC_COMM_SELF, PETSC_ERR_FILE_READ, "%s", error.what());
+    }
+    auto& ctx = *ctx_owner;
+    const PetscInt N = static_cast<PetscInt>(ctx.size);
     Vec x = nullptr, f = nullptr;
     Mat J = nullptr;
     SNES snes = nullptr;
@@ -408,7 +609,7 @@ PetscErrorCode solve_once(
     PetscFunctionBeginUser;
     PetscCall(VecCreateSeq(PETSC_COMM_SELF, N, &x));
     PetscCall(VecDuplicate(x, &f));
-    PetscCall(VecSet(x, 0.0));
+    PetscCall(dvec_to_vec(ctx.initial, x));
     PetscCall(MatCreateShell(PETSC_COMM_SELF, N, N, N, N, &ctx, &J));
     PetscCall(MatShellSetOperation(
         J,
@@ -441,12 +642,12 @@ PetscErrorCode solve_once(
 
     PetscCall(SNESSetFromOptions(snes));
 
-    // MatShell y el precondicionador de la aplicación son invariantes del
-    // baseline; las opciones PETSc pueden cambiar SNES/KSP/tolerancias, no F/Jv.
+    // F, Jv y el precondicionador de aplicación no son sustituibles por
+    // opciones PETSc. Sólo se permiten ajustes del solver/tolerancias.
     PetscCall(SNESSetJacobian(snes, J, J, form_jacobian, &ctx));
     PetscCall(SNESGetKSP(snes, &ksp));
     PetscCall(KSPGetPC(ksp, &pc));
-    if (args.precond == "jacobi") {
+    if (ctx.use_precond) {
         PetscCall(PCSetType(pc, PCSHELL));
         PetscCall(PCShellSetContext(pc, &ctx));
         PetscCall(PCShellSetApply(pc, pc_apply));
@@ -474,7 +675,7 @@ PetscErrorCode solve_once(
         PETSC_ERR_SUP,
         "El baseline C1 exige KSPGMRES; tipo efectivo: %s",
         cfg.ksp_type.c_str());
-    const std::string expected_pc = args.precond == "jacobi" ? PCSHELL : PCNONE;
+    const std::string expected_pc = ctx.use_precond ? PCSHELL : PCNONE;
     PetscCheck(
         cfg.pc_type == expected_pc,
         PETSC_COMM_SELF,
@@ -483,8 +684,8 @@ PetscErrorCode solve_once(
         cfg.pc_type.c_str());
     if (effective != nullptr) *effective = cfg;
 
-    DVec x0(ctx.problem.size(), 0.0), F0;
-    ctx.problem.eval(x0, F0);
+    DVec F0;
+    ctx.eval(ctx.initial, F0);
     const double res0 = norm2(F0);
 
     const auto total_start = Clock::now();
@@ -507,19 +708,19 @@ PetscErrorCode solve_once(
     if (record) {
         CsvRow row;
         row.phase = args.phase;
-        row.problem = "bratu";
-        row.family = "B1";
+        row.problem = args.problem;
+        row.family = args.family;
         row.n = args.n;
-        row.N = ctx.problem.size();
+        row.N = ctx.size;
         row.param = args.param;
-        row.instance_id = "lambda=" + std::to_string(args.param);
+        row.instance_id = instance_id(args);
         row.method = "petsc";
         row.precond = args.precond;
-        row.start_kind = "natural";
-        row.start_id = "natural";
-        row.distance = "natural";
-        row.rho_x = 0.0;
-        row.seed = 0;
+        row.start_kind = args.start;
+        row.start_id = args.start_id;
+        row.distance = args.distance;
+        row.rho_x = args.rho_x;
+        row.seed = args.seed;
         row.success = reason > 0;
         row.nonlinear_iters = static_cast<std::size_t>(nonlinear_iters);
         row.n_F = ctx.n_F;
@@ -559,9 +760,10 @@ PetscErrorCode solve_once(
             args.out.c_str());
 
         std::printf(
-            "result repetition=%d success=%d nonlinear_iters=%" PetscInt_FMT
+            "result family=%s repetition=%d success=%d nonlinear_iters=%" PetscInt_FMT
             " linear_iters=%" PetscInt_FMT " n_F=%zu petsc_n_F=%" PetscInt_FMT
             " n_JVP=%zu n_prec=%zu residual_rel=%.9e t_total=%.9e\n",
+            args.family.c_str(),
             repetition,
             reason > 0 ? 1 : 0,
             nonlinear_iters,
@@ -589,7 +791,7 @@ PetscErrorCode run(const Args& args) {
         size == 1,
         PETSC_COMM_WORLD,
         PETSC_ERR_SUP,
-        "0020b-v1 es un baseline PETSc CPU de un solo proceso");
+        "0020c-v1 es un baseline PETSc CPU de un solo proceso");
 
     for (int i = 0; i < args.warmup; ++i) {
         PetscCall(solve_once(args, 0, false, nullptr));
@@ -603,7 +805,7 @@ PetscErrorCode run(const Args& args) {
             true,
             repetition == 1 ? &effective : nullptr));
     }
-    print_effective_config(effective);
+    print_effective_config(args, effective);
     PetscFunctionReturn(PETSC_SUCCESS);
 }
 

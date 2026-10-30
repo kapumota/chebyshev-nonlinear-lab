@@ -1,57 +1,42 @@
-### Runner PETSc real para C1
+### Runner PETSc externo para C1
 
-#### Alcance de 0020b-v1
+`petsc_baseline` ejecuta PETSc sobre los mismos operadores del repositorio y
+no sobre discretizaciones reimplementadas. Las cuatro familias admitidas son:
 
-Esta entrega integra un ejecutable PETSc real para B1 Bratu. No amplía todavía la campaña a B3a, B5 o Bext y no constituye el freeze del baseline externo.
+- B1: Bratu 3D, `MatShell` sobre `Bratu3D::jvp` y Jacobi mediante `PCSHELL`.
+- B5: Chandrasekhar dinámico, `MatShell` sobre `ChandrasekharOp::jvp`, sin PC.
+- B3a: Burgers 2D manufacturado de control, `MatShell` y MG mediante `PCSHELL`.
+- Bext: Brusselator 1D no manufacturado, `MatShell` y Jacobi por bloques mediante `PCSHELL`.
 
-El sistema no lineal es el mismo objeto `Bratu3D` usado por `run_campaign`. PETSc recibe:
+El solver externo se fija a `SNESNEWTONLS`, line search `bt` y `KSPGMRES`.
+Después de `SNESSetFromOptions`, el ejecutable consulta la configuración
+efectiva y aborta si esas tres decisiones fueron sustituidas. El tipo de PC
+queda fijado por la familia y por `--precond`.
 
-```text
-F(x)        -> Bratu3D::eval
-J(x) v      -> Bratu3D::jvp mediante MatShell
-Jacobi      -> Bratu3D::jacobi_diag mediante PCSHELL
-```
+### Starts materializados
 
-No se materializa un Jacobiano y no se usa `-snes_mf` como camino principal. Por tanto, la acción del Jacobiano corresponde al Jv analítico matrix-free del repositorio y no a diferencias finitas internas de PETSc.
+`natural` usa exactamente el estado natural de cada problema. Para
+`perturbed`, `continuation` y `coarse`, PETSc no genera un vector propio: exige
+`--start-file` y consume los mismos valores materializados que la campaña
+interna. De este modo la comparación no depende de que dos generadores
+pseudoaleatorios produzcan accidentalmente el mismo vector.
 
-#### Configuración efectiva
+Los campos `start_id`, `distance`, `rho_x` y `seed` se copian al CSV y forman
+parte de la procedencia. La construcción de esos starts pertenece al protocolo
+C1, no al baseline PETSc.
 
-El ejecutable fija valores iniciales reproducibles para:
+### Instrumentación
 
-```text
-SNESNEWTONLS
-SNESLINESEARCHBT
-KSPGMRES
-MatShell
-PCSHELL o PCNONE según --precond
-```
+Cada fila conserva `n_F`, `n_JVP`, `n_prec`, iteraciones no lineales y
+lineales, fallos lineales, tiempos de primitivas, `t_total`, residual relativo,
+RSS, commit y configuración efectiva. PETSc tiene `n_D2=0`.
 
-Luego aplica `SNESSetFromOptions`. Las opciones PETSc pueden modificar SNES, line search, KSP y tolerancias. El operador `MatShell` y el precondicionador solicitado por `--precond` se reinstalan después para impedir que una opción externa sustituya silenciosamente F, Jv o la política de precondicionamiento de la instancia.
+`n_JVP` es una variable mecanicista y no un objetivo de selección. La
+calibración posterior mantiene la regla global `success -> W_eq -> t_total`.
 
-El ejecutable consulta después los tipos y tolerancias efectivos y los emite entre `PETSC_BASELINE_BEGIN` y `PETSC_BASELINE_END`. El manifest se construye a partir de esos valores observados, no de una plantilla rellenada manualmente.
+### Alcance
 
-#### Contabilidad
-
-El CSV utiliza el mismo esquema crudo de C1. Para PETSc se registran:
-
-```text
-n_F          llamadas reales al callback F
-n_JVP        MatMult reales del MatShell
-n_prec       aplicaciones reales del PCSHELL
-n_D2         0
-n_lin        SNESGetLinearSolveIterations
-t_setup      actualización de la diagonal Jacobi
-t_F
-t_JVP
-t_prec
-t_total      tiempo de SNESSolve
-success      SNESConvergedReason > 0
-```
-
-`n_JVP` sigue siendo una métrica mecanística. No sustituye `W_eq`, tasa de éxito ni `t_total`.
-
-#### Captura de procedencia
-
-`scripts/capture_petsc_baseline.py` exige árboles Git limpios para el proyecto y PETSc, ejecuta el baseline con un hilo, calcula el SHA-256 del ejecutable y obtiene la configuración efectiva emitida por PETSc. También registra commit y tag de PETSc, comando, compilación, CPU y hashes de la salida cruda.
-
-El manifest producido por 0020b-v1 sólo declara `B1`. No debe promoverse a manifest final de C1 hasta que el mismo runner cubra B3a, B5 y Bext, se ejecute la calibración externa y se congele la configuración seleccionada.
+B3a sigue siendo un benchmark controlado manufacturado. Bext proporciona el
+caso público no manufacturado. Ningún resultado de este runner autoriza a
+retirar regiones donde Newton-Krylov gane ni a modificar la malla de
+confirmación.
