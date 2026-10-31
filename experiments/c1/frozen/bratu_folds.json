@@ -1,0 +1,131 @@
+{
+  "artifact": "C1_BRATU_FOLDS",
+  "campaign": "C1",
+  "evidence": [
+    {
+      "coarse": {
+        "csv_path": "experiments/c1/fold_calibration/bratu_n31_coarse.csv",
+        "csv_sha256": "1c7f6f3d96633c340b3a55137304d8018659782fb6cc3995e7ea295aede10018",
+        "intercept": 2250.535503038807,
+        "lambda_fold_proxy": 9.900843001521148,
+        "last_lambda": 9.90084,
+        "last_spectral_gap": 0.0160281,
+        "max_eigen_residual": 9.31564e-08,
+        "points": 45,
+        "r2_gap2_linear": 0.9999959806178644,
+        "slope": -227.3074628789729
+      },
+      "fine": {
+        "csv_path": "experiments/c1/fold_calibration/bratu_n31_fine.csv",
+        "csv_sha256": "9d2ffd252a158c17cfe9dc5228e0128a32d163db37947dbfbc0876940c25d1ad",
+        "intercept": 2254.9970969097453,
+        "lambda_fold_proxy": 9.900849534556906,
+        "last_lambda": 9.90084,
+        "last_spectral_gap": 0.0484032,
+        "max_eigen_residual": 9.82032e-08,
+        "points": 84,
+        "r2_gap2_linear": 0.9999989078396762,
+        "slope": -227.7579402695835
+      },
+      "n": 31
+    },
+    {
+      "coarse": {
+        "csv_path": "experiments/c1/fold_calibration/bratu_n63_coarse.csv",
+        "csv_sha256": "eef80f4a40a637845657c940adf2f9784a83a7fdcddc9886c8337a106ddd19bf",
+        "intercept": 2131.0565260454296,
+        "lambda_fold_proxy": 9.900342060083227,
+        "last_lambda": 9.90032,
+        "last_spectral_gap": 0.00414674,
+        "max_eigen_residual": 9.95331e-08,
+        "points": 44,
+        "r2_gap2_linear": 0.9999951310927049,
+        "slope": -215.25079771107573
+      },
+      "fine": {
+        "csv_path": "experiments/c1/fold_calibration/bratu_n63_fine.csv",
+        "csv_sha256": "520481cceb32ce6b9b914a954ce60eb7e873743383ecb996045e04f18f656f40",
+        "intercept": 2131.0565260454296,
+        "lambda_fold_proxy": 9.900342060083227,
+        "last_lambda": 9.90032,
+        "last_spectral_gap": 0.00414674,
+        "max_eigen_residual": 9.95331e-08,
+        "points": 83,
+        "r2_gap2_linear": 0.9999951310927049,
+        "slope": -215.25079771107573
+      },
+      "n": 63
+    },
+    {
+      "coarse": {
+        "csv_path": "experiments/c1/fold_calibration/bratu_n127_coarse.csv",
+        "csv_sha256": "7c0ceeab67331e9c639d2f8afb3d3777c6b479ab45c981953137b0d2f7915aab",
+        "intercept": 2232.6124851395075,
+        "lambda_fold_proxy": 9.90018938849138,
+        "last_lambda": 9.90018,
+        "last_spectral_gap": 0.0325447,
+        "max_eigen_residual": 9.8588e-08,
+        "points": 46,
+        "r2_gap2_linear": 0.999991269065107,
+        "slope": -225.5120985599367
+      },
+      "fine": {
+        "csv_path": "experiments/c1/fold_calibration/bratu_n127_fine.csv",
+        "csv_sha256": "15c4e2be548a085f7430388af184e87eba2b4ec2e8dc16183a4aa382593c3282",
+        "intercept": 2083.7859990393135,
+        "lambda_fold_proxy": 9.900331982661099,
+        "last_lambda": 9.90018,
+        "last_spectral_gap": 0.0200802,
+        "max_eigen_residual": 9.85881e-08,
+        "points": 83,
+        "r2_gap2_linear": 0.9997549293776952,
+        "slope": -210.4763762153373
+      },
+      "n": 127
+    }
+  ],
+  "folds": {
+    "127": {
+      "coarse_proxy": 9.90018938849138,
+      "fine_proxy": 9.900331982661099,
+      "fine_r2": 0.9997549293776952,
+      "lambda_fold_h": 9.900331982661099,
+      "relative_difference": 1.4402968503269537e-05,
+      "selection": "fine_proxy_after_stability_gate"
+    },
+    "31": {
+      "coarse_proxy": 9.900843001521148,
+      "fine_proxy": 9.900849534556906,
+      "fine_r2": 0.9999989078396762,
+      "lambda_fold_h": 9.900849534556906,
+      "relative_difference": 6.598459794577532e-07,
+      "selection": "fine_proxy_after_stability_gate"
+    },
+    "63": {
+      "coarse_proxy": 9.900342060083227,
+      "fine_proxy": 9.900342060083227,
+      "fine_r2": 0.9999951310927049,
+      "lambda_fold_h": 9.900342060083227,
+      "relative_difference": 0.0,
+      "selection": "fine_proxy_after_stability_gate"
+    }
+  },
+  "freeze_rule": {
+    "coarse_step": 0.25,
+    "eigen_rtol": 1e-07,
+    "fine_step": 0.125,
+    "max_relative_difference": 0.0025,
+    "min_r2_gap2_linear": 0.98,
+    "pseudo_arclength_if_gate_fails": true,
+    "selected_estimate": "fine_proxy",
+    "spectral_stop": 0.05
+  },
+  "independent_of_compared_solver": true,
+  "run_manifest": {
+    "path": "/home/project/chebyshev-nonlinear-lab/experiments/c1/fold_calibration/bratu_fold_run_manifest.json",
+    "sha256": "c56f4220bc9c546236e16be8f6f6e0eda59d9c6e3db51b65b77e5f6d8a98e8f7"
+  },
+  "schema_version": 1,
+  "source_commit": "b2c217c9e3cb983a069f47ee8354b66120e80dc8",
+  "status": "FROZEN_CALIBRATION_ONLY"
+}

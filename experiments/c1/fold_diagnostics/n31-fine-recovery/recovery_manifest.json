@@ -1,0 +1,31 @@
+{
+  "artifact": "C1_BRATU_N31_FINE_RECOVERY",
+  "source_commit": "b2c217c9e3cb983a069f47ee8354b66120e80dc8",
+  "expected_sha256": "9d2ffd252a158c17cfe9dc5228e0128a32d163db37947dbfbc0876940c25d1ad",
+  "truncated_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "recovered_sha256": "9d2ffd252a158c17cfe9dc5228e0128a32d163db37947dbfbc0876940c25d1ad",
+  "restored_sha256": "9d2ffd252a158c17cfe9dc5228e0128a32d163db37947dbfbc0876940c25d1ad",
+  "exact_byte_reproduction": true,
+  "scientific_parameters_changed": false,
+  "command": [
+    "/home/project/chebyshev-nonlinear-lab/build-petsc/calibrate_b6_arclength",
+    "--n",
+    "31",
+    "--lambda-start",
+    "0.0",
+    "--lambda-stop",
+    "10.2",
+    "--step",
+    "0.125",
+    "--min-step",
+    "0.0001",
+    "--spectral-stop",
+    "0.05",
+    "--eigen-rtol",
+    "1e-07",
+    "--linear-rtol",
+    "1e-10",
+    "--out",
+    "/home/project/chebyshev-nonlinear-lab/experiments/c1/fold_diagnostics/n31-fine-recovery/bratu_n31_fine.recovered.csv"
+  ]
+}

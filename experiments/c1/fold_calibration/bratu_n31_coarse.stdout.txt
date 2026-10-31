@@ -1,0 +1,48 @@
+mode=natural lambda=0.0000000000 gap=2.958504e+01 eig_res=7.511e-08 cont_it=0
+mode=natural lambda=0.2500000000 gap=2.933249e+01 eig_res=6.986e-08 cont_it=2
+mode=natural lambda=0.5000000000 gap=2.907468e+01 eig_res=6.481e-08 cont_it=2
+mode=natural lambda=0.7500000000 gap=2.881138e+01 eig_res=5.999e-08 cont_it=2
+mode=natural lambda=1.0000000000 gap=2.854234e+01 eig_res=5.537e-08 cont_it=2
+mode=natural lambda=1.2500000000 gap=2.826728e+01 eig_res=5.096e-08 cont_it=3
+mode=natural lambda=1.5000000000 gap=2.798591e+01 eig_res=4.677e-08 cont_it=3
+mode=natural lambda=1.7500000000 gap=2.769790e+01 eig_res=4.277e-08 cont_it=3
+mode=natural lambda=2.0000000000 gap=2.740292e+01 eig_res=3.899e-08 cont_it=3
+mode=natural lambda=2.2500000000 gap=2.710059e+01 eig_res=3.541e-08 cont_it=3
+mode=natural lambda=2.5000000000 gap=2.679051e+01 eig_res=3.203e-08 cont_it=3
+mode=natural lambda=2.7500000000 gap=2.647223e+01 eig_res=2.885e-08 cont_it=3
+mode=natural lambda=3.0000000000 gap=2.614527e+01 eig_res=2.586e-08 cont_it=3
+mode=natural lambda=3.2500000000 gap=2.580909e+01 eig_res=9.316e-08 cont_it=3
+mode=natural lambda=3.5000000000 gap=2.546313e+01 eig_res=8.351e-08 cont_it=3
+mode=natural lambda=3.7500000000 gap=2.510673e+01 eig_res=7.447e-08 cont_it=3
+mode=natural lambda=4.0000000000 gap=2.473917e+01 eig_res=6.602e-08 cont_it=3
+mode=natural lambda=4.2500000000 gap=2.435967e+01 eig_res=5.816e-08 cont_it=3
+mode=natural lambda=4.5000000000 gap=2.396734e+01 eig_res=5.087e-08 cont_it=3
+mode=natural lambda=4.7500000000 gap=2.356117e+01 eig_res=4.416e-08 cont_it=3
+mode=natural lambda=5.0000000000 gap=2.314004e+01 eig_res=3.801e-08 cont_it=3
+mode=natural lambda=5.2500000000 gap=2.270267e+01 eig_res=3.240e-08 cont_it=3
+mode=natural lambda=5.5000000000 gap=2.224759e+01 eig_res=2.732e-08 cont_it=3
+mode=natural lambda=5.7500000000 gap=2.177311e+01 eig_res=2.277e-08 cont_it=3
+mode=natural lambda=6.0000000000 gap=2.127729e+01 eig_res=8.794e-08 cont_it=3
+mode=natural lambda=6.2500000000 gap=2.075782e+01 eig_res=7.261e-08 cont_it=3
+mode=natural lambda=6.5000000000 gap=2.021199e+01 eig_res=5.901e-08 cont_it=3
+mode=natural lambda=6.7500000000 gap=1.963657e+01 eig_res=4.704e-08 cont_it=3
+mode=natural lambda=7.0000000000 gap=1.902760e+01 eig_res=3.668e-08 cont_it=3
+mode=natural lambda=7.2500000000 gap=1.838026e+01 eig_res=2.784e-08 cont_it=3
+mode=natural lambda=7.5000000000 gap=1.768847e+01 eig_res=2.047e-08 cont_it=3
+mode=natural lambda=7.7500000000 gap=1.694448e+01 eig_res=8.186e-08 cont_it=3
+mode=natural lambda=8.0000000000 gap=1.613807e+01 eig_res=5.729e-08 cont_it=3
+mode=natural lambda=8.2500000000 gap=1.525543e+01 eig_res=3.779e-08 cont_it=3
+mode=natural lambda=8.5000000000 gap=1.427702e+01 eig_res=2.302e-08 cont_it=3
+mode=natural lambda=8.7500000000 gap=1.317376e+01 eig_res=8.799e-08 cont_it=3
+mode=natural lambda=9.0000000000 gap=1.189895e+01 eig_res=4.403e-08 cont_it=4
+mode=natural lambda=9.2500000000 gap=1.036887e+01 eig_res=1.697e-08 cont_it=4
+mode=natural lambda=9.5000000000 gap=8.402760e+00 eig_res=4.030e-08 cont_it=4
+mode=natural lambda=9.7500000000 gap=5.413941e+00 eig_res=3.862e-08 cont_it=5
+mode=natural lambda=9.8750000000 gap=2.357153e+00 eig_res=1.197e-08 cont_it=5
+mode=natural lambda=9.8984375000 gap=7.390551e-01 eig_res=3.353e-09 cont_it=9
+PSEUDO_ARCLENGTH_ACTIVATED lambda_failed=9.89862060546875 min_step=0.0001
+PSEUDO_ARCLENGTH_RETRY arc_step=3.511032e-02 residual=4.349788e-02
+mode=pseudo_arclength lambda=9.9007800711 gap=1.228431e-01 eig_res=2.934e-10 cont_it=3 arc_step=8.777580e-03
+mode=pseudo_arclength lambda=9.9008339149 gap=5.127286e-02 eig_res=1.425e-08 cont_it=2 arc_step=1.097198e-03
+mode=pseudo_arclength lambda=9.9008441357 gap=1.602811e-02 eig_res=4.358e-10 cont_it=1 arc_step=5.485988e-04
+BRATU_FOLD_CALIBRATION=PASS mode=pseudo_arclength Archivo: /home/project/chebyshev-nonlinear-lab/experiments/c1/fold_calibration/bratu_n31_coarse.csv

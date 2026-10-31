@@ -1,0 +1,132 @@
+{
+  "artifact": "C1_BRATU_FOLD_RUNS",
+  "campaign": "C1",
+  "continuation_method": "natural_then_pseudo_arclength_fallback",
+  "executable": {
+    "path": "build-petsc/calibrate_b6_arclength",
+    "sha256": "176576cf676f498ec7befa363e6ce282f335a8fd46322b1c5752e6af3bfb0378"
+  },
+  "fixed": {
+    "eigen_rtol": 1e-07,
+    "lambda_start": 0.0,
+    "lambda_stop": 10.2,
+    "linear_rtol": 1e-10,
+    "min_step": 0.0001,
+    "spectral_stop": 0.05,
+    "threads": 1
+  },
+  "independent_of_compared_solver": true,
+  "runs": [
+    {
+      "csv": {
+        "path": "experiments/c1/fold_calibration/bratu_n31_coarse.csv",
+        "sha256": "1c7f6f3d96633c340b3a55137304d8018659782fb6cc3995e7ea295aede10018"
+      },
+      "label": "coarse",
+      "n": 31,
+      "returncode": 0,
+      "stderr": {
+        "path": "experiments/c1/fold_calibration/bratu_n31_coarse.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "path": "experiments/c1/fold_calibration/bratu_n31_coarse.stdout.txt",
+        "sha256": "d1baa0a2b81992a127710f05a5c605e1c160970a12771b541508b8a1c562255e"
+      },
+      "step": 0.25
+    },
+    {
+      "csv": {
+        "path": "experiments/c1/fold_calibration/bratu_n31_fine.csv",
+        "sha256": "9d2ffd252a158c17cfe9dc5228e0128a32d163db37947dbfbc0876940c25d1ad"
+      },
+      "label": "fine",
+      "n": 31,
+      "returncode": 0,
+      "stderr": {
+        "path": "experiments/c1/fold_calibration/bratu_n31_fine.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "path": "experiments/c1/fold_calibration/bratu_n31_fine.stdout.txt",
+        "sha256": "e11ebef3329a309112e40ebc007324ab6e64d5fe7c60da82bfb5fabe9de4ef8d"
+      },
+      "step": 0.125
+    },
+    {
+      "csv": {
+        "path": "experiments/c1/fold_calibration/bratu_n63_coarse.csv",
+        "sha256": "eef80f4a40a637845657c940adf2f9784a83a7fdcddc9886c8337a106ddd19bf"
+      },
+      "label": "coarse",
+      "n": 63,
+      "returncode": 0,
+      "stderr": {
+        "path": "experiments/c1/fold_calibration/bratu_n63_coarse.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "path": "experiments/c1/fold_calibration/bratu_n63_coarse.stdout.txt",
+        "sha256": "e6013e6e31775e341a4c16f3f26a812a5a21d67a2b9e2540765ae910908c8ed4"
+      },
+      "step": 0.25
+    },
+    {
+      "csv": {
+        "path": "experiments/c1/fold_calibration/bratu_n63_fine.csv",
+        "sha256": "520481cceb32ce6b9b914a954ce60eb7e873743383ecb996045e04f18f656f40"
+      },
+      "label": "fine",
+      "n": 63,
+      "returncode": 0,
+      "stderr": {
+        "path": "experiments/c1/fold_calibration/bratu_n63_fine.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "path": "experiments/c1/fold_calibration/bratu_n63_fine.stdout.txt",
+        "sha256": "c5ada3dbc488a76c2d757a24becf75a1dd91c922a5034e70bd50368c18d18591"
+      },
+      "step": 0.125
+    },
+    {
+      "csv": {
+        "path": "experiments/c1/fold_calibration/bratu_n127_coarse.csv",
+        "sha256": "7c0ceeab67331e9c639d2f8afb3d3777c6b479ab45c981953137b0d2f7915aab"
+      },
+      "label": "coarse",
+      "n": 127,
+      "returncode": 0,
+      "stderr": {
+        "path": "experiments/c1/fold_calibration/bratu_n127_coarse.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "path": "experiments/c1/fold_calibration/bratu_n127_coarse.stdout.txt",
+        "sha256": "18a63250d3f9977a110629293b168f99be3d81570158609729c89ad003730de1"
+      },
+      "step": 0.25
+    },
+    {
+      "csv": {
+        "path": "experiments/c1/fold_calibration/bratu_n127_fine.csv",
+        "sha256": "15c4e2be548a085f7430388af184e87eba2b4ec2e8dc16183a4aa382593c3282"
+      },
+      "label": "fine",
+      "n": 127,
+      "returncode": 0,
+      "stderr": {
+        "path": "experiments/c1/fold_calibration/bratu_n127_fine.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "path": "experiments/c1/fold_calibration/bratu_n127_fine.stdout.txt",
+        "sha256": "398fe6fa2620a6e4f3c71f891be4c91c40e503f9dbd7594ac4f6d06bff2fb7b7"
+      },
+      "step": 0.125
+    }
+  ],
+  "schema_version": 1,
+  "source_commit": "b2c217c9e3cb983a069f47ee8354b66120e80dc8",
+  "status": "CALIBRATION_ONLY"
+}
