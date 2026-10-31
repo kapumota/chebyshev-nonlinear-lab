@@ -3,7 +3,7 @@
 #### Estado
 
 ```text
-DRAFT_NO_FREEZE
+PREDEFINED_BEFORE_FOLD_RUN
 ```
 
 Este documento define cómo construir el eje de régimen de Bratu3D sin usar el éxito o el fracaso de los métodos comparados para localizar el fold.
@@ -118,3 +118,13 @@ Bratu3D no queda listo para C1 hasta cerrar:
 6  mallas rho_lambda de calibración y confirmación separadas
 7  archivos CSV y commit exacto registrados
 ```
+
+#### Regla de freeze fijada
+
+La regla numérica exacta se define en `C1_BRATU_FOLD_FREEZE.md` antes de ejecutar
+los barridos reales. Se usan dos refinamientos de paso, se recalcula el ajuste
+local de `spectral_gap^2` desde los CSV y se exige estabilidad entre ambos.
+
+Si el gate de estabilidad o calidad del ajuste falla:
+
+```text
