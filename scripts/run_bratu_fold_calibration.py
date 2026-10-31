@@ -56,7 +56,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--executable",
-        default="build-petsc/calibrate_b6",
+        default="build-petsc/calibrate_b6_arclength",
     )
     parser.add_argument(
         "--output-dir",
@@ -152,6 +152,7 @@ def main() -> int:
         "campaign": "C1",
         "source_commit": source_commit,
         "independent_of_compared_solver": True,
+        "continuation_method": "natural_then_pseudo_arclength_fallback",
         "executable": {
             "path": str(executable.relative_to(root)),
             "sha256": sha256(executable),
