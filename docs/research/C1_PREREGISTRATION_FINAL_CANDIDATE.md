@@ -242,6 +242,15 @@ Un fallo de infraestructura que invalide la campaña completa se documenta como 
 
 #### Ejecución única
 
+La procedencia Git distingue dos referencias. `source_commit` identifica la
+versión del código ejecutable con la que se realizó calibration. El
+`preregistration_tag` apunta al commit posterior que incorpora los artefactos
+congelados producidos antes de C1. `source_commit` debe ser ancestro de ese
+commit y no puede existir ningún cambio de código ejecutable entre ambos.
+
+Esta separación evita una dependencia circular entre el SHA del commit y los
+artefactos que registran dicho SHA.
+
 C1 se ejecuta una sola vez desde el commit y tag congelados. El manifest de readiness registra el estado previo:
 
 ```text

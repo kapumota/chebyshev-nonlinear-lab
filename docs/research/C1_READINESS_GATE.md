@@ -54,12 +54,19 @@ El manifest PETSc debe corresponder al mismo `source_commit`.
 Antes de conceder readiness:
 
 ```text
-HEAD == source_commit
+source_commit es ancestro de HEAD
 árbol Git limpio
 tag preregistrado apunta a HEAD
+sin cambios de código ejecutable entre source_commit y HEAD
 ```
 
-No se permite `dirty`.
+`source_commit` identifica la versión del código usada para la calibración.
+El commit apuntado por el tag de preregistro puede ser posterior porque incorpora
+planes, resultados de calibration, manifests y freezes producidos antes de C1.
+
+No se permite `dirty` ni modificar código ejecutable entre ambos commits. El
+checker rechaza cambios en CMake, aplicaciones, bibliotecas, scripts, tests y
+otras rutas de código protegidas.
 
 #### Campaña no iniciada
 

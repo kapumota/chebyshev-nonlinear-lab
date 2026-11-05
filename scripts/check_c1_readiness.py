@@ -23,6 +23,21 @@ REQUIRED_ARTIFACTS = (
     "campaign_manifest",
 )
 
+FROZEN_CODE_PREFIXES = (
+    "apps/",
+    "include/",
+    "src/",
+    "scripts/",
+    "tests/",
+    "cmake/",
+    "bench/",
+    "benchmarks/",
+)
+
+FROZEN_CODE_FILES = (
+    "CMakeLists.txt",
+)
+
 
 def sha256(path: Path) -> str:
     h = hashlib.sha256()
@@ -99,18 +114,59 @@ def check_json_states(
         raise SystemExit("Campaign manifest usa otro source_commit.")
 
 
+def git_is_ancestor(ancestor: str, descendant: str) -> bool:
+    result = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", ancestor, descendant],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode == 0:
+        return True
+    if result.returncode == 1:
+        return False
+    raise SystemExit(result.stderr.strip() or "Falló git merge-base.")
+
+
+def check_frozen_code_unchanged(source_commit: str, head: str) -> None:
+    changed = [
+        path
+        for path in git(
+            "diff", "--name-only", f"{source_commit}..{head}"
+        ).splitlines()
+        if path
+    ]
+    protected = [
+        path
+        for path in changed
+        if path in FROZEN_CODE_FILES
+        or path.startswith(FROZEN_CODE_PREFIXES)
+    ]
+    if protected:
+        raise SystemExit(
+            "Cambió código ejecutable después de source_commit: "
+            + ", ".join(protected[:10])
+        )
+
+
 def check_git(source_commit: str, tag: str) -> None:
     head = git("rev-parse", "HEAD")
-    if head != source_commit:
-        raise SystemExit(f"HEAD={head} pero source_commit={source_commit}.")
+    if not git_is_ancestor(source_commit, head):
+        raise SystemExit(
+            f"source_commit={source_commit} no es ancestro de HEAD={head}."
+        )
 
     status = git("status", "--porcelain")
     if status:
         raise SystemExit("El árbol Git no está limpio.")
 
+    check_frozen_code_unchanged(source_commit, head)
+
     tag_commit = git("rev-list", "-n", "1", tag)
-    if tag_commit != source_commit:
-        raise SystemExit("El tag de preregistro no apunta a source_commit.")
+    if tag_commit != head:
+        raise SystemExit(
+            "El tag de preregistro no apunta al commit preregistrado actual."
+        )
 
 
 def check_confirmation_not_started(root: Path) -> None:
