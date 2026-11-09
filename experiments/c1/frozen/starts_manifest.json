@@ -1,0 +1,238 @@
+{
+  "artifact": "C1_STARTS_MANIFEST",
+  "artifacts": {
+    "b1_starts": {
+      "path": "experiments/c1/starts/frozen/B1_start_hashes.csv",
+      "sha256": "472e88f31cb566781aee7e46ff318dbc12f31646b497e3c4626cd6591368e4f3"
+    },
+    "b3a_references": {
+      "path": "experiments/c1/starts/B3a_reference_sha256.txt",
+      "sha256": "ed743c144c3a2fbdd680aea5a798776bd6f3a76867edc981a262780c1688f9df"
+    },
+    "b5_bext_references": {
+      "path": "experiments/c1/starts/frozen/B5_Bext_reference_sha256.txt",
+      "sha256": "546dffa3540ce02dc49f0678955b942021a4b54092831b0048a5fdaeced32cc4"
+    },
+    "coarse_starts": {
+      "path": "experiments/c1/starts/frozen/coarse_start_hashes.csv",
+      "sha256": "9e7073fe2bc124b9aa7cfb39fd1843307917ff5c89c705e3e96b6953375e1da5"
+    },
+    "perturbed_starts": {
+      "path": "experiments/c1/starts/frozen/perturbed_start_hashes.csv",
+      "sha256": "b4cbf98241be91e5ae975ef234f7c259c5613cf004b31c285ffaa0f7a41efde4"
+    }
+  },
+  "calibration": {
+    "note": "Calibration no usa semillas científicas de perturbación. La comparación con confirmation no se expresa como semillas distintas, sino como N/A frente a 1..12.",
+    "perturbation_seeds": [],
+    "perturbed_used": false,
+    "start_policy": "natural_only"
+  },
+  "campaign": "C1",
+  "confirmation": {
+    "families": {
+      "B1": {
+        "coarse": {
+          "applicable": true,
+          "artifact": "coarse_starts",
+          "rule": "estado independiente de la rama inferior en la malla inmediata (n-1)/2, prolongado trilinealmente"
+        },
+        "continuation": {
+          "applicable": true,
+          "artifact": "b1_starts",
+          "rule": "último estado aceptado de la rama inferior independiente con lambda_ref < lambda_target"
+        },
+        "natural": {
+          "applicable": true,
+          "external_file": false,
+          "rule": "vector cero de dimensión n^3"
+        },
+        "perturbed": {
+          "applicable": true,
+          "artifact": "perturbed_starts",
+          "reference": "mismo predecessor independiente usado por continuation"
+        },
+        "starts": [
+          "natural",
+          "continuation",
+          "coarse",
+          "perturbed_near",
+          "perturbed_mid",
+          "perturbed_far"
+        ]
+      },
+      "B3a": {
+        "coarse": {
+          "applicable": true,
+          "artifact": "coarse_starts",
+          "rule": "solución manufacturada exacta en la malla inmediata (n-1)/2, prolongada bilinealmente por componente"
+        },
+        "continuation": {
+          "applicable": false,
+          "reason": "el diseño factorial nu x dt no define un orden único de continuación científica"
+        },
+        "natural": {
+          "applicable": true,
+          "external_file": false,
+          "rule": "vector cero de dimensión 2*n^2"
+        },
+        "perturbed": {
+          "applicable": true,
+          "artifact": "perturbed_starts",
+          "reference": "solución manufacturada exacta de la instancia",
+          "reference_artifact": "b3a_references"
+        },
+        "starts": [
+          "natural",
+          "coarse",
+          "perturbed_near",
+          "perturbed_mid",
+          "perturbed_far"
+        ]
+      },
+      "B5": {
+        "coarse": {
+          "applicable": false,
+          "reason": "B5 no usa una jerarquía geométrica de mallas en C1"
+        },
+        "continuation": {
+          "applicable": false,
+          "reason": "no se define una trayectoria de continuación para B5 en C1"
+        },
+        "natural": {
+          "applicable": true,
+          "external_file": false,
+          "rule": "vector de unos de dimensión n"
+        },
+        "perturbed": {
+          "applicable": true,
+          "artifact": "perturbed_starts",
+          "reference": "vector natural de unos",
+          "reference_artifact": "b5_bext_references"
+        },
+        "starts": [
+          "natural",
+          "perturbed_near",
+          "perturbed_mid",
+          "perturbed_far"
+        ]
+      },
+      "Bext": {
+        "coarse": {
+          "applicable": false,
+          "reason": "C1 no define un start coarse separado para Bext"
+        },
+        "continuation": {
+          "applicable": false,
+          "reason": "previous() ya define el estado físico anterior del paso implícito"
+        },
+        "natural": {
+          "applicable": true,
+          "external_file": false,
+          "rule": "Brusselator1DStep::previous(), u=1+sin(2*pi*x), v=3"
+        },
+        "perturbed": {
+          "applicable": true,
+          "artifact": "perturbed_starts",
+          "reference": "Brusselator1DStep::previous()",
+          "reference_artifact": "b5_bext_references"
+        },
+        "starts": [
+          "natural",
+          "perturbed_near",
+          "perturbed_mid",
+          "perturbed_far"
+        ]
+      }
+    },
+    "perturbation": {
+      "levels": {
+        "far": 0.5,
+        "mid": 0.2,
+        "near": 0.05
+      },
+      "logical_rows": 2700,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unique_vector_hashes": 1188
+    }
+  },
+  "confirmation_started": false,
+  "counts": {
+    "coarse_rows": {
+      "B1": 24,
+      "B3a": 27,
+      "total": 51
+    },
+    "confirmation_instances": {
+      "B1": 24,
+      "B3a": 27,
+      "B5": 15,
+      "Bext": 9,
+      "total": 75
+    },
+    "perturbed_logical_rows": {
+      "B1": 864,
+      "B3a": 972,
+      "B5": 540,
+      "Bext": 324,
+      "total": 2700
+    }
+  },
+  "materializers": {
+    "bratu_reference_continuation": {
+      "path": "experiments/c1/starts/materialize_bratu_pair_arclength.cpp",
+      "sha256": "3450830c77e2a86642be91a37e21f6fe3166ed29e098fca5cff40316b78bbe85"
+    },
+    "coarse": {
+      "path": "experiments/c1/starts/materialize_coarse_start.cpp",
+      "sha256": "2f5d415578a1f00aed3577babcfd278ae8d0122cf36b5e5bcea6d288205b4f4c"
+    },
+    "perturbation": {
+      "path": "experiments/c1/starts/materialize_perturbation.cpp",
+      "sha256": "7c66f97c4a012632465665ddedafd1583738aac601984768a6edfcb9e9a90e65"
+    }
+  },
+  "principles": {
+    "compared_methods_do_not_construct_starts": true,
+    "confirmation_starts_frozen_before_results": true,
+    "failed_solver_runs_do_not_modify_starts": true
+  },
+  "protected_sources": {
+    "bratu_arclength": {
+      "path": "apps/calibrate_b6_arclength.cpp",
+      "sha256": "bf4e8ae3b0ff6ca09bb9770e71935bbcd615af10cd58e3d31e58e3d351c95105"
+    },
+    "burgers2d": {
+      "path": "include/numa/problems/burgers2d.hpp",
+      "sha256": "208fde3871729563004c95cf206d2138f589709c1e4b2b22111f33ed91a76afd"
+    },
+    "helmholtz_mg2d": {
+      "path": "include/numa/linalg/helmholtz_mg2d.hpp",
+      "sha256": "ee526433eeafbbf4a7b3669adf4b0ed90d2f74368ea1e1e891e62043bb70fd0f"
+    },
+    "poisson_mg": {
+      "path": "include/numa/linalg/poisson_mg.hpp",
+      "sha256": "47a9ed175c7bd8cbdd43b52f79191e8d9284e686a9670de4b3dca6de0892a21c"
+    },
+    "run_campaign": {
+      "path": "apps/run_campaign.cpp",
+      "sha256": "cee6f5e9dfef5ac6ca38b796abbec5105448d48eec688d80b3b9b9209cbac149"
+    }
+  },
+  "schema_version": 1,
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff",
+  "status": "FROZEN_BEFORE_C1"
+}

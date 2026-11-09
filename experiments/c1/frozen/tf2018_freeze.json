@@ -1,0 +1,89 @@
+{
+  "artifact": "C1_TF2018_FREEZE",
+  "campaign": "C1",
+  "evidence": {
+    "implementation": {
+      "path": "include/numa/methods/tf_chebyshev_2018.hpp",
+      "sha256": "21e2558b55156c439628ab02ab4a227b9ee4a4f7721502416c263b5caaa6873c"
+    },
+    "instance_grid": {
+      "path": "experiments/c1/C1_INSTANCE_GRID_V1.json",
+      "sha256": "2044d29ba9fd027bd724c5de9d3398ce1764231f23cd7c38978e54cd9b15f88f"
+    },
+    "internal_tuning": {
+      "path": "experiments/c1/frozen/internal_tuning_ranking.csv",
+      "sha256": "d0a60fe129ec2d56d9930ea03a4635f0195f276890ae27b5990269dd6472fd90"
+    },
+    "protocol": {
+      "path": "docs/research/C1_TF2018_BASELINE.md",
+      "sha256": "fed96e3a132be6c1da1366695785412aeeddbea4514a31fc5c14e1fb98044ceb"
+    },
+    "runner": {
+      "path": "build-petsc/run_campaign",
+      "sha256": "4bbf6a36e3ac255cc14deee76fdb90d6254b3d66d84b2b97ecc271dbc137c6f2"
+    },
+    "smoke": {
+      "path": "experiments/c1/tf2018/tf2018_smoke.csv",
+      "sha256": "9cf24de0a84af6a4443c936f94ce13b24bb14169d898a818595b05919e4bf2ba"
+    },
+    "test_log": {
+      "path": "experiments/c1/tf2018/tf2018_tests.txt",
+      "sha256": "9a9c93fa943c12140aab263eba63f35bc87bab4bd8c35552e0bfc4768707a6ba"
+    },
+    "tests": {
+      "path": "tests/test_tf_chebyshev_2018.cpp",
+      "sha256": "e5190f66b63273f589c07969b6ad28d341b226ad7ed52fe22579479e00933796"
+    },
+    "tuning_budget": {
+      "path": "experiments/c1/C1_TUNING_BUDGET_V1.json",
+      "sha256": "2bae2a0aad3c01a716949182f46edc1cf56da0c8a7517dc4aba390adc2fd9604"
+    }
+  },
+  "gates": {
+    "confirmation_observed": false,
+    "curvature_against_analytic_D2": "PASS",
+    "excluded_from_internal_tuning": true,
+    "fixed_csv_method_name": "tf2018",
+    "small_problem_convergence": "PASS"
+  },
+  "linear_configuration": {
+    "family_preconditioner": {
+      "B1": "jacobi",
+      "B3a": "mg",
+      "B5": "none",
+      "Bext": "jacobi"
+    },
+    "max_nl": 50,
+    "maxlin": 200,
+    "nonlinear_rtol": 1e-08,
+    "preconditioner_policy": "same_family_preconditioner_as_C1",
+    "restart": 30,
+    "solver": "GMRES",
+    "threads": 1
+  },
+  "method": "tf2018",
+  "reference": {
+    "authors": "Eustaquio, Ribeiro y Dumett",
+    "doi": "10.1007/s40314-018-0709-0",
+    "year": 2018
+  },
+  "schema_version": 1,
+  "selection_basis": {
+    "calibration_only_information": true,
+    "confirmation_used": false,
+    "hyperparameter_search": false,
+    "restart_rule": "restart=30 compartido por nk, cheb y rec seleccionados en calibration"
+  },
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff",
+  "status": "FROZEN_BEFORE_C1",
+  "variant": {
+    "alpha": 0.0,
+    "curvature": "[J(x+h*d1)d1-J(x)d1]/h",
+    "eta1": "max(2*eps,min(1e-8,||F||^2))",
+    "eta2": "max(2*eps,min(1e-8,||F||))",
+    "n_D2_expected": 0,
+    "name": "tensor-free Chebyshev",
+    "step_bounds": "[2*eps,0.5]",
+    "step_length": "sqrt(eps)*||x||/||d1||"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "artifact": "C1_METHOD_LABEL_POLICY",
+  "campaign": "C1",
+  "canonical_methods": [
+    "nk",
+    "cheb",
+    "rec",
+    "tf_cheb",
+    "petsc"
+  ],
+  "confirmation_started": false,
+  "mapping": {
+    "cheb": "cheb",
+    "nk": "nk",
+    "petsc": "petsc",
+    "rec": "rec",
+    "tf2018": "tf_cheb"
+  },
+  "raw_methods": [
+    "nk",
+    "cheb",
+    "rec",
+    "tf2018",
+    "petsc"
+  ],
+  "references": {
+    "confirmatory_analyzer": {
+      "path": "scripts/analyze_c1_confirmatory.py",
+      "sha256": "51f871c2c47fdb512fc81c9718dca9b5f55e8b48b78223ae462c65a9a65c137a"
+    },
+    "tf2018_freeze": {
+      "path": "experiments/c1/frozen/tf2018_freeze.json",
+      "sha256": "24e68c9d71c126c79073d9e97da6bb9edc9ac1dc4cce4ee4f90d0e3b05c2d88f"
+    }
+  },
+  "schema_version": 1,
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff",
+  "status": "FROZEN_BEFORE_C1",
+  "tf2018_mapping": {
+    "canonical_label": "tf_cheb",
+    "numeric_change": false,
+    "raw_csv_preserved": true,
+    "raw_label": "tf2018",
+    "row_filtering": false,
+    "rule": "Se modifica únicamente la etiqueta method al ensamblar el dataset canónico confirmatorio.",
+    "semantic_change": false
+  }
+}

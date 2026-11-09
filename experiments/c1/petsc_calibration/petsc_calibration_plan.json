@@ -1,0 +1,1330 @@
+{
+  "campaign": "C1",
+  "executable": "build-petsc/petsc_baseline",
+  "expected_candidate_count": 4,
+  "families": {
+    "B1": {
+      "candidates": [
+        {
+          "id": "p01",
+          "ksp_rtol": 0.0001,
+          "precond": "jacobi",
+          "restart": 30
+        },
+        {
+          "id": "p02",
+          "ksp_rtol": 0.0001,
+          "precond": "jacobi",
+          "restart": 50
+        },
+        {
+          "id": "p03",
+          "ksp_rtol": 1e-05,
+          "precond": "jacobi",
+          "restart": 30
+        },
+        {
+          "id": "p04",
+          "ksp_rtol": 1e-05,
+          "precond": "jacobi",
+          "restart": 50
+        }
+      ],
+      "instances": [
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "31",
+            "--param",
+            "2.970254860367072",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n31-rho0.29999999999999999"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "31",
+            "--param",
+            "4.9504247672784532",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n31-rho0.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "31",
+            "--param",
+            "6.9305946741898339",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n31-rho0.69999999999999996"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "31",
+            "--param",
+            "8.415722104373371",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n31-rho0.84999999999999998"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "31",
+            "--param",
+            "9.1582858194651386",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n31-rho0.92500000000000004"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "31",
+            "--param",
+            "9.5295676770110234",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n31-rho0.96250000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "31",
+            "--param",
+            "9.7275846677021605",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n31-rho0.98250000000000004"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "63",
+            "--param",
+            "2.9701026180249683",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n63-rho0.29999999999999999"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "63",
+            "--param",
+            "4.9501710300416137",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n63-rho0.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "63",
+            "--param",
+            "6.9302394420582587",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n63-rho0.69999999999999996"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "63",
+            "--param",
+            "8.415290751070744",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n63-rho0.84999999999999998"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "63",
+            "--param",
+            "9.1578164055769857",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n63-rho0.92500000000000004"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "63",
+            "--param",
+            "9.5290792328301066",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n63-rho0.96250000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "63",
+            "--param",
+            "9.7270860740317708",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n63-rho0.98250000000000004"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "127",
+            "--param",
+            "2.9700995947983295",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n127-rho0.29999999999999999"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "127",
+            "--param",
+            "4.9501659913305494",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n127-rho0.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "127",
+            "--param",
+            "6.9302323878627687",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n127-rho0.69999999999999996"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "127",
+            "--param",
+            "8.4152821852619333",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n127-rho0.84999999999999998"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "127",
+            "--param",
+            "9.1578070839615169",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n127-rho0.92500000000000004"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "127",
+            "--param",
+            "9.5290695333113078",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n127-rho0.96250000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "bratu",
+            "--family",
+            "B1",
+            "--n",
+            "127",
+            "--param",
+            "9.7270761729645301",
+            "--start",
+            "natural"
+          ],
+          "id": "B1-n127-rho0.98250000000000004"
+        }
+      ]
+    },
+    "B3a": {
+      "candidates": [
+        {
+          "id": "p01",
+          "ksp_rtol": 0.0001,
+          "precond": "mg",
+          "restart": 30
+        },
+        {
+          "id": "p02",
+          "ksp_rtol": 0.0001,
+          "precond": "mg",
+          "restart": 50
+        },
+        {
+          "id": "p03",
+          "ksp_rtol": 1e-05,
+          "precond": "mg",
+          "restart": 30
+        },
+        {
+          "id": "p04",
+          "ksp_rtol": 1e-05,
+          "precond": "mg",
+          "restart": 50
+        }
+      ],
+      "instances": [
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "63",
+            "--param",
+            "0.080000000000000002",
+            "--dt",
+            "0.040000000000000001",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n63-nu0.080000000000000002-dt0.040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "63",
+            "--param",
+            "0.080000000000000002",
+            "--dt",
+            "0.080000000000000002",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n63-nu0.080000000000000002-dt0.080000000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "63",
+            "--param",
+            "0.080000000000000002",
+            "--dt",
+            "0.16",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n63-nu0.080000000000000002-dt0.16"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "63",
+            "--param",
+            "0.040000000000000001",
+            "--dt",
+            "0.040000000000000001",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n63-nu0.040000000000000001-dt0.040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "63",
+            "--param",
+            "0.040000000000000001",
+            "--dt",
+            "0.080000000000000002",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n63-nu0.040000000000000001-dt0.080000000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "63",
+            "--param",
+            "0.040000000000000001",
+            "--dt",
+            "0.16",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n63-nu0.040000000000000001-dt0.16"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "63",
+            "--param",
+            "0.02",
+            "--dt",
+            "0.040000000000000001",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n63-nu0.02-dt0.040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "63",
+            "--param",
+            "0.02",
+            "--dt",
+            "0.080000000000000002",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n63-nu0.02-dt0.080000000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "63",
+            "--param",
+            "0.02",
+            "--dt",
+            "0.16",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n63-nu0.02-dt0.16"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "127",
+            "--param",
+            "0.080000000000000002",
+            "--dt",
+            "0.040000000000000001",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n127-nu0.080000000000000002-dt0.040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "127",
+            "--param",
+            "0.080000000000000002",
+            "--dt",
+            "0.080000000000000002",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n127-nu0.080000000000000002-dt0.080000000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "127",
+            "--param",
+            "0.080000000000000002",
+            "--dt",
+            "0.16",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n127-nu0.080000000000000002-dt0.16"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "127",
+            "--param",
+            "0.040000000000000001",
+            "--dt",
+            "0.040000000000000001",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n127-nu0.040000000000000001-dt0.040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "127",
+            "--param",
+            "0.040000000000000001",
+            "--dt",
+            "0.080000000000000002",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n127-nu0.040000000000000001-dt0.080000000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "127",
+            "--param",
+            "0.040000000000000001",
+            "--dt",
+            "0.16",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n127-nu0.040000000000000001-dt0.16"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "127",
+            "--param",
+            "0.02",
+            "--dt",
+            "0.040000000000000001",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n127-nu0.02-dt0.040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "127",
+            "--param",
+            "0.02",
+            "--dt",
+            "0.080000000000000002",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n127-nu0.02-dt0.080000000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "127",
+            "--param",
+            "0.02",
+            "--dt",
+            "0.16",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n127-nu0.02-dt0.16"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "255",
+            "--param",
+            "0.080000000000000002",
+            "--dt",
+            "0.040000000000000001",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n255-nu0.080000000000000002-dt0.040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "255",
+            "--param",
+            "0.080000000000000002",
+            "--dt",
+            "0.080000000000000002",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n255-nu0.080000000000000002-dt0.080000000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "255",
+            "--param",
+            "0.080000000000000002",
+            "--dt",
+            "0.16",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n255-nu0.080000000000000002-dt0.16"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "255",
+            "--param",
+            "0.040000000000000001",
+            "--dt",
+            "0.040000000000000001",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n255-nu0.040000000000000001-dt0.040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "255",
+            "--param",
+            "0.040000000000000001",
+            "--dt",
+            "0.080000000000000002",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n255-nu0.040000000000000001-dt0.080000000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "255",
+            "--param",
+            "0.040000000000000001",
+            "--dt",
+            "0.16",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n255-nu0.040000000000000001-dt0.16"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "255",
+            "--param",
+            "0.02",
+            "--dt",
+            "0.040000000000000001",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n255-nu0.02-dt0.040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "255",
+            "--param",
+            "0.02",
+            "--dt",
+            "0.080000000000000002",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n255-nu0.02-dt0.080000000000000002"
+        },
+        {
+          "args": [
+            "--problem",
+            "burgers",
+            "--family",
+            "B3a",
+            "--n",
+            "255",
+            "--param",
+            "0.02",
+            "--dt",
+            "0.16",
+            "--amp",
+            "1",
+            "--start",
+            "natural"
+          ],
+          "id": "B3a-n255-nu0.02-dt0.16"
+        }
+      ]
+    },
+    "B5": {
+      "candidates": [
+        {
+          "id": "p01",
+          "ksp_rtol": 0.0001,
+          "precond": "none",
+          "restart": 30
+        },
+        {
+          "id": "p02",
+          "ksp_rtol": 0.0001,
+          "precond": "none",
+          "restart": 50
+        },
+        {
+          "id": "p03",
+          "ksp_rtol": 1e-05,
+          "precond": "none",
+          "restart": 30
+        },
+        {
+          "id": "p04",
+          "ksp_rtol": 1e-05,
+          "precond": "none",
+          "restart": 50
+        }
+      ],
+      "instances": [
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "64",
+            "--param",
+            "0.683772233983162",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n64-q0.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "64",
+            "--param",
+            "0.96837722339831622",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n64-q1.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "64",
+            "--param",
+            "0.99683772233983159",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n64-q2.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "64",
+            "--param",
+            "0.99968377223398319",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n64-q3.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "64",
+            "--param",
+            "0.99996837722339826",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n64-q4.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "128",
+            "--param",
+            "0.683772233983162",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n128-q0.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "128",
+            "--param",
+            "0.96837722339831622",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n128-q1.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "128",
+            "--param",
+            "0.99683772233983159",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n128-q2.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "128",
+            "--param",
+            "0.99968377223398319",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n128-q3.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "128",
+            "--param",
+            "0.99996837722339826",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n128-q4.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "256",
+            "--param",
+            "0.683772233983162",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n256-q0.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "256",
+            "--param",
+            "0.96837722339831622",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n256-q1.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "256",
+            "--param",
+            "0.99683772233983159",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n256-q2.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "256",
+            "--param",
+            "0.99968377223398319",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n256-q3.5"
+        },
+        {
+          "args": [
+            "--problem",
+            "chandra",
+            "--family",
+            "B5",
+            "--n",
+            "256",
+            "--param",
+            "0.99996837722339826",
+            "--start",
+            "natural"
+          ],
+          "id": "B5-n256-q4.5"
+        }
+      ]
+    },
+    "Bext": {
+      "candidates": [
+        {
+          "id": "p01",
+          "ksp_rtol": 0.0001,
+          "precond": "jacobi",
+          "restart": 30
+        },
+        {
+          "id": "p02",
+          "ksp_rtol": 0.0001,
+          "precond": "jacobi",
+          "restart": 50
+        },
+        {
+          "id": "p03",
+          "ksp_rtol": 1e-05,
+          "precond": "jacobi",
+          "restart": 30
+        },
+        {
+          "id": "p04",
+          "ksp_rtol": 1e-05,
+          "precond": "jacobi",
+          "restart": 50
+        }
+      ],
+      "instances": [
+        {
+          "args": [
+            "--problem",
+            "brusselator",
+            "--family",
+            "Bext",
+            "--n",
+            "63",
+            "--param",
+            "0.0040000000000000001",
+            "--start",
+            "natural"
+          ],
+          "id": "Bext-n63-dt0.0040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "brusselator",
+            "--family",
+            "Bext",
+            "--n",
+            "63",
+            "--param",
+            "0.016",
+            "--start",
+            "natural"
+          ],
+          "id": "Bext-n63-dt0.016"
+        },
+        {
+          "args": [
+            "--problem",
+            "brusselator",
+            "--family",
+            "Bext",
+            "--n",
+            "63",
+            "--param",
+            "0.064000000000000001",
+            "--start",
+            "natural"
+          ],
+          "id": "Bext-n63-dt0.064000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "brusselator",
+            "--family",
+            "Bext",
+            "--n",
+            "127",
+            "--param",
+            "0.0040000000000000001",
+            "--start",
+            "natural"
+          ],
+          "id": "Bext-n127-dt0.0040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "brusselator",
+            "--family",
+            "Bext",
+            "--n",
+            "127",
+            "--param",
+            "0.016",
+            "--start",
+            "natural"
+          ],
+          "id": "Bext-n127-dt0.016"
+        },
+        {
+          "args": [
+            "--problem",
+            "brusselator",
+            "--family",
+            "Bext",
+            "--n",
+            "127",
+            "--param",
+            "0.064000000000000001",
+            "--start",
+            "natural"
+          ],
+          "id": "Bext-n127-dt0.064000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "brusselator",
+            "--family",
+            "Bext",
+            "--n",
+            "255",
+            "--param",
+            "0.0040000000000000001",
+            "--start",
+            "natural"
+          ],
+          "id": "Bext-n255-dt0.0040000000000000001"
+        },
+        {
+          "args": [
+            "--problem",
+            "brusselator",
+            "--family",
+            "Bext",
+            "--n",
+            "255",
+            "--param",
+            "0.016",
+            "--start",
+            "natural"
+          ],
+          "id": "Bext-n255-dt0.016"
+        },
+        {
+          "args": [
+            "--problem",
+            "brusselator",
+            "--family",
+            "Bext",
+            "--n",
+            "255",
+            "--param",
+            "0.064000000000000001",
+            "--start",
+            "natural"
+          ],
+          "id": "Bext-n255-dt0.064000000000000001"
+        }
+      ]
+    }
+  },
+  "fixed": {
+    "ksp_type": "gmres",
+    "linesearch_type": "bt",
+    "matrix_mode": "MatShell analytic Jv",
+    "max_nl": 50,
+    "maxlin": 200,
+    "reps": 7,
+    "rtol": 1e-08,
+    "snes_type": "newtonls",
+    "threads": 1,
+    "warmup": 1
+  },
+  "phase": "calibration",
+  "schema_version": 1,
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff"
+}

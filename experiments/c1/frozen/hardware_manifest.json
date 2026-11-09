@@ -1,0 +1,33 @@
+{
+  "architecture": "x86_64",
+  "artifact": "C1_HARDWARE_MANIFEST",
+  "campaign": "C1",
+  "compiler": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "compiler_path": "/usr/bin/x86_64-linux-gnu-g++-13",
+  "confirmation_started": false,
+  "cpu": "Intel(R) Core(TM) i9-14900K",
+  "execution_policy": {
+    "cpu_only": true,
+    "mkl_threads": 1,
+    "mpi_processes": 1,
+    "openblas_threads": 1,
+    "openmp_threads": 1
+  },
+  "kernel": "7.0.0-38-generic",
+  "memory_total_kib": 131652604,
+  "operating_system": "Ubuntu 24.04.5 LTS",
+  "petsc": {
+    "arch": "arch-linux-c-opt",
+    "dir": "/home/project/opt/src/petsc-3.26.0",
+    "version": "3.26.0"
+  },
+  "schema_version": 1,
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff",
+  "status": "FROZEN_BEFORE_C1",
+  "thread_environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "threads": 1
+}

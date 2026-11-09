@@ -137,6 +137,8 @@ petsc
 
 `tf_cheb` reproduce el baseline TF-Chebyshev-GMRES de 2018. `petsc` usa SNESNEWTONLS, búsqueda lineal bt, GMRES y MatShell con Jv analítico.
 
+En los CSV crudos el ejecutor interno identifica ese baseline como `tf2018`. Durante el ensamblado del dataset canónico se normaliza únicamente la etiqueta `tf2018 -> tf_cheb`, sin modificar valores numéricos, éxitos, fallos o filas.
+
 PETSc se calibra sólo con `phase=calibration` y se congela con la regla:
 
 ```text
@@ -162,7 +164,7 @@ Para perturbaciones:
 rho_x = 0.05, 0.20, 0.50
 ```
 
-Las semillas de calibration y confirmation son distintas. La lista exacta y los hashes de los starts se congelan en el manifest de starts antes de C1.
+Calibration usa exclusivamente `start=natural` y no emplea semillas científicas de perturbación. Confirmation usa las semillas 1..12 para `perturbed`. La lista exacta y los hashes de los starts se congelan en el manifest de starts antes de C1.
 
 #### Costos
 
