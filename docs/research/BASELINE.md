@@ -53,7 +53,7 @@ Commits de reconciliación actualmente registrados:
 bc5fa60  Integrar MPI en CMake y automatizar su verificación
 ```
 
-#### Freeze siguiente
+#### Freeze
 
 El tag:
 
@@ -61,4 +61,4 @@ El tag:
 baseline-v0.1.0
 ```
 
-solo se crea después de una reproducción completa desde un clon limpio y una auditoría `PUBLIC-READY`.
+se creó después de la reproducción completa desde un clon limpio documentada en `evidence/r0/REPRODUCTION.md`.

@@ -1,0 +1,110 @@
+{
+  "artifact": "C1_CONFIRMATORY_CAMPAIGN_MANIFEST",
+  "campaign": "C1",
+  "confirmation_started": false,
+  "execution": {
+    "drop_failures": false,
+    "measured_repetitions": 7,
+    "retuning_after_start": false,
+    "scientific_perturbation_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "selective_reruns": false,
+    "threads": 1,
+    "warmup": 1
+  },
+  "hardware": {
+    "path": "experiments/c1/frozen/hardware_manifest.json",
+    "sha256": "3756a8cebd60510785a9d2829614bad8f3f1e9a43e71257a2f89f21d3c2fb2d8"
+  },
+  "instances": {
+    "confirmation_instances": 75,
+    "path": "experiments/c1/C1_INSTANCE_GRID_V1.json",
+    "sha256": "2044d29ba9fd027bd724c5de9d3398ce1764231f23cd7c38978e54cd9b15f88f"
+  },
+  "internal_tuning": {
+    "path": "experiments/c1/frozen/internal_tuning_ranking.csv",
+    "selected": {
+      "cheb": {
+        "candidate_id": "",
+        "eta_init": 0.25,
+        "restart": 30
+      },
+      "nk": {
+        "candidate_id": "",
+        "eta_init": 0.25,
+        "restart": 30
+      },
+      "rec": {
+        "candidate_id": "",
+        "eta_init": 0.25,
+        "restart": 30
+      }
+    },
+    "sha256": "d0a60fe129ec2d56d9930ea03a4635f0195f276890ae27b5990269dd6472fd90"
+  },
+  "method_label_policy": {
+    "path": "experiments/c1/frozen/method_label_policy.json",
+    "sha256": "361f00ed5f12ad24abb6b0b8910681e2be8ca0788acc03bc08d969b05463df25"
+  },
+  "methods": {
+    "canonical": [
+      "nk",
+      "cheb",
+      "rec",
+      "tf_cheb",
+      "petsc"
+    ],
+    "external": [
+      "petsc"
+    ],
+    "raw_internal": [
+      "nk",
+      "cheb",
+      "rec",
+      "tf2018"
+    ]
+  },
+  "outputs": {
+    "canonical_directory": "experiments/c1/confirmation/canonical",
+    "raw_csv_preserved": true,
+    "raw_directory": "experiments/c1/confirmation/raw"
+  },
+  "petsc": {
+    "config": {
+      "path": "experiments/c1/frozen/petsc_config.json",
+      "sha256": "d78e2a2965ab15815082c6980a77be60d1646e90374f53b7753306f032339ab8"
+    },
+    "freeze": {
+      "path": "experiments/c1/frozen/petsc_freeze_manifest.json",
+      "sha256": "62974a2f8eb2783768c7627d88012cb78c0b264cddf16038a8f4be903867766b"
+    }
+  },
+  "phase": "confirmation",
+  "primitive_costs": {
+    "path": "experiments/c1/frozen/primitive_costs.csv",
+    "sha256": "94d8ada38baeadfbb0a6d690cc9a9a220379e76aab05101dc43e939a0f453bf5"
+  },
+  "schema_version": 1,
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff",
+  "starts": {
+    "path": "experiments/c1/frozen/starts_manifest.json",
+    "sha256": "f6aba5eb74b11f4fc40411ff2b5de0656dea3f6861f29e6f36ef9fc467127a0c"
+  },
+  "status": "FROZEN_BEFORE_C1",
+  "tf2018": {
+    "path": "experiments/c1/frozen/tf2018_freeze.json",
+    "sha256": "24e68c9d71c126c79073d9e97da6bb9edc9ac1dc4cce4ee4f90d0e3b05c2d88f"
+  }
+}

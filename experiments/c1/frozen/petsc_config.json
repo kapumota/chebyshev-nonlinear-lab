@@ -1,0 +1,63 @@
+{
+  "artifact": "C1_PETSC_FROZEN_CONFIG",
+  "campaign": "C1",
+  "families": {
+    "B1": {
+      "gmres_restart": 50,
+      "ksp_rtol": 0.0001,
+      "median_W_eq_calibration": 227.55945614919747,
+      "median_t_total_calibration": 0.057103323,
+      "precond": "jacobi",
+      "selected_candidate_id": "p02",
+      "success_rate_calibration": 0.3333333333333333
+    },
+    "B3a": {
+      "gmres_restart": 30,
+      "ksp_rtol": 0.0001,
+      "median_W_eq_calibration": 102.87893078143249,
+      "median_t_total_calibration": 0.019976299,
+      "precond": "mg",
+      "selected_candidate_id": "p01",
+      "success_rate_calibration": 1.0
+    },
+    "B5": {
+      "gmres_restart": 30,
+      "ksp_rtol": 0.0001,
+      "median_W_eq_calibration": 62.16090962185517,
+      "median_t_total_calibration": 0.000690035,
+      "precond": "none",
+      "selected_candidate_id": "p01",
+      "success_rate_calibration": 1.0
+    },
+    "Bext": {
+      "gmres_restart": 30,
+      "ksp_rtol": 0.0001,
+      "median_W_eq_calibration": 98.77688658723463,
+      "median_t_total_calibration": 0.000403749,
+      "precond": "jacobi",
+      "selected_candidate_id": "p01",
+      "success_rate_calibration": 1.0
+    }
+  },
+  "fixed": {
+    "ksp_type": "gmres",
+    "linesearch_type": "bt",
+    "matrix_mode": "MatShell analytic Jv",
+    "max_nl": 50,
+    "maxlin": 200,
+    "reps": 7,
+    "rtol": 1e-08,
+    "snes_type": "newtonls",
+    "threads": 1,
+    "warmup": 1
+  },
+  "method": "petsc",
+  "schema_version": 1,
+  "selection_rule": [
+    "maximize_success_rate",
+    "minimize_median_W_eq_on_success",
+    "minimize_median_t_total_on_success"
+  ],
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff",
+  "status": "FROZEN_CALIBRATION_ONLY"
+}

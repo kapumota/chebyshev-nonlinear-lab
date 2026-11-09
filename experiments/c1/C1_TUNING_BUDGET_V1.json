@@ -1,0 +1,76 @@
+{
+  "artifact": "C1_TUNING_BUDGET",
+  "campaign": "C1",
+  "common_candidate_count": 4,
+  "family_preconditioner": {
+    "B1": "jacobi",
+    "B3a": "mg",
+    "B5": "none",
+    "Bext": "jacobi"
+  },
+  "fixed_budget": {
+    "max_nl": 50,
+    "maxlin": 200,
+    "reps": 7,
+    "rtol": 1e-08,
+    "threads": 1,
+    "warmup": 1
+  },
+  "internal_candidates": [
+    {
+      "eta_init": 0.25,
+      "id": "t01",
+      "restart": 30
+    },
+    {
+      "eta_init": 0.25,
+      "id": "t02",
+      "restart": 50
+    },
+    {
+      "eta_init": 0.5,
+      "id": "t03",
+      "restart": 30
+    },
+    {
+      "eta_init": 0.5,
+      "id": "t04",
+      "restart": 50
+    }
+  ],
+  "internal_fixed": {
+    "alpha": 2.0,
+    "eta2_factor": 10.0,
+    "eta2_max": 0.5,
+    "eta_max": 0.9,
+    "gamma": 0.9
+  },
+  "internal_methods": [
+    "nk",
+    "cheb",
+    "rec"
+  ],
+  "notes": {
+    "confirmation_used_for_tuning": false,
+    "n_JVP_is_not_tuning_objective": true,
+    "tf_cheb": "baseline reproducido y congelado por su protocolo propio, no consume este presupuesto de tuning"
+  },
+  "petsc_candidate_axes": {
+    "ksp_rtol": [
+      0.0001,
+      1e-05
+    ],
+    "restart": [
+      30,
+      50
+    ]
+  },
+  "schema_version": 1,
+  "selection": [
+    "success",
+    "W_eq",
+    "t_total"
+  ],
+  "start_policy": "natural_only",
+  "status": "FROZEN_BEFORE_CALIBRATION"
+}

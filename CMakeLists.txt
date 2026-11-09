@@ -31,6 +31,7 @@ option(NUMA_BUILD_BENCH "Build benchmarks" ON)
 option(NUMA_BUILD_APPS  "Build demos" ON)
 option(NUMA_BUILD_CUDA  "Build CUDA demos" OFF)
 option(NUMA_BUILD_MPI   "Compilar verificación MPI" OFF)
+option(NUMA_BUILD_PETSC "Compilar baseline externo PETSc" OFF)
 option(NUMA_ENABLE_SANITIZERS "ASan/UBSan" OFF)
 
 if(NUMA_ENABLE_SANITIZERS)
@@ -52,7 +53,12 @@ if(NUMA_BUILD_TESTS)
     tests/test_linalg.cpp
     tests/test_recurrence.cpp
     tests/test_methods.cpp
-    tests/test_golden.cpp)
+    tests/test_golden.cpp
+    tests/test_operators.cpp
+    tests/test_chandrasekhar_op.cpp
+    tests/test_burgers.cpp
+    tests/test_brusselator.cpp
+    tests/test_tf_chebyshev_2018.cpp)
   target_link_libraries(numa_tests PRIVATE numa Catch2::Catch2WithMain)
   list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
   include(Catch)
@@ -76,12 +82,86 @@ endif()
 # ---- Demos ----
 if(NUMA_BUILD_APPS)
   foreach(app demo_newton demo_broyden demo_kantorovich
-              demo_chebyshev demo_chebyshev_omp)
+              demo_chebyshev demo_chebyshev_omp smoke_bratu smoke_chandrasekhar calibrate_b6 calibrate_b6_arclength run_campaign check_openmp_consistency write_burgers_reference)
     add_executable(${app} apps/${app}.cpp)
     target_link_libraries(${app} PRIVATE numa)
   endforeach()
 endif()
 
+
+
+# ---- Baseline externo PETSc ----
+if(NUMA_BUILD_PETSC)
+  find_package(PkgConfig REQUIRED)
+  pkg_check_modules(PETSC REQUIRED IMPORTED_TARGET PETSc)
+
+  add_executable(petsc_baseline apps/petsc_baseline.cpp)
+  target_link_libraries(petsc_baseline PRIVATE numa PkgConfig::PETSC)
+
+  if(NUMA_BUILD_TESTS)
+    add_test(
+      NAME petsc_b1_smoke
+      COMMAND $<TARGET_FILE:petsc_baseline>
+        --phase exploratory
+        --problem bratu
+        --family B1
+        --n 7
+        --param 0.5
+        --precond jacobi
+        --start natural
+        --rtol 1e-8
+        --max-nl 50
+        --restart 30
+        --maxlin 200
+        --warmup 0
+        --reps 1
+        --out ${CMAKE_CURRENT_BINARY_DIR}/petsc_b1_smoke.csv
+        -snes_type newtonls
+        -snes_linesearch_type bt
+        -ksp_type gmres)
+    set_tests_properties(petsc_b1_smoke PROPERTIES
+      LABELS "petsc"
+      ENVIRONMENT
+        "NUMA_COMMIT=ctest-petsc-smoke;OMP_NUM_THREADS=1;OPENBLAS_NUM_THREADS=1;MKL_NUM_THREADS=1")
+
+    add_test(
+      NAME petsc_b5_smoke
+      COMMAND $<TARGET_FILE:petsc_baseline>
+        --phase exploratory --problem chandra --family B5
+        --n 16 --param 0.5 --precond none --start natural
+        --rtol 1e-8 --max-nl 50 --restart 30 --maxlin 200
+        --warmup 0 --reps 1
+        --out ${CMAKE_CURRENT_BINARY_DIR}/petsc_b5_smoke.csv
+        -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres)
+
+    add_test(
+      NAME petsc_b3a_smoke
+      COMMAND $<TARGET_FILE:petsc_baseline>
+        --phase exploratory --problem burgers --family B3a
+        --n 7 --param 0.05 --dt 0.1 --amp 1.0 --precond mg --start natural
+        --rtol 1e-8 --max-nl 50 --restart 30 --maxlin 200
+        --warmup 0 --reps 1
+        --out ${CMAKE_CURRENT_BINARY_DIR}/petsc_b3a_smoke.csv
+        -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres)
+
+    add_test(
+      NAME petsc_bext_smoke
+      COMMAND $<TARGET_FILE:petsc_baseline>
+        --phase exploratory --problem brusselator --family Bext
+        --n 31 --param 0.01 --precond jacobi --start natural
+        --rtol 1e-8 --max-nl 50 --restart 30 --maxlin 200
+        --warmup 0 --reps 1
+        --out ${CMAKE_CURRENT_BINARY_DIR}/petsc_bext_smoke.csv
+        -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres)
+
+    set_tests_properties(
+      petsc_b5_smoke petsc_b3a_smoke petsc_bext_smoke
+      PROPERTIES
+        LABELS "petsc"
+        ENVIRONMENT
+          "NUMA_COMMIT=ctest-petsc-smoke;OMP_NUM_THREADS=1;OPENBLAS_NUM_THREADS=1;MKL_NUM_THREADS=1")
+  endif()
+endif()
 
 # ---- MPI ----
 if(NUMA_BUILD_MPI)

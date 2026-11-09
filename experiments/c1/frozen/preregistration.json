@@ -1,0 +1,86 @@
+{
+  "artifact": "C1_FINAL_PREREGISTRATION",
+  "calibration": {
+    "perturbation_seeds": [],
+    "start_policy": "natural_only"
+  },
+  "campaign": "C1",
+  "campaign_manifest": {
+    "path": "experiments/c1/frozen/campaign_manifest.json",
+    "sha256": "b8dc396834f0c75bc2079241d31a52234f46b224b176450c2d8b8abe75785ef4"
+  },
+  "confirmation": {
+    "instances": 75,
+    "measured_repetitions": 7,
+    "perturbation": {
+      "rho_x": [
+        0.05,
+        0.2,
+        0.5
+      ],
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    "threads": 1,
+    "warmup": 1
+  },
+  "confirmation_started": false,
+  "human_readable_candidate": {
+    "path": "docs/research/C1_PREREGISTRATION_FINAL_CANDIDATE.md",
+    "sha256": "13564c07ff369815ac4d25dbb5ddd4f3181808fd33ffdc95eacf855837ebe976"
+  },
+  "method_label_normalization": {
+    "canonical": "tf_cheb",
+    "numeric_change": false,
+    "policy": {
+      "path": "experiments/c1/frozen/method_label_policy.json",
+      "sha256": "361f00ed5f12ad24abb6b0b8910681e2be8ca0788acc03bc08d969b05463df25"
+    },
+    "raw": "tf2018",
+    "row_filtering": false
+  },
+  "methods": [
+    "nk",
+    "cheb",
+    "rec",
+    "tf_cheb",
+    "petsc"
+  ],
+  "prohibitions": [
+    "no_retuning_after_confirmation_starts",
+    "no_selective_reruns",
+    "no_dropping_failures",
+    "no_dropping_near_mid_far",
+    "no_changing_seeds_or_starts",
+    "no_recomputing_primitive_costs_from_confirmation"
+  ],
+  "schema_version": 1,
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff",
+  "starts": {
+    "path": "experiments/c1/frozen/starts_manifest.json",
+    "sha256": "f6aba5eb74b11f4fc40411ff2b5de0656dea3f6861f29e6f36ef9fc467127a0c"
+  },
+  "statistical_analysis": {
+    "protocol": {
+      "path": "docs/research/C1_STATISTICAL_ANALYSIS.md",
+      "sha256": "c63689c54c28b62918e095b7597d1d04b2a3f091ff64e05544e7c161dc6cd989"
+    },
+    "script": {
+      "path": "scripts/analyze_c1_confirmatory.py",
+      "sha256": "51f871c2c47fdb512fc81c9718dca9b5f55e8b48b78223ae462c65a9a65c137a"
+    }
+  },
+  "status": "FROZEN_BEFORE_C1"
+}

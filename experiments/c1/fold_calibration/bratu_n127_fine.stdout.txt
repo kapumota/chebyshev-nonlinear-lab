@@ -1,0 +1,88 @@
+mode=natural lambda=0.0000000000 gap=2.960733e+01 eig_res=7.135e-08 cont_it=0
+mode=natural lambda=0.1250000000 gap=2.948169e+01 eig_res=6.882e-08 cont_it=2
+mode=natural lambda=0.2500000000 gap=2.935477e+01 eig_res=6.635e-08 cont_it=2
+mode=natural lambda=0.3750000000 gap=2.922653e+01 eig_res=6.393e-08 cont_it=2
+mode=natural lambda=0.5000000000 gap=2.909695e+01 eig_res=6.156e-08 cont_it=2
+mode=natural lambda=0.6250000000 gap=2.896600e+01 eig_res=5.924e-08 cont_it=2
+mode=natural lambda=0.7500000000 gap=2.883364e+01 eig_res=5.697e-08 cont_it=2
+mode=natural lambda=0.8750000000 gap=2.869984e+01 eig_res=5.475e-08 cont_it=2
+mode=natural lambda=1.0000000000 gap=2.856457e+01 eig_res=5.258e-08 cont_it=2
+mode=natural lambda=1.1250000000 gap=2.842779e+01 eig_res=5.046e-08 cont_it=2
+mode=natural lambda=1.2500000000 gap=2.828947e+01 eig_res=4.839e-08 cont_it=2
+mode=natural lambda=1.3750000000 gap=2.814957e+01 eig_res=4.637e-08 cont_it=2
+mode=natural lambda=1.5000000000 gap=2.800805e+01 eig_res=4.440e-08 cont_it=2
+mode=natural lambda=1.6250000000 gap=2.786487e+01 eig_res=4.248e-08 cont_it=2
+mode=natural lambda=1.7500000000 gap=2.771999e+01 eig_res=4.061e-08 cont_it=2
+mode=natural lambda=1.8750000000 gap=2.757336e+01 eig_res=3.878e-08 cont_it=2
+mode=natural lambda=2.0000000000 gap=2.742494e+01 eig_res=3.701e-08 cont_it=3
+mode=natural lambda=2.1250000000 gap=2.727468e+01 eig_res=3.528e-08 cont_it=3
+mode=natural lambda=2.2500000000 gap=2.712253e+01 eig_res=3.360e-08 cont_it=3
+mode=natural lambda=2.3750000000 gap=2.696844e+01 eig_res=3.197e-08 cont_it=3
+mode=natural lambda=2.5000000000 gap=2.681236e+01 eig_res=3.039e-08 cont_it=3
+mode=natural lambda=2.6250000000 gap=2.665422e+01 eig_res=2.886e-08 cont_it=3
+mode=natural lambda=2.7500000000 gap=2.649398e+01 eig_res=2.737e-08 cont_it=3
+mode=natural lambda=2.8750000000 gap=2.633156e+01 eig_res=2.593e-08 cont_it=3
+mode=natural lambda=3.0000000000 gap=2.616690e+01 eig_res=9.859e-08 cont_it=3
+mode=natural lambda=3.1250000000 gap=2.599994e+01 eig_res=9.362e-08 cont_it=3
+mode=natural lambda=3.2500000000 gap=2.583060e+01 eig_res=8.881e-08 cont_it=3
+mode=natural lambda=3.3750000000 gap=2.565881e+01 eig_res=8.413e-08 cont_it=3
+mode=natural lambda=3.5000000000 gap=2.548450e+01 eig_res=7.960e-08 cont_it=3
+mode=natural lambda=3.6250000000 gap=2.530756e+01 eig_res=7.522e-08 cont_it=3
+mode=natural lambda=3.7500000000 gap=2.512793e+01 eig_res=7.097e-08 cont_it=3
+mode=natural lambda=3.8750000000 gap=2.494551e+01 eig_res=6.687e-08 cont_it=5
+mode=natural lambda=4.0000000000 gap=2.476020e+01 eig_res=6.291e-08 cont_it=4
+mode=natural lambda=4.1250000000 gap=2.457190e+01 eig_res=5.909e-08 cont_it=4
+mode=natural lambda=4.2500000000 gap=2.438051e+01 eig_res=5.540e-08 cont_it=8
+PSEUDO_ARCLENGTH_ACTIVATED lambda_failed=4.2501220703125 min_step=0.0001
+mode=pseudo_arclength lambda=4.3749977430 gap=2.418590e+01 eig_res=5.186e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=4.4999931009 gap=2.398797e+01 eig_res=4.846e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=4.6249859522 gap=2.378657e+01 eig_res=4.519e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=4.7499761660 gap=2.358159e+01 eig_res=4.205e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=4.8749636018 gap=2.337286e+01 eig_res=3.905e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=4.9999481076 gap=2.316025e+01 eig_res=3.618e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=5.1249295194 gap=2.294357e+01 eig_res=3.345e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=5.2499076595 gap=2.272266e+01 eig_res=3.084e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=5.3748823350 gap=2.249733e+01 eig_res=2.836e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=5.4998533363 gap=2.226738e+01 eig_res=2.600e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=5.6248204347 gap=2.203258e+01 eig_res=2.378e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=5.7497833807 gap=2.179270e+01 eig_res=2.168e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=5.8747419008 gap=2.154750e+01 eig_res=9.207e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=5.9996956947 gap=2.129670e+01 eig_res=8.411e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=6.1246444316 gap=2.103999e+01 eig_res=7.657e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=6.2495877463 gap=2.077707e+01 eig_res=6.944e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=6.3745252339 gap=2.050757e+01 eig_res=6.272e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=6.4994564444 gap=2.023112e+01 eig_res=5.641e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=6.6243808753 gap=1.994729e+01 eig_res=5.049e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=6.7492979636 gap=1.965563e+01 eig_res=4.496e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=6.8742070762 gap=1.935561e+01 eig_res=3.982e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=6.9991074968 gap=1.904667e+01 eig_res=3.505e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=7.1239984124 gap=1.872819e+01 eig_res=3.065e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=7.2488788941 gap=1.839946e+01 eig_res=2.661e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=7.3737478749 gap=1.805968e+01 eig_res=2.291e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=7.4986041213 gap=1.770796e+01 eig_res=1.956e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=7.6234461973 gap=1.734329e+01 eig_res=9.237e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=7.7482724182 gap=1.696451e+01 eig_res=7.866e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=7.8730807902 gap=1.657027e+01 eig_res=6.623e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=7.9978689316 gap=1.615902e+01 eig_res=5.507e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=8.1226339667 gap=1.572895e+01 eig_res=4.512e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=8.2473723804 gap=1.527789e+01 eig_res=3.636e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=8.3720798175 gap=1.480328e+01 eig_res=2.873e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=8.4967507950 gap=1.430197e+01 eig_res=2.218e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=8.6213782828 gap=1.377011e+01 eig_res=1.666e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=8.7459530699 gap=1.320286e+01 eig_res=8.541e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=8.8704627728 gap=1.259401e+01 eig_res=6.201e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=8.9948902143 gap=1.193538e+01 eig_res=4.296e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=9.1192106244 gap=1.121584e+01 eig_res=2.799e-08 cont_it=2 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=9.2433864738 gap=1.041958e+01 eig_res=1.676e-08 cont_it=3 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=9.3673570653 gap=9.522882e+00 eig_res=8.412e-08 cont_it=3 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=9.4910149374 gap=8.487208e+00 eig_res=4.117e-08 cont_it=3 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=9.6141424122 gap=7.242211e+00 eig_res=1.515e-08 cont_it=3 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=9.7361866542 gap=5.630646e+00 eig_res=4.631e-08 cont_it=3 arc_step=1.250808e-01
+mode=pseudo_arclength lambda=9.8548198865 gap=3.088119e+00 eig_res=4.247e-08 cont_it=4 arc_step=1.250808e-01
+PSEUDO_ARCLENGTH_RETRY arc_step=1.250808e-01 residual=1.357423e-01
+PSEUDO_ARCLENGTH_RETRY arc_step=6.254042e-02 residual=4.687356e-03
+mode=pseudo_arclength lambda=9.8818294946 gap=1.999973e+00 eig_res=5.242e-09 cont_it=4 arc_step=3.127021e-02
+mode=pseudo_arclength lambda=9.9001446062 gap=9.516133e-02 eig_res=9.000e-08 cont_it=4 arc_step=3.127021e-02
+PSEUDO_ARCLENGTH_RETRY arc_step=3.127021e-02 residual=4.952863e-02
+mode=pseudo_arclength lambda=9.9001818826 gap=2.008020e-02 eig_res=8.485e-10 cont_it=2 arc_step=9.771941e-04
+BRATU_FOLD_CALIBRATION=PASS mode=pseudo_arclength Archivo: /home/project/chebyshev-nonlinear-lab/experiments/c1/fold_calibration/bratu_n127_fine.csv

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "solver": "PETSc",
+  "solver_version": "POR_FIJAR",
+  "nonlinear_method": "SNESNEWTONLS",
+  "linear_method": "POR_FIJAR",
+  "preconditioner": "POR_FIJAR",
+  "matrix_mode": "POR_FIJAR",
+  "options": [],
+  "repository_commit": "POR_FIJAR",
+  "executable_sha256": "POR_FIJAR",
+  "build": {
+    "compiler": "POR_FIJAR",
+    "flags": "POR_FIJAR"
+  },
+  "hardware": {
+    "cpu": "POR_FIJAR",
+    "threads": 0
+  },
+  "command": "POR_FIJAR",
+  "problems": [],
+  "created_utc": "POR_FIJAR"
+}

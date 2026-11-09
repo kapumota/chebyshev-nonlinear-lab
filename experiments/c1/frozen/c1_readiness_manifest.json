@@ -1,0 +1,62 @@
+{
+  "additional_artifacts": {
+    "method_label_policy": {
+      "path": "experiments/c1/frozen/method_label_policy.json",
+      "sha256": "361f00ed5f12ad24abb6b0b8910681e2be8ca0788acc03bc08d969b05463df25"
+    }
+  },
+  "artifact": "C1_READINESS_MANIFEST",
+  "artifacts": {
+    "campaign_manifest": {
+      "path": "experiments/c1/frozen/campaign_manifest.json",
+      "sha256": "b8dc396834f0c75bc2079241d31a52234f46b224b176450c2d8b8abe75785ef4"
+    },
+    "hardware": {
+      "path": "experiments/c1/frozen/hardware_manifest.json",
+      "sha256": "3756a8cebd60510785a9d2829614bad8f3f1e9a43e71257a2f89f21d3c2fb2d8"
+    },
+    "instances": {
+      "path": "experiments/c1/C1_INSTANCE_GRID_V1.json",
+      "sha256": "2044d29ba9fd027bd724c5de9d3398ce1764231f23cd7c38978e54cd9b15f88f"
+    },
+    "internal_tuning": {
+      "path": "experiments/c1/frozen/internal_tuning_ranking.csv",
+      "sha256": "d0a60fe129ec2d56d9930ea03a4635f0195f276890ae27b5990269dd6472fd90"
+    },
+    "petsc_freeze": {
+      "path": "experiments/c1/frozen/petsc_freeze_manifest.json",
+      "sha256": "62974a2f8eb2783768c7627d88012cb78c0b264cddf16038a8f4be903867766b"
+    },
+    "preregistration": {
+      "path": "experiments/c1/frozen/preregistration.json",
+      "sha256": "6d51bea49e7d57c2d2d68292e2bcfcd3f6599ea02743d7df53075014eabe7f23"
+    },
+    "primitive_costs": {
+      "path": "experiments/c1/frozen/primitive_costs.csv",
+      "sha256": "94d8ada38baeadfbb0a6d690cc9a9a220379e76aab05101dc43e939a0f453bf5"
+    },
+    "starts": {
+      "path": "experiments/c1/frozen/starts_manifest.json",
+      "sha256": "f6aba5eb74b11f4fc40411ff2b5de0656dea3f6861f29e6f36ef9fc467127a0c"
+    },
+    "statistical_protocol": {
+      "path": "docs/research/C1_STATISTICAL_ANALYSIS.md",
+      "sha256": "c63689c54c28b62918e095b7597d1d04b2a3f091ff64e05544e7c161dc6cd989"
+    },
+    "statistical_script": {
+      "path": "scripts/analyze_c1_confirmatory.py",
+      "sha256": "51f871c2c47fdb512fc81c9718dca9b5f55e8b48b78223ae462c65a9a65c137a"
+    },
+    "tf2018": {
+      "path": "experiments/c1/frozen/tf2018_freeze.json",
+      "sha256": "24e68c9d71c126c79073d9e97da6bb9edc9ac1dc4cce4ee4f90d0e3b05c2d88f"
+    }
+  },
+  "author_ratified": true,
+  "campaign": "C1",
+  "confirmation_started": false,
+  "preregistration_tag": "c1-preregistration-2026-11-09",
+  "schema_version": 1,
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff",
+  "status": "FROZEN_BEFORE_C1"
+}

@@ -1,0 +1,54 @@
+{
+  "artifact": "C1_PETSC_CALIBRATION_FREEZE",
+  "campaign": "C1",
+  "generator": {
+    "path": "scripts/freeze_petsc_calibration.py",
+    "sha256": "0d94447b7daa2c1693f8ea471a4ee24480ff69736e46bb5fe2b162c5461a9550"
+  },
+  "inputs": {
+    "plan": {
+      "path": "experiments/c1/petsc_calibration/petsc_calibration_plan.json",
+      "sha256": "a43a4fb2aaec6310f992fac5a43c800b5f3855ee167dfd4c347e97164c99a474"
+    },
+    "primitive_costs": {
+      "path": "experiments/c1/frozen/primitive_costs.csv",
+      "sha256": "94d8ada38baeadfbb0a6d690cc9a9a220379e76aab05101dc43e939a0f453bf5"
+    },
+    "provenance": [
+      {
+        "path": "experiments/c1/C1_TUNING_BUDGET_V1.json",
+        "sha256": "2bae2a0aad3c01a716949182f46edc1cf56da0c8a7517dc4aba390adc2fd9604"
+      }
+    ],
+    "raw_results": {
+      "path": "experiments/c1/petsc_calibration/petsc_calibration_raw.csv",
+      "sha256": "3156a321b4e6f27a4776eb6ef9b4c0d9def1c96f653321a581595886ef19823e"
+    },
+    "results_with_W_eq": {
+      "path": "experiments/c1/petsc_calibration/petsc_calibration_weq.csv",
+      "sha256": "def64d24a7777d2a7b84fa64afb92eb20b1ac71d14fdc9311ffac106c71244bb"
+    },
+    "run_manifest": {
+      "path": "experiments/c1/petsc_calibration/petsc_calibration_run_manifest.json",
+      "sha256": "1a7ea2bf04094ef68396417fd6c02e52c953407ab6fed76fd72ea9d3fbe1807d"
+    }
+  },
+  "outputs": {
+    "frozen_config": {
+      "path": "experiments/c1/frozen/petsc_config.json",
+      "sha256": "d78e2a2965ab15815082c6980a77be60d1646e90374f53b7753306f032339ab8"
+    },
+    "ranking": {
+      "path": "experiments/c1/frozen/petsc_tuning_ranking.csv",
+      "sha256": "37650cb4687e56975658b4670121573c1abb46412dafbbfe3858c4804c3f1987"
+    }
+  },
+  "schema_version": 1,
+  "selection_rule": [
+    "maximize_success_rate",
+    "minimize_median_W_eq_on_success",
+    "minimize_median_t_total_on_success"
+  ],
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff",
+  "status": "FROZEN_CALIBRATION_ONLY"
+}

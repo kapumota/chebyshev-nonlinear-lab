@@ -1,0 +1,1750 @@
+{
+  "artifact": "C1_PETSC_CALIBRATION_RUN",
+  "campaign": "C1",
+  "commands": [
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 2.970254860367072 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n31-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 4.9504247672784532 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n31-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 6.9305946741898339 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n31-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 8.415722104373371 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n31-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.1582858194651386 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n31-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.5295676770110234 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n31-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.7275846677021605 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n31-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 2.9701026180249683 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n63-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 4.9501710300416137 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n63-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 6.9302394420582587 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n63-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 8.415290751070744 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n63-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.1578164055769857 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n63-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.5290792328301066 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n63-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.7270860740317708 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n63-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 2.9700995947983295 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n127-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 4.9501659913305494 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n127-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 6.9302323878627687 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n127-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 8.4152821852619333 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n127-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.1578070839615169 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n127-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.5290695333113078 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n127-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.7270761729645301 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p01-B1-n127-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 2.970254860367072 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n31-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 4.9504247672784532 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n31-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 6.9305946741898339 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n31-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 8.415722104373371 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n31-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.1582858194651386 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n31-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.5295676770110234 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n31-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.7275846677021605 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n31-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 2.9701026180249683 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n63-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 4.9501710300416137 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n63-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 6.9302394420582587 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n63-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 8.415290751070744 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n63-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.1578164055769857 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n63-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.5290792328301066 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n63-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.7270860740317708 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n63-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 2.9700995947983295 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n127-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 4.9501659913305494 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n127-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 6.9302323878627687 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n127-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 8.4152821852619333 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n127-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.1578070839615169 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n127-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.5290695333113078 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n127-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.7270761729645301 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p02-B1-n127-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 2.970254860367072 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n31-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 4.9504247672784532 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n31-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 6.9305946741898339 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n31-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 8.415722104373371 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n31-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.1582858194651386 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n31-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.5295676770110234 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n31-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.7275846677021605 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n31-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 2.9701026180249683 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n63-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 4.9501710300416137 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n63-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 6.9302394420582587 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n63-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 8.415290751070744 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n63-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.1578164055769857 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n63-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.5290792328301066 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n63-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.7270860740317708 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n63-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 2.9700995947983295 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n127-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 4.9501659913305494 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n127-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 6.9302323878627687 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n127-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 8.4152821852619333 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n127-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.1578070839615169 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n127-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.5290695333113078 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n127-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.7270761729645301 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p03-B1-n127-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 2.970254860367072 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n31-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 4.9504247672784532 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n31-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 6.9305946741898339 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n31-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 8.415722104373371 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n31-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.1582858194651386 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n31-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.5295676770110234 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n31-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 31 --param 9.7275846677021605 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n31-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n31-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 2.9701026180249683 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n63-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 4.9501710300416137 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n63-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 6.9302394420582587 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n63-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 8.415290751070744 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n63-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.1578164055769857 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n63-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.5290792328301066 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n63-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 63 --param 9.7270860740317708 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n63-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n63-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 2.9700995947983295 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n127-rho0.29999999999999999.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.29999999999999999"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 4.9501659913305494 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n127-rho0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 6.9302323878627687 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n127-rho0.69999999999999996.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.69999999999999996"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 8.4152821852619333 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n127-rho0.84999999999999998.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.84999999999999998"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.1578070839615169 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n127-rho0.92500000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.92500000000000004"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.5290695333113078 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n127-rho0.96250000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.96250000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem bratu --family B1 --n 127 --param 9.7270761729645301 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B1-p04-B1-n127-rho0.98250000000000004.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B1",
+      "instance_id": "B1-n127-rho0.98250000000000004"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n64-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n64-q0.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n64-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n64-q1.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n64-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n64-q2.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n64-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n64-q3.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n64-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n64-q4.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n128-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n128-q0.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n128-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n128-q1.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n128-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n128-q2.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n128-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n128-q3.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n128-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n128-q4.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n256-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n256-q0.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n256-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n256-q1.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n256-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n256-q2.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n256-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n256-q3.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p01-B5-n256-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n256-q4.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n64-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n64-q0.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n64-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n64-q1.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n64-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n64-q2.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n64-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n64-q3.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n64-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n64-q4.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n128-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n128-q0.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n128-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n128-q1.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n128-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n128-q2.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n128-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n128-q3.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n128-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n128-q4.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n256-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n256-q0.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n256-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n256-q1.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n256-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n256-q2.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n256-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n256-q3.5"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p02-B5-n256-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B5",
+      "instance_id": "B5-n256-q4.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n64-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n64-q0.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n64-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n64-q1.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n64-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n64-q2.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n64-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n64-q3.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n64-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n64-q4.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n128-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n128-q0.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n128-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n128-q1.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n128-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n128-q2.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n128-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n128-q3.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n128-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n128-q4.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n256-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n256-q0.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n256-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n256-q1.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n256-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n256-q2.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n256-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n256-q3.5"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p03-B5-n256-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n256-q4.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n64-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n64-q0.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n64-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n64-q1.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n64-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n64-q2.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n64-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n64-q3.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 64 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n64-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n64-q4.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n128-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n128-q0.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n128-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n128-q1.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n128-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n128-q2.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n128-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n128-q3.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 128 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n128-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n128-q4.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.683772233983162 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n256-q0.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n256-q0.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.96837722339831622 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n256-q1.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n256-q1.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99683772233983159 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n256-q2.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n256-q2.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99968377223398319 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n256-q3.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n256-q3.5"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem chandra --family B5 --n 256 --param 0.99996837722339826 --start natural --precond none --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B5-p04-B5-n256-q4.5.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B5",
+      "instance_id": "B5-n256-q4.5"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n63-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n63-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n63-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n63-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n63-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n63-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n63-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n63-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n63-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n127-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n127-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n127-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n127-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n127-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n127-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n127-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n127-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n127-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n255-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n255-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n255-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n255-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n255-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n255-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n255-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n255-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p01-B3a-n255-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n63-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n63-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n63-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n63-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n63-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n63-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n63-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n63-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n63-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n127-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n127-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n127-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n127-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n127-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n127-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n127-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n127-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n127-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n255-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n255-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n255-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n255-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n255-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n255-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n255-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n255-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p02-B3a-n255-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n63-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n63-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n63-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n63-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n63-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n63-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n63-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n63-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n63-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n127-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n127-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n127-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n127-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n127-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n127-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n127-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n127-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n127-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n255-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n255-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n255-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n255-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n255-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n255-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n255-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n255-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p03-B3a-n255-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n63-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n63-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n63-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n63-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n63-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n63-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n63-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n63-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 63 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n63-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n63-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n127-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n127-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n127-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n127-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n127-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n127-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n127-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n127-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 127 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n127-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n127-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n255-nu0.080000000000000002-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n255-nu0.080000000000000002-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.080000000000000002 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n255-nu0.080000000000000002-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.080000000000000002-dt0.16"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n255-nu0.040000000000000001-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n255-nu0.040000000000000001-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.040000000000000001 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n255-nu0.040000000000000001-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.040000000000000001-dt0.16"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.040000000000000001 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n255-nu0.02-dt0.040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.080000000000000002 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n255-nu0.02-dt0.080000000000000002.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.080000000000000002"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem burgers --family B3a --n 255 --param 0.02 --dt 0.16 --amp 1 --start natural --precond mg --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/B3a-p04-B3a-n255-nu0.02-dt0.16.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "B3a",
+      "instance_id": "B3a-n255-nu0.02-dt0.16"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p01-Bext-n63-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p01-Bext-n63-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.016"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p01-Bext-n63-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p01-Bext-n127-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p01-Bext-n127-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.016"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p01-Bext-n127-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p01-Bext-n255-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p01-Bext-n255-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.016"
+    },
+    {
+      "candidate_id": "p01",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p01-Bext-n255-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p02-Bext-n63-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p02-Bext-n63-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.016"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p02-Bext-n63-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p02-Bext-n127-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p02-Bext-n127-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.016"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p02-Bext-n127-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p02-Bext-n255-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p02-Bext-n255-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.016"
+    },
+    {
+      "candidate_id": "p02",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p02-Bext-n255-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 0.0001",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p03-Bext-n63-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p03-Bext-n63-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.016"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p03-Bext-n63-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p03-Bext-n127-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p03-Bext-n127-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.016"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p03-Bext-n127-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p03-Bext-n255-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p03-Bext-n255-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.016"
+    },
+    {
+      "candidate_id": "p03",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 30 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p03-Bext-n255-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p04-Bext-n63-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p04-Bext-n63-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.016"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 63 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p04-Bext-n63-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n63-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p04-Bext-n127-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p04-Bext-n127-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.016"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 127 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p04-Bext-n127-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n127-dt0.064000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.0040000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p04-Bext-n255-dt0.0040000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.0040000000000000001"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.016 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p04-Bext-n255-dt0.016.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.016"
+    },
+    {
+      "candidate_id": "p04",
+      "command": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline --phase calibration --problem brusselator --family Bext --n 255 --param 0.064000000000000001 --start natural --precond jacobi --rtol 1e-08 --max-nl 50 --restart 50 --maxlin 200 --warmup 1 --reps 7 --out /tmp/c1-petsc-cal-_xayo4zd/Bext-p04-Bext-n255-dt0.064000000000000001.csv -snes_type newtonls -snes_linesearch_type bt -ksp_type gmres -ksp_rtol 1e-05",
+      "family": "Bext",
+      "instance_id": "Bext-n255-dt0.064000000000000001"
+    }
+  ],
+  "executable": {
+    "path": "/home/project/chebyshev-nonlinear-lab/build-petsc/petsc_baseline",
+    "sha256": "b86ed211d66833cec8174efed299a715ca87e252789387074d1c08678c0567b5"
+  },
+  "output_csv": {
+    "path": "experiments/c1/petsc_calibration/petsc_calibration_raw.csv",
+    "sha256": "3156a321b4e6f27a4776eb6ef9b4c0d9def1c96f653321a581595886ef19823e"
+  },
+  "phase": "calibration",
+  "plan": {
+    "path": "experiments/c1/petsc_calibration/petsc_calibration_plan.json",
+    "sha256": "a43a4fb2aaec6310f992fac5a43c800b5f3855ee167dfd4c347e97164c99a474"
+  },
+  "rows": 2016,
+  "schema_version": 1,
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff"
+}
