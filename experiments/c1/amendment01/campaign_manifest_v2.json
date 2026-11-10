@@ -1,0 +1,155 @@
+{
+  "amendment": "01",
+  "amendment_document": {
+    "path": "docs/research/C1_PRECONFIRMATION_AMENDMENT_01.md",
+    "sha256": "665fc12660e7442531565f7930781f0cd061a39b137f5dd6f2b931f9e79cd931"
+  },
+  "artifact": "C1_CONFIRMATORY_CAMPAIGN_MANIFEST_AMENDMENT01_V2",
+  "campaign": "C1",
+  "canonical_changes": [
+    "method",
+    "instance_id"
+  ],
+  "confirmation_started": false,
+  "execution": {
+    "drop_failures": false,
+    "measured_repetitions": 7,
+    "retuning_after_start": false,
+    "scientific_perturbation_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "selective_reruns": false,
+    "threads": 1,
+    "warmup": 1
+  },
+  "hardware": {
+    "path": "experiments/c1/frozen/hardware_manifest.json",
+    "sha256": "3756a8cebd60510785a9d2829614bad8f3f1e9a43e71257a2f89f21d3c2fb2d8"
+  },
+  "instance_id_policy": {
+    "path": "experiments/c1/amendment01/instance_id_policy.json",
+    "sha256": "3dd050bafcee99dfb52db42623c6512615d69d1c1336ec6dc9afaaee830dc8ad"
+  },
+  "instances": {
+    "confirmation_instances": 75,
+    "path": "experiments/c1/C1_INSTANCE_GRID_V1.json",
+    "sha256": "2044d29ba9fd027bd724c5de9d3398ce1764231f23cd7c38978e54cd9b15f88f"
+  },
+  "internal_tuning": {
+    "path": "experiments/c1/frozen/internal_tuning_ranking.csv",
+    "selected": {
+      "cheb": {
+        "candidate_id": "",
+        "eta_init": 0.25,
+        "restart": 30
+      },
+      "nk": {
+        "candidate_id": "",
+        "eta_init": 0.25,
+        "restart": 30
+      },
+      "rec": {
+        "candidate_id": "",
+        "eta_init": 0.25,
+        "restart": 30
+      }
+    },
+    "sha256": "d0a60fe129ec2d56d9930ea03a4635f0195f276890ae27b5990269dd6472fd90"
+  },
+  "method_label_policy": {
+    "path": "experiments/c1/frozen/method_label_policy.json",
+    "sha256": "361f00ed5f12ad24abb6b0b8910681e2be8ca0788acc03bc08d969b05463df25"
+  },
+  "methods": {
+    "canonical": [
+      "nk",
+      "cheb",
+      "rec",
+      "tf_cheb",
+      "petsc"
+    ],
+    "external": [
+      "petsc"
+    ],
+    "raw_internal": [
+      "nk",
+      "cheb",
+      "rec",
+      "tf2018"
+    ]
+  },
+  "no_confirmatory_data_observed": true,
+  "original_manifest": {
+    "path": "experiments/c1/frozen/campaign_manifest.json",
+    "sha256": "b8dc396834f0c75bc2079241d31a52234f46b224b176450c2d8b8abe75785ef4"
+  },
+  "original_preregistration": {
+    "path": "experiments/c1/frozen/preregistration.json",
+    "sha256": "6d51bea49e7d57c2d2d68292e2bcfcd3f6599ea02743d7df53075014eabe7f23"
+  },
+  "original_preregistration_commit": "26a83529be36d5f702821cccd5f616ab6cff5374",
+  "outputs": {
+    "canonical_directory": "experiments/c1/confirmation/canonical",
+    "raw_csv_preserved": true,
+    "raw_directory": "experiments/c1/confirmation/raw"
+  },
+  "petsc": {
+    "config": {
+      "path": "experiments/c1/frozen/petsc_config.json",
+      "sha256": "d78e2a2965ab15815082c6980a77be60d1646e90374f53b7753306f032339ab8"
+    },
+    "freeze": {
+      "path": "experiments/c1/frozen/petsc_freeze_manifest.json",
+      "sha256": "62974a2f8eb2783768c7627d88012cb78c0b264cddf16038a8f4be903867766b"
+    }
+  },
+  "phase": "confirmation",
+  "primitive_costs": {
+    "path": "experiments/c1/amendment01/primitive_costs_v2.csv",
+    "sha256": "53ab4a65015ac0b24cbb7b895ef5b14d0483d9323fdc0b0c325cc94bb5809423"
+  },
+  "primitive_costs_provenance": {
+    "path": "experiments/c1/amendment01/primitive_costs_provenance.json",
+    "sha256": "482f85976e6be16a4ac3ab9e0c49ea8b29abad0b3d8af3eecb418894d9222d72"
+  },
+  "reason": "pre-confirmation operational defect correction",
+  "schema_version": 1,
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff",
+  "starts": {
+    "path": "experiments/c1/frozen/starts_manifest.json",
+    "sha256": "f6aba5eb74b11f4fc40411ff2b5de0656dea3f6861f29e6f36ef9fc467127a0c"
+  },
+  "status": "FROZEN_BEFORE_C1_AMENDED",
+  "tf2018": {
+    "path": "experiments/c1/frozen/tf2018_freeze.json",
+    "sha256": "24e68c9d71c126c79073d9e97da6bb9edc9ac1dc4cce4ee4f90d0e3b05c2d88f"
+  },
+  "unchanged": [
+    "H1-H4",
+    "families",
+    "confirmation_grids",
+    "starts",
+    "seeds",
+    "methods",
+    "tuning",
+    "PETSc",
+    "TF2018",
+    "W_eq_formula",
+    "bootstrap",
+    "comparisons",
+    "failure_treatment",
+    "hardware",
+    "source_commit"
+  ]
+}

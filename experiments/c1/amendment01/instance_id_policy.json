@@ -1,0 +1,22 @@
+{
+  "algorithm": "C1v2|family|problem|n=integer|key=float.hex(value), parameter keys in lexicographic order; separators are vertical bars",
+  "all_other_cells_unchanged": true,
+  "allowed_changes": [
+    "method",
+    "instance_id"
+  ],
+  "artifact": "C1_AMENDMENT01_INSTANCE_ID_POLICY",
+  "confirmation_started": false,
+  "grouping": "family, problem, n, all scientific parameters from the deterministic frozen instance plan",
+  "implementation": "experiments/c1/confirmation_tools/c1_amendment.py:canonical_id",
+  "method_mapping": {
+    "tf2018": "tf_cheb"
+  },
+  "no_confirmatory_data_observed": true,
+  "plan_source": "experiments/c1/confirmation_tools/c1_execution_plan.json",
+  "precision": "exact IEEE-754 binary64 round-trip, Python float.hex, no change to solver arguments",
+  "raw_preserved_byte_for_byte": true,
+  "reason": "pre-confirmation operational defect correction",
+  "schema_version": 1,
+  "source_commit": "70e565b726595697ccc09c7a1d58b3a0e2dc8eff"
+}
