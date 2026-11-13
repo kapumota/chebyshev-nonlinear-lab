@@ -371,7 +371,16 @@ def validate_effective_petsc(plan,u,path):
               'ksp_type':argv[argv.index('-ksp_type')+1],
               'matrix_mode':'MatShell analytic Jv'}
     for k,v in expected.items():
-        if metadata.get(k)!=v: raise ValueError('Configuración PETSc efectiva distinta: '+k)
+        actual = metadata.get(k)
+        if k == 'petsc_version':
+            match = re.search(
+                r'(?<!\d)(\d+)\.(\d+)\.(\d+)(?![\d.])',
+                actual or ''
+            )
+            if match is None or match.group(0) != v:
+                raise ValueError('Configuración PETSc efectiva distinta: '+k)
+        elif actual != v:
+            raise ValueError('Configuración PETSc efectiva distinta: '+k)
     for k,flag in [('ksp_rtol','-ksp_rtol'),('gmres_restart','--restart'),('snes_rtol','--rtol'),('snes_max_it','--max-nl'),('ksp_max_it','--maxlin')]:
         if float(metadata[k])!=float(argv[argv.index(flag)+1]): raise ValueError('Parámetro PETSc efectivo distinto: '+k)
 
